@@ -1,0 +1,208 @@
+" Pathogen
+execute pathogen#infect()
+
+" Toggle paste mode (no auto indent) with f2
+set pastetoggle=<f2>
+
+" , as extra modifier key (Leader)
+let mapleader = ","
+
+" Leader-n leader-m to move between tabs
+map <Leader>n <esc>:tabprevious<CR>
+map <Leader>m <esc>:tabnext<CR>
+
+" Leader-t to show hidden chars
+map <Leader>t :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
+
+" ^hjkl to navigate split windows
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-L> <C-W>l
+map <C-H> <C-W>h
+
+" Leader-s to sort selected lines e.g. to sort python imports alphabetically
+vnoremap <Leader>s :sort<CR> 
+
+" Q wraps paragraph
+vmap Q gq
+nmap Q gqap
+
+" Do not deselect when indenting
+vnoremap < < gv
+vnoremap > > gv
+
+" Syntax highlighting
+filetype off
+filetype plugin indent on
+syntax on
+
+" Textwidth - Maximum width of text that is being inserted.  A longer line will
+" be broken after white space to get this width.  A zero value disables  
+" set tw=79
+
+" Don't wrap lines
+set nowrap
+
+" Hilight line 80
+set fo-=t
+set colorcolumn=80
+highlight ColorColumn ctermbg=DarkGray
+
+" Use tabs, not spaces and shorten tab width
+set tabstop=4
+set shiftwidth=4
+set noexpandtab
+
+" Save >9k actions in undo history
+set undolevels=9001
+
+" Highlight all search results
+set hlsearch
+
+" ,l redraws the screen and removes any search highlighting. 
+nnoremap <silent> <Leader>l :nohl<CR>
+
+" Search while typing
+set incsearch
+
+" When 'ignorecase' and 'smartcase' are both on, if a pattern contains an
+" uppercase letter, it is case sensitive, otherwise, it is not. For example,
+" /The would find only "The", while /the would find "the" or "The" etc.
+set ignorecase
+set smartcase
+
+" UTF-8!!
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
+
+" No beepin'
+set vb t_vb=
+
+" Center cursor vertically
+set scrolloff=999
+
+" Toggle scrolloff with ,z
+nnoremap <silent> <Leader>z :let &scrolloff=999-&scrolloff<CR>
+
+" Hilight current line
+set cursorline
+
+" Toggle column hilight with ,c
+nnoremap <Silent> <Leader>c :set cursorcolumn!<CR>
+
+" Try to save swapfiles in ~/.vim/swap, save in current dir if it fails
+set directory^=$HOME/.vim/swap//,.
+
+" Distinguished theme
+" https://github.com/Lokaltog/vim-distinguished
+" colors distinguished
+
+" molokai theme from TextMate
+" https://github.com/tomasr/molokai
+ colors molokai
+
+" Solarized
+" http://ethanschoonover.com/solarized
+"
+"   Dark/light solarized theme 
+"   set background=dark
+"   set background=light
+
+"   https://github.com/altercation/solarized/tree/master/vim-colors-solarized
+"   let g:solarized_termtrans=1
+"   colorscheme solarized
+
+" Fix backspace in insert mode
+set backspace=2
+
+" Always show line numbers, but only in current window.
+set rnu
+au WinEnter * :setlocal rnu
+au WinLeave * :setlocal nornu
+
+" Select all
+map <Leader>a ggVG
+
+" Disable paste mode when leaving Insert Mode
+au InsertLeave * set nopaste
+
+" Absolute line numbers in insert mode, relative otherwise for easy movement
+au InsertEnter * :set nu
+au InsertLeave * :set rnu
+
+" Open new splits to the right/bottom
+set splitright splitbelow
+
+" HJKL for top, bottom, start and end 
+noremap H ^
+noremap L $
+noremap J G
+noremap K gg
+
+" Always show status/power-line
+set laststatus=2
+
+" bash-like bindings for vim's command line
+cnoremap <C-a>  <Home>
+cnoremap <C-b>  <Left>
+cnoremap <C-f>  <Right>
+cnoremap <C-d>  <Delete>
+cnoremap <M-b>  <S-Left>
+cnoremap <M-f>  <S-Right>
+cnoremap <M-d>  <S-right><Delete>
+cnoremap <Esc>b <S-Left>
+cnoremap <Esc>f <S-Right>
+cnoremap <Esc>d <S-right><Delete>
+cnoremap <C-g>  <C-c>
+
+" FFFFFFFFFFFFFFFFFUUUUUUU
+command WQ wq
+command Wq wq
+command W w
+command Q q
+
+" (Hopefully) removes the delay when hitting esc in insert mode
+set noesckeys
+set ttimeout
+set ttimeoutlen=1
+
+" Fix arrow keys for code completion
+set nocompatible
+
+" Statusline
+" %F - Longer path
+" %r readonly flag
+" %m modified flag
+" %y filetype
+" %c column
+" %l line
+" %L number of lines
+" %P percentage through buffer
+set statusline=%F%r%m\ %y%=%c\ %l/%L\ %P
+
+" Disable double leader in EasyMotion
+let g:EasyMotion_leader_key = '<Leader>'
+
+" Jedi selects the first line of the completion menu: for a better typing-flow
+" and usually saves one keypress.
+let g:jedi#popup_on_dot = 0
+
+" C-space for jedi-autocompletion
+inoremap <C-@> <C-x><C-o>
+
+" Tell syntastic to use pyflakes
+let g:syntastic_python_checkers=['pyflakes']
+
+function! Fixvim(...)
+	set mouse=c
+	inoremap  <Up>     <NOP>
+	inoremap  <Down>   <NOP>
+	inoremap  <Left>   <NOP>
+	inoremap  <Right>  <NOP>
+	noremap   <Up>     <NOP>
+	noremap   <Down>   <NOP>
+	noremap   <Left>   <NOP>
+	noremap   <Right>  <NOP>
+endfunction
+autocmd CursorMoved * call Fixvim()
