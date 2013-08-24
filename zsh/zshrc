@@ -86,3 +86,5 @@ setopt HIST_NO_STORE
 
 # Save the time and how long a command ran
 setopt EXTENDED_HISTORY
+
+LC_CTYPE="en_US.UTF-8"
