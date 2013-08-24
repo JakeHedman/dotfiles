@@ -18,8 +18,8 @@ alias l="ls -alh"
 alias pyhttpd="python -m SimpleHTTPServer"
 
 # Load plugins and user conf
-source ~/dotfiles/zsh/plugins/*
-source ~/dotfiles/zsh/custom/^(README.md|.gitignore)
+source ~/.zsh/plugins/*
+source ~/.zsh/custom/^(README.md|.gitignore)
 
 # Delete key
 bindkey "^[[3~" delete-char
