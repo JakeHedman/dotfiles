@@ -14,5 +14,5 @@ mkdir ~/.ssh
 ln -s $pwd/ssh/config ~/.ssh/config
 
 # zsh
-ln -s $pwd/zsh/ ~/.zsh
-ln -s $pwd/.zsh/zshrc ~/.zshrc
+ln -s $pwd/zsh ~/.zsh
+ln -s $pwd/zsh/zshrc ~/.zshrc
