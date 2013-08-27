@@ -16,3 +16,6 @@ ln -s $pwd/ssh/config ~/.ssh/config
 # zsh
 ln -s $pwd/zsh ~/.zsh
 ln -s $pwd/zsh/zshrc ~/.zshrc
+
+# tmux
+ln -s $pwd/tmux/tmux.conf ~/.tmux.conf

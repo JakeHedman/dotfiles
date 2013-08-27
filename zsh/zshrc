@@ -10,8 +10,13 @@ function mkcd {
 }
 
 # Prompt
-PROMPT="%# "
-RPROMPT="%n@%m %~ %*"
+PROMPT=$'%{\e[1;30m%}%B'
+if [ $SSH_CONNECTION ] || [ $EUID = 0 ]; then
+	PROMPT+=$'[%b%{\e[0m%}%{\e[0;37m%}%n%{\e[1;30m%}@%{\e[0m%}%{\e[0;37m%}%m%{\e[1;30m%}%B] %b%{\e[0m%}';
+fi
+PROMPT+=$'%b%{\e[1;30m%}%B[%b%{\e[0;37m%}%~%{\e[1;30m%}%B] %b%{\e[0m%}%{\e[1;30m%}%B[%b%{\e[0;37m%}'%D{"%H:%M:%S"}%b$'%{\e[1;30m%}%B]%b%{\e[0m%}
+%{\e[1;30m%}%B%B[%{\e[0;37m%}%?%{\e[1;30m%}%B]>%{\e[0m%}%b '
+PS2=$' \e[1;30m%}%B>%{\e[0m%}%b '
 
 alias ls="ls -G"
 alias l="ls -alh"
