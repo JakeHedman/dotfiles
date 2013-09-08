@@ -29,10 +29,6 @@ source ~/.zsh/custom/^(README.md|.gitignore)
 # Delete key
 bindkey "^[[3~" delete-char
 
-# Arrow up/down
-bindkey '^[[A' up-line-or-search
-bindkey '^[[B' down-line-or-search
-
 # History
 HISTSIZE=10000
 SAVEHIST=10000
@@ -100,3 +96,7 @@ export TERM=xterm-256color
 # VI mode
 bindkey -v
 KEYTIMEOUT=1
+
+# Arrow up/down
+bindkey "^[[A" up-line-or-search
+bindkey "^[[B" down-line-or-search
