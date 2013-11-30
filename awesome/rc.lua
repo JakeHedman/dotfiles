@@ -169,9 +169,9 @@ neticon = wibox.widget.imagebox(beautiful.widget_net)
 neticon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell(iptraf) end)))
 netwidget = wibox.widget.background(lain.widgets.net({
     settings = function()
-        widget:set_markup(markup("#7AC82E", " " .. round(net_now.received/128, 2))
+        widget:set_markup(markup("#7AC82E", " " .. string.format("%06.2f", round(net_now.received/128, 2)))
                           .. " " ..
-                          markup("#46A8C3", " " .. round(net_now.sent/128, 2) .. " "))
+                          markup("#46A8C3", " " .. string.format("%06.2f", round(net_now.sent/128, 2)) .. " "))
     end
 }), "#313131")
 
@@ -370,13 +370,13 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
-    awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
-    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
+    awful.key({ modkey,           }, "g", function () awful.layout.inc(layouts,  1) end),
+    awful.key({ modkey,           }, "b", function () awful.layout.inc(layouts, -1) end),
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey },            "space",     function () mypromptbox[mouse.screen]:run() end),
 
     awful.key({ modkey }, "x",
               function ()

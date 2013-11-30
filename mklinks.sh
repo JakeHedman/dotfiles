@@ -23,3 +23,6 @@ ln -s $pwd/tmux/tmux.conf ~/.tmux.conf
 # Awesome wm
 mkdir ~/.config/
 ln -s $pwd/awesome/ ~/.config/awesome
+
+# urxvt
+ln -s $pwd/Xresouces ~/.Xresources
