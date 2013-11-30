@@ -25,4 +25,4 @@ mkdir ~/.config/
 ln -s $pwd/awesome/ ~/.config/awesome
 
 # urxvt
-ln -s $pwd/Xresouces ~/.Xresources
+ln -s $pwd/Xresources ~/.Xresources
