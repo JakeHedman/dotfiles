@@ -11,9 +11,10 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local lain      = require("lain")
 
-function round(val, decimal)
-	local exp = decimal and 10^decimal or 1
-	return math.ceil(val * exp - 0.5) / exp
+function round(num, idp)
+	local mult = 10^(idp or 0)
+	if num >= 0 then return math.floor(num * mult + 0.5) / mult
+	else return math.ceil(num * mult - 0.5) / mult end
 end
 
 -- {{{ Error handling
