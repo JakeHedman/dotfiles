@@ -19,3 +19,7 @@ ln -s $pwd/zsh/zshrc ~/.zshrc
 
 # tmux
 ln -s $pwd/tmux/tmux.conf ~/.tmux.conf
+
+# Awesome wm
+mkdir ~/.config/
+ln -s $pwd/awesome/ ~/.config/awesome
