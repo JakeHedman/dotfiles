@@ -29,3 +29,9 @@ ln -s $DIR/Xdefaults ~/.Xdefaults
 
 # Key bindings
 ln -s $DIR/xbindkeysrc ~/.xbindkeysrc
+
+# X
+ln -s $DIR/xinitrc ~/.xinitrc
+
+# Trackpad
+sudo ln -s $DIR/10-mtrack.conf /etc/X11/xorg.conf.d/10-mtrack.conf
