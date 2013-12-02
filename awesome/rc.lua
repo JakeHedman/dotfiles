@@ -62,9 +62,9 @@ modkey = "Mod4"
 local layouts =
 {
     awful.layout.suit.floating,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.top,
+    awful.layout.suit.tile,
     awful.layout.suit.fair.horizontal,
+    awful.layout.suit.fair,
 }
 -- }}}
 
@@ -96,12 +96,11 @@ mytextclock = awful.widget.textclock(" %a %d %b %H:%M:%S W%W", 1)
 lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 
 -- MEM
-memicon = wibox.widget.imagebox(beautiful.widget_mem)
-memwidget = lain.widgets.mem({
+memwidget = wibox.widget.background(lain.widgets.mem({
     settings = function()
         widget:set_text(" " .. mem_now.used .. "MB ")
     end
-})
+}), "#313131")
 
 -- CPU
 cpuicon = wibox.widget.imagebox(beautiful.widget_cpu)
@@ -163,7 +162,6 @@ volumewidget = lain.widgets.alsa({
         widget:set_text(" " .. volume_now.level .. "% ")
     end
 })
-
 -- Net
 neticon = wibox.widget.imagebox(beautiful.widget_net)
 neticon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell(iptraf) end)))
@@ -262,12 +260,11 @@ for s = 1, screen.count() do
 --    if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(spr)
     right_layout:add(arrl)
+    right_layout:add(arrl_ld)
+    right_layout:add(memwidget)
     right_layout:add(arrl_dl)
     right_layout:add(volicon)
     right_layout:add(volumewidget)
-    right_layout:add(arrl_ld)
-    right_layout:add(memicon)
-    right_layout:add(memwidget)
     right_layout:add(arrl_ld)
     right_layout:add(cpuicon)
     right_layout:add(cpuwidget)
@@ -353,7 +350,6 @@ globalkeys = awful.util.table.join(
 			awful.client.swap.global_bydirection("right")
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
 
     -- Layout manipulation
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
@@ -369,9 +365,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Shift"   }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
-
-    awful.key({ modkey,           }, "g", function () awful.layout.inc(layouts,  1) end),
-    awful.key({ modkey,           }, "b", function () awful.layout.inc(layouts, -1) end),
+    awful.key({ modkey,           }, ".", function () awful.layout.inc(layouts, -1) end),
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
@@ -389,7 +383,7 @@ globalkeys = awful.util.table.join(
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
-    awful.key({ modkey,           }, "q",      function (c) c:kill()                         end),
+    awful.key({ modkey,           }, "w",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
@@ -404,7 +398,11 @@ clientkeys = awful.util.table.join(
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
-        end)
+        end),
+    awful.key({ modkey, "Mod1"    }, "l",     function () awful.tag.incmwfact( 0.05)    end),
+    awful.key({ modkey, "Mod1"    }, "h",     function () awful.tag.incmwfact(-0.05)    end),
+    awful.key({ modkey, "Mod1", "Control"}, "l",     function () awful.tag.incmwfact( 0.001)    end),
+    awful.key({ modkey, "Mod1", "Control"}, "h",     function () awful.tag.incmwfact(-0.001)    end)
 )
 
 -- Bind all key numbers to tags.

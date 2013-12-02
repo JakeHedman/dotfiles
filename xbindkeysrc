@@ -1,0 +1,7 @@
+"amixer set Master toggle"				XF86AudioMute
+"amixer set Master +8"					XF86AudioRaiseVolume
+"amixer set Master -8"					XF86AudioRaiseVolume
+"xbacklight -inc 100 -time 0 -steps 1"	XF86MonBrightnessUp
+"xbacklight -dec 100 -time 0 -steps 1"	XF86MonBrightnessDown
+"kbdlight up"							XF86KbdBrightnessUp
+"kbdlight down"							XF86KbdBrightnessDown

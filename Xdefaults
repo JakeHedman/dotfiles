@@ -7,13 +7,10 @@ Xft.hintstyle           : hintslight
 
 ! urxvt settings -------------------------------------------------------------
 ! General
-urxvt*loginShell        : true
 urxvt*scrollBar         : false
 urxvt*secondaryScroll   : true
 urxvt*saveLines         : 65535
-urxvt*cursorBlink       : false
 urxvt*urgentOnBell      : true
-urxvt*borderLess        : true
 
 ! Extensions
 urxvt*perl-lib          : /usr/lib/urxvt/perl/
@@ -22,8 +19,8 @@ urxvt*url-launcher      : google-chrome-stable
 urxvt*matcher.button    : 1
 
 ! Appearance
-urxvt*font              : xft:Anonymous Pro:9
-urxvt*boldfont          : xft:Anonymous Pro:9
+URxvt.font              : xft:Anonymous Pro:medium:antialias=true
+URxvt.boldFont          : xft:Anonymous Pro:bold:antialias=true
 
 !  - Cursor
 urxvt*cursorColor       : #DCDCCC
@@ -56,3 +53,9 @@ urxvt*color15           : #ffffff
 urxvt.keysym.Mod4-c     : perl:clipboard:copy
 urxvt.keysym.Mod4-v     : perl:clipboard:paste
 urxvt.keysym.Mod4-V     : perl:clipboard:paste_escaped
+
+! Tabs
+URxvt.tabbed.tabbar-fg  : 7
+URxvt.tabbed.tabbar-bg  : 0
+URxvt.tabbed.tab-fg     : 0
+URxvt.tabbed.tab-bg     : 7

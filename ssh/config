@@ -5,5 +5,5 @@ VisualHostKey=yes
 ServerAliveInterval 15
 ServerAliveCountMax 3
 
-# ~. to terminate connection
+# ~~. to terminate connection
 EscapeChar ~
