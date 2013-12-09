@@ -48,10 +48,10 @@ set fo-=t
 set colorcolumn=80
 highlight ColorColumn ctermbg=DarkGray
 
-" Use tabs, not spaces and shorten tab width
-set tabstop=4
+" BAM your <Tab> and <Backspace> keys are convenient now without the pain
+" associated with \t characters in source files
 set shiftwidth=4
-set noexpandtab
+set softtabstop=4 expandtab
 
 " Save >9k actions in undo history
 set undolevels=9001
