@@ -53,6 +53,9 @@ highlight ColorColumn ctermbg=DarkGray
 set shiftwidth=4
 set softtabstop=4 expandtab
 
+" Don't add newlines at ends of files
+set fileformats+=dos
+
 " Save >9k actions in undo history
 set undolevels=9001
 
