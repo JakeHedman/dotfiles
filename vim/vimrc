@@ -187,12 +187,12 @@ set statusline=%F%r%m\ %y%=%c\ %l/%L\ %P
 " Disable double leader in EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
 
-" Jedi selects the first line of the completion menu: for a better typing-flow
-" and usually saves one keypress.
-let g:jedi#popup_on_dot = 0
-
-" C-space for jedi-autocompletion
-inoremap <C-@> <C-x><C-o>
+"" Jedi selects the first line of the completion menu: for a better typing-flow
+"" and usually saves one keypress.
+"let g:jedi#popup_on_dot = 0
+"
+"" C-space for jedi-autocompletion
+"inoremap <C-@> <C-x><C-o>
 
 " Tell syntastic to use pyflakes
 let g:syntastic_python_checkers=['pyflakes']
