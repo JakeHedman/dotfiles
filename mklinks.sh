@@ -4,6 +4,7 @@ DIR="$( cd "$( dirname "$0" )" && pwd )"
 mkdir ~/.i3
 ln -s $DIR/i3/i3status.conf ~/.i3status.conf
 ln -s $DIR/i3/config ~/.i3/config
+ln -s $DIR/i3/bg.png ~/.i3/bg.png
 
 # vim
 ln -Ts $DIR/vim ~/.vim

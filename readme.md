@@ -5,6 +5,8 @@ Note to self
 - `xf86-input-mtrack-git` for the trackpad (AUR)
 - /etc/locale.conf is a bitch. Set LANG!
 - `kbdlight` for backlight (AUR)
+- `dmenu` program launcher
+- `feh` wallpaper 
 
 TODO
 =========
