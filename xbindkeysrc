@@ -13,10 +13,6 @@
 "kbdlight down"
 	XF86KbdBrightnessDown
 "xbacklight -inc 1 -time 0 -steps 1"
-	XF86AudioNext
-"xbacklight -dec 1 -time 0 -steps 1"
-	XF86AudioPrev
-"kbdlight up"
 	XF86AudioPlay
-"kbdlight down"
+"xbacklight -dec 1 -time 0 -steps 1"
 	XF86MenuKB
