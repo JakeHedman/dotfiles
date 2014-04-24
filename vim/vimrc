@@ -131,8 +131,10 @@ map <Leader>a ggVG
 au InsertLeave * set nopaste
 
 " Absolute line numbers in insert mode, relative otherwise for easy movement
-au InsertEnter * :set nu
+au InsertEnter * :set rnu!
 au InsertLeave * :set rnu
+
+:set rnu
 
 " Open new splits to the right/bottom
 set splitright splitbelow
@@ -209,3 +211,6 @@ function! Fixvim(...)
 	noremap   <Right>  <NOP>
 endfunction
 autocmd CursorMoved * call Fixvim()
+
+let g:multi_cursor_exit_from_insert_mode = 0
+let g:multi_cursor_exit_from_visual_mode = 0

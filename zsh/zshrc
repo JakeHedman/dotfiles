@@ -1,7 +1,7 @@
 # Enable stuff like 'ls *.(html|css|js)'
 setopt extended_glob
 
-export PATH=$PATH:~/bin
+export PATH=$PATH:~/bin:~/.gem/ruby/2.1.0/bin
 
 # mkdir + cd = mkcd
 function mkcd {
@@ -102,5 +102,7 @@ bindkey "^[[A" up-line-or-search
 bindkey "^[[B" down-line-or-search
 
 alias yolo="sudo"
+alias s="source"
+alias v="vim"
 
 export DEV=1
