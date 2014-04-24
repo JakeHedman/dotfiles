@@ -135,6 +135,7 @@ au InsertEnter * :set rnu!
 au InsertLeave * :set rnu
 
 :set rnu
+:set nu
 
 " Open new splits to the right/bottom
 set splitright splitbelow
