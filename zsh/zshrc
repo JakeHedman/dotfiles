@@ -104,5 +104,3 @@ bindkey "^[[B" down-line-or-search
 alias yolo="sudo"
 alias s="source"
 alias v="vim"
-
-export DEV=1
