@@ -104,3 +104,7 @@ bindkey "^[[B" down-line-or-search
 alias yolo="sudo"
 alias s="source"
 alias v="vim"
+
+alias such=git
+alias very=git
+alias wow='git status' 
