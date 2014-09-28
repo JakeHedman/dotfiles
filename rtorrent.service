@@ -1,0 +1,12 @@
+[Unit]
+Description=rtorrent Service
+After=network.target
+
+[Service]
+Type=forking
+User=jakob
+ExecStart=/usr/bin/screen -dmS rtorrent rtorrent -o directory=/mnt/hdd0/downloads/,system.method.set_key='event.download.finished,tvsort,"d.close=;execute=tvsort,$d.get_base_path=;d.erase="',schedule=watch_directory,5,5,load_start=/home/jakob/torrents/*.torrent,session=/home/jakob/.rtorrent_session_daemon/
+ExecStop=/usr/bin/screen -S rtorrent -X quit
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,24 @@
+########################
+# Requires rtorrent-ps #
+########################
+#scgi_port = localhost:5000
+directory.default.set = /home/jakob/Downloads/
+session.path.set = /home/jakob/.rtorrent_session/
+
+view.add = Manual
+view.add = RSS
+#view.add = RSS_complete
+
+schedule = watch_directory,5,5,"load.start=/home/jakob/torrents/*.torrent, d.directory.set=/mnt/hdd0/downloads/, d.custom4.set=rss"
+
+schedule = filter_manual,0,1,"view.filter = Manual,d.custom3="
+schedule = filter_rss,0,1,"view.filter = RSS,d.custom4="
+#schedule = filter_rss_complete,0,1,"view.filter = RSS_complete,\"and={d.custom4=,d.complete=}\""
+
+method.set_key = event.download.inserted,autoopen,"d.open="
+method.set_key = event.download.opened,manualcustom,"branch=d.custom4=, d.custom4.set=rss, d.custom3.set=manual"
+method.set_key = event.download.finished,tvsort,"branch=d.custom4=, \"d.close=;execute=tvsort,$d.base_path=;d.erase=\", false="
+
+schedule = bind_2,0,0,"ui.bind_key=download_list,2,ui.current_view.set=Manual"
+schedule = bind_3,0,0,"ui.bind_key=download_list,3,ui.current_view.set=RSS"
+#schedule = bind_4,0,0,"ui.bind_key=download_list,4,ui.current_view.set=RSS_complete"

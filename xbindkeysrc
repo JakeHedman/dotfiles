@@ -1,18 +1,18 @@
-"amixer set Master toggle"
-    XF86AudioMute
-"amixer set Master 8+"
-	XF86AudioRaiseVolume
-"amixer set Master 8-"
-	XF86AudioLowerVolume
-"xbacklight -inc 5 -time 0 -steps 1"
-	XF86MonBrightnessUp
-"xbacklight -dec 5 -time 0 -steps 1"
-	XF86MonBrightnessDown
-"kbdlight up"
-	XF86KbdBrightnessUp
-"kbdlight down"
-	XF86KbdBrightnessDown
-"xbacklight -inc 1 -time 0 -steps 1"
-	XF86AudioPlay
-"xbacklight -dec 1 -time 0 -steps 1"
-	XF86MenuKB
+#"amixer set Master toggle"
+#    XF86AudioMute
+#"amixer set Master 8+"
+#	XF86AudioRaiseVolume
+#"amixer set Master 8-"
+#	XF86AudioLowerVolume
+#"xbacklight -inc 5 -time 0 -steps 1"
+#	XF86MonBrightnessUp
+#"xbacklight -dec 5 -time 0 -steps 1"
+#	XF86MonBrightnessDown
+#"kbdlight up"
+#	XF86KbdBrightnessUp
+#"kbdlight down"
+#	XF86KbdBrightnessDown
+#"xbacklight -inc 1 -time 0 -steps 1"
+#	XF86AudioPlay
+#"xbacklight -dec 1 -time 0 -steps 1"
+#	XF86MenuKB
