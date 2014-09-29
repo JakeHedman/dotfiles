@@ -37,5 +37,5 @@ schedule = bind_3,0,0,"ui.bind_key=download_list,3,ui.current_view.set=RSS"
 
 
 # Bandwidth throttles
-throttle_down = 9000
-throttle_up = 1000
+throttle.down = 9000
+throttle.up = 1000
