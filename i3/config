@@ -107,4 +107,10 @@ bindsym $mod+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+period scratchpad show
 
+# Wallpaper
 exec feh --bg-scale ~/.i3/bg.png
+
+bindsym $mod+Control+Shift+h move workspace to output left
+bindsym $mod+Control+Shift+j move workspace to output down
+bindsym $mod+Control+Shift+k move workspace to output up
+bindsym $mod+Control+Shift+l move workspace to output right
