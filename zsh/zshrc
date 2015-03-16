@@ -108,3 +108,5 @@ alias v="vim"
 alias such=git
 alias very=git
 alias wow='git status' 
+
+alias tbd='xinput set-prop 12 266 1; xrandr --output DP1 --auto --left-of eDP1'
