@@ -14,11 +14,17 @@ map <Leader>m <esc>:tabnext<CR>
 " Leader-t to show hidden chars
 map <Leader>t :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
 
+" HJKL to resize split windows
+map <s-k> <C-W>+
+map <s-j> <C-W>-
+map <s-h> <C-W><
+map <s-l> <C-W>>
+
 " ^hjkl to navigate split windows
-map <C-J> <C-W>j
-map <C-K> <C-W>k
-map <C-L> <C-W>l
-map <C-H> <C-W>h
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-l> <C-W>l
+map <C-h> <C-W>h
 
 " Leader-s to sort selected lines e.g. to sort python imports alphabetically
 vnoremap <Leader>s :sort<CR> 
@@ -140,12 +146,6 @@ au InsertLeave * :set rnu
 " Open new splits to the right/bottom
 set splitright splitbelow
 
-" HJKL for top, bottom, start and end 
-noremap H ^
-noremap L $
-noremap J G
-noremap K gg
-
 " Always show status/power-line
 set laststatus=2
 
@@ -162,7 +162,7 @@ cnoremap <Esc>f <S-Right>
 cnoremap <Esc>d <S-right><Delete>
 cnoremap <C-g>  <C-c>
 
-" FFFFFFFFFFFFFFFFFUUUUUUU
+" ...
 command WQ wq
 command Wq wq
 command W w
@@ -215,3 +215,5 @@ autocmd CursorMoved * call Fixvim()
 
 let g:multi_cursor_exit_from_insert_mode = 0
 let g:multi_cursor_exit_from_visual_mode = 0
+
+set wildmenu
