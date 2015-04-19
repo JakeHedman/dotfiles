@@ -37,3 +37,6 @@ ln -s $DIR/xbindkeysrc ~/.xbindkeysrc
 
 # X
 ln -s $DIR/xinitrc ~/.xinitrc
+
+# ack
+ln -s $DIR/ackrc ~/.ackrc

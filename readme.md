@@ -7,6 +7,7 @@ Note to self
 - `kbdlight` for backlight (AUR)
 - `dmenu` program launcher
 - `feh` wallpaper 
+- :VundleInstall
 
 TODO
 =========

@@ -1,5 +1,26 @@
-" Pathogen
-execute pathogen#infect()
+set nocompatible
+filetype off
+
+" Set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-fugitive'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tomasr/molokai'
+Plugin 'mileszs/ack.vim'
+"Plugin 'pangloss/vim-javascript'
+
+" All of your Plugins must be added before the following line
+call vundle#end()
+filetype plugin indent on
 
 " Toggle paste mode (no auto indent) with f2
 set pastetoggle=<f2>
@@ -7,12 +28,8 @@ set pastetoggle=<f2>
 " , as extra modifier key (Leader)
 let mapleader = ","
 
-" Leader-n leader-m to move between tabs
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
-
-" Leader-t to show hidden chars
-map <Leader>t :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
+" Leader-h to show hidden chars
+nmap <leader>h :set list!<CR>
 
 " ^hjkl to navigate split windows
 map <C-J> <C-W>j
@@ -97,24 +114,10 @@ nnoremap <Silent> <Leader>c :set cursorcolumn!<CR>
 " Try to save swapfiles in ~/.vim/swap, save in current dir if it fails
 set directory^=$HOME/.vim/swap//,.
 
-" Distinguished theme
-" https://github.com/Lokaltog/vim-distinguished
-" colors distinguished
+" Molokai (monokai from textmate)
+colors molokai
+set background=light
 
-" molokai theme from TextMate
-" https://github.com/tomasr/molokai
- colors molokai
-
-" Solarized
-" http://ethanschoonover.com/solarized
-"
-"   Dark/light solarized theme 
-"   set background=dark
-"   set background=light
-
-"   https://github.com/altercation/solarized/tree/master/vim-colors-solarized
-"   let g:solarized_termtrans=1
-"   colorscheme solarized
 
 " Fix backspace in insert mode
 set backspace=2
@@ -123,9 +126,6 @@ set backspace=2
 set rnu
 au WinEnter * :setlocal rnu
 au WinLeave * :setlocal nornu
-
-" Select all
-map <Leader>a ggVG
 
 " Disable paste mode when leaving Insert Mode
 au InsertLeave * set nopaste
@@ -190,16 +190,6 @@ set statusline=%F%r%m\ %y%=%c\ %l/%L\ %P
 " Disable double leader in EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
 
-"" Jedi selects the first line of the completion menu: for a better typing-flow
-"" and usually saves one keypress.
-"let g:jedi#popup_on_dot = 0
-"
-"" C-space for jedi-autocompletion
-"inoremap <C-@> <C-x><C-o>
-
-" Tell syntastic to use pyflakes
-let g:syntastic_python_checkers=['pyflakes']
-
 function! Fixvim(...)
 	set mouse=c
 	inoremap  <Up>     <NOP>
@@ -215,3 +205,21 @@ autocmd CursorMoved * call Fixvim()
 
 let g:multi_cursor_exit_from_insert_mode = 0
 let g:multi_cursor_exit_from_visual_mode = 0
+
+" tabs are 4 spaces
+set tabstop=4
+
+" ,t for new tab
+nnoremap <leader>t <Esc>:tabnew<CR>
+
+" Indent guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesOdd ctermbg=234
+hi IndentGuidesEven ctermbg=235
+set wildignore+=*bower_components,node_modules,webroot,tmp
+
+" Use the silver search instead of slow ack
+let g:ackprg = 'ag --vimgrep'
