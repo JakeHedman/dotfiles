@@ -28,10 +28,15 @@ mkdir ~/.config
 ln -Ts $DIR/awesome/ ~/.config/awesome
 
 # urxvt
+mkdir -p ~/.urxvt/ext
 ln -s $DIR/Xdefaults ~/.Xdefaults
+ln -s $DIR/font-size ~/.urxvt/ext
 
 # Key bindings
 ln -s $DIR/xbindkeysrc ~/.xbindkeysrc
 
 # X
 ln -s $DIR/xinitrc ~/.xinitrc
+
+# ack
+ln -s $DIR/ackrc ~/.ackrc
