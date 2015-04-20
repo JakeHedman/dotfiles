@@ -8,6 +8,9 @@ Note to self
 - `dmenu` program launcher
 - `feh` wallpaper 
 - :VundleInstall
+- gem install scss-lint
+- pip install pyflakes
+- sudo npm install -g csslint jshint
 
 TODO
 =========

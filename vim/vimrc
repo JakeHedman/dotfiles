@@ -8,14 +8,15 @@ call vundle#begin()
 " Let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-fugitive'
-Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'tomasr/molokai'
+Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-fugitive'
 "Plugin 'pangloss/vim-javascript'
 
 " All of your Plugins must be added before the following line
@@ -226,3 +227,9 @@ set wildignore+=*bower_components,node_modules,webroot,tmp
 
 " Use the silver search instead of slow ack
 let g:ackprg = 'ag --vimgrep'
+
+" Syntastic
+let g:syntastic_python_checkers = ['pyflakes']
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_scss_checkers = ['scss_lint']
+let g:syntastic_css_checkers = ['csslint']
