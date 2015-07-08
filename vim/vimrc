@@ -9,16 +9,18 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'heavenshell/vim-jsdoc'
+Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'mnpk/vim-jira-complete'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-fugitive'
-Plugin 'kchmck/vim-coffee-script'
-"Plugin 'pangloss/vim-javascript'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -231,6 +233,12 @@ let g:ackprg = 'ag --vimgrep'
 
 " Syntastic
 let g:syntastic_python_checkers = ['pyflakes']
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['jscs', 'jshint']
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_css_checkers = ['csslint']
+let g:syntastic_aggregate_errors = 1
+
+" Jira
+let g:jiracomplete_url = { 'url': 'http://tickets.int.prnw.net/', 'verify': 'False' }
+let g:jiracomplete_username = 'jhedman'
+imap <silent> <unique> <leader>j <Plug>JiraComplete
