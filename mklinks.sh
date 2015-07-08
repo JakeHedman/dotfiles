@@ -40,3 +40,6 @@ ln -s $DIR/xinitrc ~/.xinitrc
 
 # ack
 ln -s $DIR/ackrc ~/.ackrc
+
+# screen
+ln -s $DIR/screenrc ~/.screenrc

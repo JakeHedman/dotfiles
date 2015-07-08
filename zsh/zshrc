@@ -1,7 +1,7 @@
 # Enable stuff like 'ls *.(html|css|js)'
 setopt extended_glob
 
-export PATH=$PATH:~/bin:~/.gem/ruby/2.1.0/bin
+export PATH=$PATH:~/bin:~/.gem/ruby/2.1.0/bin:/home/jakob/.gem/ruby/2.2.0/bin
 
 # mkdir + cd = mkcd
 function mkcd {
@@ -122,3 +122,4 @@ export plex_user=jthes
 export plex_server=0
 export plex_section=1
 alias suspend='i3lock; dbus-send --system --print-reply --dest=org.freedesktop.UPower /org/freedesktop/UPower org.freedesktop.UPower.Suspend'
+alias mc='jre1.8.0_45/bin/java -jar Downloads/Minecraft.jar'
