@@ -1,7 +1,7 @@
 # Enable stuff like 'ls *.(html|css|js)'
 setopt extended_glob
 
-export PATH=$PATH:~/bin:~/.gem/ruby/2.1.0/bin
+export PATH=$PATH:~/bin:~/.gem/ruby/2.1.0/bin:/home/jakob/.gem/ruby/2.2.0/bin
 
 # mkdir + cd = mkcd
 function mkcd {
@@ -125,6 +125,9 @@ alias suspend='i3lock; dbus-send --system --print-reply --dest=org.freedesktop.U
 
 source ~/.soundboard
 
-export NVM_DIR="/home/jakob/.nvm"
+export NVM_DIR="~/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
 export SRC_INT_USER="jake"
+
+alias mc='jre1.8.0_45/bin/java -jar Downloads/Minecraft.jar'
