@@ -117,9 +117,13 @@ alias battlenet='(export LIBGL_ALWAYS_SOFTWARE=1; wine ~/World\ of\ Warcraft/Wor
 export tv0=/mnt/hdd0/plex/TV/
 export tv1=/mnt/hdd1/plex/TV/
 export tv2=/mnt/hdd2/plex/TV/
+export tv3=/mnt/hdd3/plex/TV/
+export movies=/mnt/hdd3/plex/movies
 
 export plex_user=jthes
 export plex_server=0
 export plex_section=1
 alias suspend='i3lock; dbus-send --system --print-reply --dest=org.freedesktop.UPower /org/freedesktop/UPower org.freedesktop.UPower.Suspend'
 alias mc='jre1.8.0_45/bin/java -jar Downloads/Minecraft.jar'
+stty -ixon
+source /usr/share/nvm/init-nvm.sh

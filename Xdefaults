@@ -19,8 +19,8 @@ urxvt*url-launcher      : google-chrome
 urxvt*matcher.button    : 1
 
 ! Appearance
-URxvt.font              : xft:Source Code Pro:Regular:antialias=true:size=10
-URxvt.boldFont          : xft:Source Code Pro:SemiBold:antialias=true:size=10
+URxvt.Font              : xft:Ubuntu Mono:antialias=true:size=10
+URxvt.boldFont          : xft:Ubuntu Mono:antialias=true:size=10
 
 !  - Cursor
 urxvt*cursorColor       : #DCDCCC

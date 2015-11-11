@@ -9,6 +9,21 @@ session.path.set = /home/jakob/.rtorrent_session/
 view.add = Manual
 view.add = RSS
 
+# Collapse view
+view.collapsed.toggle=Manual
+view.collapsed.toggle=RSS
+view.collapsed.toggle=main
+view.collapsed.toggle=name
+view.collapsed.toggle=active
+view.collapsed.toggle=started
+view.collapsed.toggle=stopped
+view.collapsed.toggle=complete
+view.collapsed.toggle=incomplete
+view.collapsed.toggle=hashing
+view.collapsed.toggle=seeding
+view.collapsed.toggle=leeching
+view.collapsed.toggle=rtcontrol
+
 # Set custom4 for RSS downloads
 # View download in RSS view
 # Do not view download in Manual view
@@ -37,7 +52,7 @@ schedule = bind_3,0,0,"ui.bind_key=download_list,3,ui.current_view.set=RSS"
 
 
 # Throttles
-throttle.global_down.max_rate.set = 9000000
+throttle.global_down.max_rate.set = 10000000
 throttle.global_up.max_rate.set = 1000000
 throttle.max_peers.normal.set = 500
 
