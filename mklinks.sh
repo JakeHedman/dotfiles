@@ -19,6 +19,7 @@ ln -s $DIR/ssh/config ~/.ssh/config
 # zsh
 ln -Ts $DIR/zsh ~/.zsh
 ln -s $DIR/zsh/zshrc ~/.zshrc
+ln -s $DIR/zsh/soundboard ~/.soundboard
 
 # tmux
 ln -s $DIR/tmux/tmux.conf ~/.tmux.conf

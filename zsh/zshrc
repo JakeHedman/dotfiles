@@ -122,3 +122,9 @@ export plex_user=jthes
 export plex_server=0
 export plex_section=1
 alias suspend='i3lock; dbus-send --system --print-reply --dest=org.freedesktop.UPower /org/freedesktop/UPower org.freedesktop.UPower.Suspend'
+
+source ~/.soundboard
+
+export NVM_DIR="/home/jakob/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export SRC_INT_USER="jake"
