@@ -11,6 +11,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# open a browser window
+bindsym $mod+shift+Return exec google-chrome
+
 # kill focused window
 bindsym $mod+w kill
 
@@ -98,8 +101,14 @@ bar {
     status_command i3status
 }
 
-# Thin borders
-new_window 1pixel
+# No borders
+new_window none
+
+# Except for urxvt
+for_window [class="URxvt"] border pixel 1
+
+# No borders at edge of screen
+hide_edge_borders both
 
 # Make the currently focused window a scratchpad
 bindsym $mod+minus move scratchpad
@@ -110,6 +119,7 @@ bindsym $mod+period scratchpad show
 # Wallpaper
 exec feh --bg-scale ~/.i3/bg.png
 
+# Move windows between monitors
 bindsym $mod+Control+Shift+h move workspace to output left
 bindsym $mod+Control+Shift+j move workspace to output down
 bindsym $mod+Control+Shift+k move workspace to output up
