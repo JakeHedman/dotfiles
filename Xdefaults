@@ -14,7 +14,7 @@ urxvt*urgentOnBell      : true
 
 ! Extensions
 urxvt*perl-lib          : /usr/lib/urxvt/perl/
-urxvt*perl-ext-common   : default,matcher,clipboard,font-size
+urxvt*perl-ext-common   : default,matcher,clipboard,font-size,url-select
 urxvt*url-launcher      : google-chrome
 urxvt*matcher.button    : 1
 
@@ -56,3 +56,7 @@ URxvt.keysym.C-Up       : perl:font-size:increase
 URxvt.keysym.C-Down     : perl:font-size:decrease
 URxvt.keysym.C-S-Up     : perl:font-size:incglobal
 URxvt.keysym.C-S-Down   : perl:font-size:decglobal
+
+! Yank URLs with keyboard
+URxvt.url-select.launcher: google-chrome
+URxvt.keysym.M-u: perl:url-select:select_next
