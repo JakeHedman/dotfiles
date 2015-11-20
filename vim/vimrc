@@ -242,3 +242,7 @@ let g:syntastic_aggregate_errors = 1
 let g:jiracomplete_url = { 'url': 'http://tickets.int.prnw.net/', 'verify': 'False' }
 let g:jiracomplete_username = 'jhedman'
 imap <silent> <unique> <leader>j <Plug>JiraComplete
+
+" Title
+set title
+set titlestring=VIM:\ %-25.55F\ %a%r%m titlelen=70
