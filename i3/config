@@ -15,7 +15,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+shift+Return exec google-chrome
 
 # kill focused window
-bindsym $mod+w kill
+bindsym $mod+shift+w kill
 
 # start dmenu (a program launcher)
 bindsym $mod+space exec dmenu_run
