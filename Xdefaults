@@ -47,9 +47,9 @@ urxvt*background: black
 *color15: #EEEEEC
 
 ! Copy-paste
-urxvt.keysym.Mod4-c: perl:clipboard:copy
-urxvt.keysym.Mod4-v: perl:clipboard:paste
-urxvt.keysym.Mod4-V: perl:clipboard:paste_escaped
+urxvt.keysym.Mod4-Mod1-c: perl:clipboard:copy
+urxvt.keysym.Mod4-Mod1-v: perl:clipboard:paste
+urxvt.keysym.Mod4-Mod1-V: perl:clipboard:paste_escaped
 
 ! Resize on the fly
 URxvt.keysym.C-Up: perl:font-size:increase
