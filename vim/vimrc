@@ -1,5 +1,30 @@
-" Pathogen
-execute pathogen#infect()
+set nocompatible
+filetype off
+
+" Set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'heavenshell/vim-jsdoc'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'mnpk/vim-jira-complete'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-fugitive'
+
+" All of your Plugins must be added before the following line
+call vundle#end()
+filetype plugin indent on
 
 " Toggle paste mode (no auto indent) with f2
 set pastetoggle=<f2>
@@ -7,18 +32,20 @@ set pastetoggle=<f2>
 " , as extra modifier key (Leader)
 let mapleader = ","
 
-" Leader-n leader-m to move between tabs
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
+" Leader-h to show hidden chars
+nmap <leader>h :set list!<CR>
 
-" Leader-t to show hidden chars
-map <Leader>t :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
+" HJKL to resize split windows
+map <s-k> <C-W>+
+map <s-j> <C-W>-
+map <s-h> <C-W><
+map <s-l> <C-W>>
 
 " ^hjkl to navigate split windows
-map <C-J> <C-W>j
-map <C-K> <C-W>k
-map <C-L> <C-W>l
-map <C-H> <C-W>h
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-l> <C-W>l
+map <C-h> <C-W>h
 
 " Leader-s to sort selected lines e.g. to sort python imports alphabetically
 vnoremap <Leader>s :sort<CR> 
@@ -48,10 +75,13 @@ set fo-=t
 set colorcolumn=80
 highlight ColorColumn ctermbg=DarkGray
 
-" Use tabs, not spaces and shorten tab width
-set tabstop=4
+" BAM your <Tab> and <Backspace> keys are convenient now without the pain
+" associated with \t characters in source files
 set shiftwidth=4
-set noexpandtab
+set softtabstop=4 expandtab
+
+" Don't add newlines at ends of files
+set fileformats+=dos
 
 " Save >9k actions in undo history
 set undolevels=9001
@@ -94,24 +124,10 @@ nnoremap <Silent> <Leader>c :set cursorcolumn!<CR>
 " Try to save swapfiles in ~/.vim/swap, save in current dir if it fails
 set directory^=$HOME/.vim/swap//,.
 
-" Distinguished theme
-" https://github.com/Lokaltog/vim-distinguished
-" colors distinguished
+" Molokai (monokai from textmate)
+colors molokai
+set background=light
 
-" molokai theme from TextMate
-" https://github.com/tomasr/molokai
- colors molokai
-
-" Solarized
-" http://ethanschoonover.com/solarized
-"
-"   Dark/light solarized theme 
-"   set background=dark
-"   set background=light
-
-"   https://github.com/altercation/solarized/tree/master/vim-colors-solarized
-"   let g:solarized_termtrans=1
-"   colorscheme solarized
 
 " Fix backspace in insert mode
 set backspace=2
@@ -121,24 +137,18 @@ set rnu
 au WinEnter * :setlocal rnu
 au WinLeave * :setlocal nornu
 
-" Select all
-map <Leader>a ggVG
-
 " Disable paste mode when leaving Insert Mode
 au InsertLeave * set nopaste
 
 " Absolute line numbers in insert mode, relative otherwise for easy movement
-au InsertEnter * :set nu
+au InsertEnter * :set rnu!
 au InsertLeave * :set rnu
+
+:set rnu
+:set nu
 
 " Open new splits to the right/bottom
 set splitright splitbelow
-
-" HJKL for top, bottom, start and end 
-noremap H ^
-noremap L $
-noremap J G
-noremap K gg
 
 " Always show status/power-line
 set laststatus=2
@@ -156,7 +166,7 @@ cnoremap <Esc>f <S-Right>
 cnoremap <Esc>d <S-right><Delete>
 cnoremap <C-g>  <C-c>
 
-" FFFFFFFFFFFFFFFFFUUUUUUU
+" ...
 command WQ wq
 command Wq wq
 command W w
@@ -184,16 +194,6 @@ set statusline=%F%r%m\ %y%=%c\ %l/%L\ %P
 " Disable double leader in EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
 
-" Jedi selects the first line of the completion menu: for a better typing-flow
-" and usually saves one keypress.
-let g:jedi#popup_on_dot = 0
-
-" C-space for jedi-autocompletion
-inoremap <C-@> <C-x><C-o>
-
-" Tell syntastic to use pyflakes
-let g:syntastic_python_checkers=['pyflakes']
-
 function! Fixvim(...)
 	set mouse=c
 	inoremap  <Up>     <NOP>
@@ -206,3 +206,43 @@ function! Fixvim(...)
 	noremap   <Right>  <NOP>
 endfunction
 autocmd CursorMoved * call Fixvim()
+
+let g:multi_cursor_exit_from_insert_mode = 0
+let g:multi_cursor_exit_from_visual_mode = 0
+
+" Better tab completion
+set wildmenu
+
+" tabs are 4 spaces
+set tabstop=4
+
+" ,t for new tab
+nnoremap <leader>t <Esc>:tabnew<CR>
+
+" Indent guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesOdd ctermbg=234
+hi IndentGuidesEven ctermbg=235
+set wildignore+=*bower_components,node_modules,webroot,tmp
+
+" Use the silver search instead of slow ack
+let g:ackprg = 'ag --vimgrep'
+
+" Syntastic
+let g:syntastic_python_checkers = ['pyflakes']
+let g:syntastic_javascript_checkers = ['jscs', 'jshint']
+let g:syntastic_scss_checkers = ['scss_lint']
+let g:syntastic_css_checkers = ['csslint']
+let g:syntastic_aggregate_errors = 1
+
+" Jira
+let g:jiracomplete_url = { 'url': 'http://tickets.int.prnw.net/', 'verify': 'False' }
+let g:jiracomplete_username = 'jhedman'
+imap <silent> <unique> <leader>j <Plug>JiraComplete
+
+" Title
+set title
+set titlestring=VIM:\ %-25.55F\ %a%r%m titlelen=70

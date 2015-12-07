@@ -1,9 +1,12 @@
+#!/bin/sh
+
 DIR="$( cd "$( dirname "$0" )" && pwd )"
 
 # i3
 mkdir ~/.i3
 ln -s $DIR/i3/i3status.conf ~/.i3status.conf
 ln -s $DIR/i3/config ~/.i3/config
+ln -s $DIR/i3/bg.png ~/.i3/bg.png
 
 # vim
 ln -Ts $DIR/vim ~/.vim
@@ -16,6 +19,7 @@ ln -s $DIR/ssh/config ~/.ssh/config
 # zsh
 ln -Ts $DIR/zsh ~/.zsh
 ln -s $DIR/zsh/zshrc ~/.zshrc
+ln -s $DIR/zsh/soundboard ~/.soundboard
 
 # tmux
 ln -s $DIR/tmux/tmux.conf ~/.tmux.conf
@@ -25,7 +29,9 @@ mkdir ~/.config
 ln -Ts $DIR/awesome/ ~/.config/awesome
 
 # urxvt
+mkdir -p ~/.urxvt/ext
 ln -s $DIR/Xdefaults ~/.Xdefaults
+ln -s $DIR/font-size ~/.urxvt/ext
 
 # Key bindings
 ln -s $DIR/xbindkeysrc ~/.xbindkeysrc
@@ -33,5 +39,8 @@ ln -s $DIR/xbindkeysrc ~/.xbindkeysrc
 # X
 ln -s $DIR/xinitrc ~/.xinitrc
 
-# Trackpad
-sudo ln -s $DIR/10-mtrack.conf /etc/X11/xorg.conf.d/10-mtrack.conf
+# ack
+ln -s $DIR/ackrc ~/.ackrc
+
+# screen
+ln -s $DIR/screenrc ~/.screenrc

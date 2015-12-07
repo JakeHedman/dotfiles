@@ -1,0 +1,5 @@
+# Piping to mplayer from curl is really slow on my machine
+alias snake="curl https://jakob.su/soundboard/snakesnakesnake.mp3 > /tmp/soundboard.mp3; mplayer /tmp/soundboard.mp3"
+alias rimshot="curl https://jakob.su/soundboard/rimshot.mp3 > /tmp/soundboard.mp3; mplayer /tmp/soundboard.mp3"
+alias rosling="curl https://jakob.su/soundboard/rosling.mp3 > /tmp/soundboard.mp3; mplayer /tmp/soundboard.mp3"
+alias orimligt="curl https://jakob.su/soundboard/orimligt.mp3 > /tmp/soundboard.mp3; mplayer /tmp/soundboard.mp3"

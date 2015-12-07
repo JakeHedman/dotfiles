@@ -1,61 +1,65 @@
-! Xft settings ---------------------------------------------------------------
-Xft.dpi                 : 96
-Xft.antialias           : true
-Xft.rgba                : rgb
-Xft.hinting             : true
-Xft.hintstyle           : hintslight
+! Xft settings
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.dpi: 96
 
-! urxvt settings -------------------------------------------------------------
+! urxvt settings
 ! General
-urxvt*scrollBar         : false
-urxvt*secondaryScroll   : true
-urxvt*saveLines         : 65535
-urxvt*urgentOnBell      : true
+urxvt*scrollBar: false
+urxvt*secondaryScroll: true
+urxvt*saveLines: 65535
+urxvt*urgentOnBell: true
 
 ! Extensions
-urxvt*perl-lib          : /usr/lib/urxvt/perl/
-urxvt*perl-ext-common   : tabbed,default,matcher,clipboard
-urxvt*url-launcher      : google-chrome-stable
-urxvt*matcher.button    : 1
+urxvt*perl-lib: /usr/lib/urxvt/perl/
+urxvt*perl-ext: default,matcher,clipboard,font-size,url-select,keyboard-select,-searchable-scrollback
+urxvt*url-launcher: google-chrome
+urxvt*matcher.button: 1
 
 ! Appearance
-URxvt.font              : xft:Anonymous Pro:medium:antialias=true
-URxvt.boldFont          : xft:Anonymous Pro:bold:antialias=true
+URxvt.Font: xft:Ubuntu Mono:antialias=true:size=10
+URxvt.boldFont: xft:Ubuntu Mono:antialias=true:size=10
 
 !  - Cursor
-urxvt*cursorColor       : #DCDCCC
+urxvt*cursorColor: #DCDCCC
 
 !  - Color scheme
-!  black         red            green         yellow
-!  blue          purple         cyan          white
-!  bright-black  bright-red     bright-green  bright-yellow
-!  bright-blue   bright-purple  bright-cyan   bright-white
-urxvt.background        : #000000
-urxvt.foreground        : #EBEBFF
-urxvt*color0            : #000000
-urxvt*color1            : #e01010
-urxvt*color2            : #00AA00
-urxvt*color3            : #FFFF00
-urxvt*color4            : #112037
-urxvt*color5            : #A020F0
-urxvt*color6            : #5B5BC7
-urxvt*color7            : #fefefe
-urxvt*color8            : #6a6a6a
-urxvt*color9            : #FF5555
-urxvt*color10           : #90EE90
-urxvt*color11           : #ffff2f
-urxvt*color12           : #5B5BC7
-urxvt*color13           : #e628ba
-urxvt*color14           : #7D7DFB
-urxvt*color15           : #ffffff
+urxvt*foreground: white
+urxvt*background: black
+
+*color0: #2E3436
+*color1: #a40000
+*color2: #4E9A06
+*color3: #C4A000
+*color4: #3465A4
+*color5: #75507B
+*color6: #ce5c00
+*color7: #babdb9
+*color8: #555753
+*color9: #EF2929
+*color10: #8AE234
+*color11: #FCE94F
+*color12: #729FCF
+*color13: #AD7FA8
+*color14: #fcaf3e
+*color15: #EEEEEC
 
 ! Copy-paste
-urxvt.keysym.Mod4-c     : perl:clipboard:copy
-urxvt.keysym.Mod4-v     : perl:clipboard:paste
-urxvt.keysym.Mod4-V     : perl:clipboard:paste_escaped
+urxvt.keysym.Mod4-Mod1-c: perl:clipboard:copy
+urxvt.keysym.Mod4-Mod1-v: perl:clipboard:paste
+urxvt.keysym.Mod4-Mod1-V: perl:clipboard:paste_escaped
 
-! Tabs
-URxvt.tabbed.tabbar-fg  : 7
-URxvt.tabbed.tabbar-bg  : 0
-URxvt.tabbed.tab-fg     : 0
-URxvt.tabbed.tab-bg     : 7
+! Resize on the fly
+URxvt.keysym.C-Up: perl:font-size:increase
+URxvt.keysym.C-Down: perl:font-size:decrease
+URxvt.keysym.C-S-Up: perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
+
+! Yank URLs with keyboard
+URxvt.url-select.launcher: google-chrome
+URxvt.keysym.M-u: perl:url-select:select_next
+
+! Text select with keyboard
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
