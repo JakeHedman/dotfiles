@@ -134,3 +134,5 @@ export SRC_INT_USER="jake"
 
 alias mc='jre1.8.0_45/bin/java -jar Downloads/Minecraft.jar'
 stty -ixon
+
+alias sugulp='sudo -E env PATH=$PATH gulp'

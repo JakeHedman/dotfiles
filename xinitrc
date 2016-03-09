@@ -10,3 +10,5 @@ setxkbmap se -option caps:super
 pulseaduio --start
 xinput set-prop 12 266 1
 xinput set-prop 12 265 2.5
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &

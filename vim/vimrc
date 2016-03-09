@@ -34,11 +34,11 @@ let mapleader = ","
 " Leader-h to show hidden chars
 nmap <leader>h :set list!<CR>
 
-" HJKL to resize split windows
-map <s-k> <C-W>+
-map <s-j> <C-W>-
-map <s-h> <C-W><
-map <s-l> <C-W>>
+" Meta-hjkl to resize split windows
+map <Esc>h <C-W><
+map <Esc>j <C-W>-
+map <Esc>k <C-W>+
+map <Esc>l <C-W>>
 
 " ^hjkl to navigate split windows
 map <C-j> <C-W>j
@@ -188,7 +188,7 @@ set nocompatible
 " %l line
 " %L number of lines
 " %P percentage through buffer
-set statusline=%F%r%m\ %y%=%c\ %l/%L\ %P
+set statusline=%F%r%m\ %y%=%=0x%B\ %c\ %l/%L\ %P
 
 " Disable double leader in EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
