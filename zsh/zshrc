@@ -1,7 +1,7 @@
 # Enable stuff like 'ls *.(html|css|js)'
 setopt extended_glob
 
-export PATH=$PATH:~/bin:~/.gem/ruby/2.1.0/bin:/home/jakob/.gem/ruby/2.2.0/bin
+export PATH=$PATH:~/bin:~/.gem/ruby/2.1.0/bin:/home/jakob/.gem/ruby/2.2.0/bin:/home/jakob/esp-open-sdk/xtensa-lx106-elf/bin
 
 # mkdir + cd = mkcd
 function mkcd {
@@ -115,11 +115,8 @@ yt () mplayer -fs -quiet $(youtube-dl -g "$1")
 alias killwine='kill $(pgrep .exe | tr "\n" " ")'
 alias battlenet='(export LIBGL_ALWAYS_SOFTWARE=1; wine ~/World\ of\ Warcraft/World\ of\ Warcraft\ Launcher.exe)'
 
-export tv0=/mnt/hdd0/plex/TV/
-export tv1=/mnt/hdd1/plex/TV/
-export tv2=/mnt/hdd2/plex/TV/
-export tv3=/mnt/hdd3/plex/TV/
-export movies=/mnt/hdd3/plex/movies
+export tv=/mnt/raid/plex/TV/
+export movies=/mnt/raid/plex/movies
 
 export plex_user=jthes
 export plex_server=0
@@ -135,3 +132,7 @@ export SRC_INT_USER="jake"
 
 alias mc='jre1.8.0_45/bin/java -jar Downloads/Minecraft.jar'
 stty -ixon
+
+alias xgcc='xtensa-lx106-elf-gcc'
+
+alias vncd='x11vnc -localhost -display :0'

@@ -34,11 +34,11 @@ let mapleader = ","
 " Leader-h to show hidden chars
 nmap <leader>h :set list!<CR>
 
-" HJKL to resize split windows
-map <s-k> <C-W>+
-map <s-j> <C-W>-
-map <s-h> <C-W><
-map <s-l> <C-W>>
+" Arrow keys to resize split windows
+map <Up> <C-W>+
+map <Down> <C-W>-
+map <Left> <C-W><
+map <Right> <C-W>>
 
 " ^hjkl to navigate split windows
 map <C-j> <C-W>j
@@ -131,20 +131,8 @@ set background=light
 " Fix backspace in insert mode
 set backspace=2
 
-" Always show line numbers, but only in current window.
-set rnu
-au WinEnter * :setlocal rnu
-au WinLeave * :setlocal nornu
-
 " Disable paste mode when leaving Insert Mode
 au InsertLeave * set nopaste
-
-" Absolute line numbers in insert mode, relative otherwise for easy movement
-au InsertEnter * :set rnu!
-au InsertLeave * :set rnu
-
-:set rnu
-:set nu
 
 " Open new splits to the right/bottom
 set splitright splitbelow
@@ -193,21 +181,13 @@ set statusline=%F%r%m\ %y%=%c\ %l/%L\ %P
 " Disable double leader in EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
 
-function! Fixvim(...)
-	set mouse=c
-	inoremap  <Up>     <NOP>
-	inoremap  <Down>   <NOP>
-	inoremap  <Left>   <NOP>
-	inoremap  <Right>  <NOP>
-	noremap   <Up>     <NOP>
-	noremap   <Down>   <NOP>
-	noremap   <Left>   <NOP>
-	noremap   <Right>  <NOP>
-endfunction
-autocmd CursorMoved * call Fixvim()
-
+" Make multi cursors not annoying
 let g:multi_cursor_exit_from_insert_mode = 0
 let g:multi_cursor_exit_from_visual_mode = 0
+
+" f12 to show line numbers
+map <F12> :set number!<CR>
+inoremap <F12> <Esc>:set number!<CR>i
 
 " Better tab completion
 set wildmenu

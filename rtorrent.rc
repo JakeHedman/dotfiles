@@ -2,7 +2,7 @@
 # Requires rtorrent-ps #
 ########################
 #scgi_port = localhost:5000
-directory.default.set = /home/jakob/Downloads/
+directory.default.set = /mnt/raid/manual_downloads/
 session.path.set = /home/jakob/.rtorrent_session/
 
 # Create views
@@ -27,7 +27,7 @@ view.collapsed.toggle=rtcontrol
 # Set custom4 for RSS downloads
 # View download in RSS view
 # Do not view download in Manual view
-schedule = watch_directory,5,5,"load.start=/home/jakob/torrents/*.torrent, d.directory.set=/mnt/hdd0/downloads/, view.set_visible=RSS, view.set_not_visible=Manual, d.custom4.set=RSS"
+schedule = watch_directory,5,5,"load.start=/home/jakob/torrents/*.torrent, d.directory.set=/mnt/raid/downloads/, view.set_visible=RSS, view.set_not_visible=Manual, d.custom4.set=RSS"
 
 # Filter views
 view.filter = RSS, false=
