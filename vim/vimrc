@@ -176,7 +176,7 @@ set nocompatible
 " %l line
 " %L number of lines
 " %P percentage through buffer
-set statusline=%F%r%m\ %y%=%c\ %l/%L\ %P
+set statusline=%F%r%m\ %y%=%=0x%B\ %c\ %l/%L\ %P
 
 " Disable double leader in EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'

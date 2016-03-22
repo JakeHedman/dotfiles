@@ -101,7 +101,6 @@ KEYTIMEOUT=1
 bindkey "^[[A" up-line-or-search
 bindkey "^[[B" down-line-or-search
 
-export TERM=screen-256color
 alias yolo="sudo"
 alias s="source"
 alias v="vim"
@@ -136,3 +135,5 @@ stty -ixon
 alias xgcc='xtensa-lx106-elf-gcc'
 
 alias vncd='x11vnc -localhost -display :0'
+
+alias sugulp='sudo -E env PATH=$PATH gulp'
