@@ -8,7 +8,6 @@ call vundle#begin()
 " Let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'Lokaltog/vim-easymotion'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
@@ -20,6 +19,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -176,7 +176,8 @@ set nocompatible
 " %l line
 " %L number of lines
 " %P percentage through buffer
-set statusline=%F%r%m\ %y%=%=0x%B\ %c\ %l/%L\ %P
+" %= right side
+set statusline=%F%r%m\ %y%=%{fugitive#head()}\ 0x%B\ %c\ %l/%L\ %P
 
 " Disable double leader in EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
@@ -185,9 +186,12 @@ let g:EasyMotion_leader_key = '<Leader>'
 let g:multi_cursor_exit_from_insert_mode = 0
 let g:multi_cursor_exit_from_visual_mode = 0
 
-" f12 to show line numbers
-map <F12> :set number!<CR>
-inoremap <F12> <Esc>:set number!<CR>i
+" Hide git gutter by default
+let g:gitgutter_enabled = 0
+
+" f12 to show line numbers and git gutter
+map <F12> :set number!<CR>:GitGutterToggle<CR>
+inoremap <F12> <Esc>:set number!<CR>:GitGutterToggle<CR>i
 
 " Better tab completion
 set wildmenu
@@ -225,3 +229,24 @@ imap <silent> <unique> <leader>j <Plug>JiraComplete
 " Title
 set title
 set titlestring=VIM:\ %-25.55F\ %a%r%m titlelen=70
+
+" fugitive git bindings
+nnoremap <leader>ga :Git add %:p<CR><CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit -v -q<CR>
+nnoremap <leader>gt :Gcommit -v -q %:p<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>ge :Gedit<CR>
+nnoremap <leader>gr :Gread<CR>
+nnoremap <leader>gw :Gwrite<CR><CR>
+nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <leader>gp :Ggrep<Space>
+nnoremap <leader>gm :Gmove<Space>
+nnoremap <leader>gbr :Git branch<Space>
+nnoremap <leader>gbl :Gblame<CR>
+nnoremap <leader>go :Git checkout<Space>
+nnoremap <leader>gps :Dispatch! git push<CR>
+nnoremap <leader>gpl :Dispatch! git pull<CR>
+
+" Kill all splits except focused
+nnoremap <leader>o :only<CR>
