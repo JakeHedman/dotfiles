@@ -137,3 +137,10 @@ alias xgcc='xtensa-lx106-elf-gcc'
 alias vncd='x11vnc -localhost -display :0'
 
 alias sugulp='sudo -E env PATH=$PATH gulp'
+
+source ~/.slackwebhook
+
+bindkey -a j backward-char
+bindkey -a 'ö' forward-char
+bindkey -a k down-history
+bindkey -a l up-history

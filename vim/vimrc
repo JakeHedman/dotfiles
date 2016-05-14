@@ -15,7 +15,6 @@ Plugin 'mnpk/vim-jira-complete'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-fugitive'
@@ -250,3 +249,9 @@ nnoremap <leader>gpl :Dispatch! git pull<CR>
 
 " Kill all splits except focused
 nnoremap <leader>o :only<CR>
+
+" jköl it is
+noremap ö l
+noremap l k
+noremap k j
+noremap j h
