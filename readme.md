@@ -15,10 +15,7 @@ Note to self
 TODO
 =========
 - Weechat
-- Screen lock
 - ipython
-- rtorrent
-- mplayer
-- Fix ugly tabs in urxvt. Remove brackets, [NEW], and change color on notification
+- mpv
 - Swap ctrl with fn
 - Inverse fn
