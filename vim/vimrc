@@ -19,6 +19,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'mxw/vim-jsx'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -39,11 +40,11 @@ map <Down> <C-W>-
 map <Left> <C-W><
 map <Right> <C-W>>
 
-" ^hjkl to navigate split windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-l> <C-W>l
-map <C-h> <C-W>h
+" ^jklö to navigate split windows
+map <C-j> <C-W>h
+map <C-k> <C-W>j
+map <C-l> <C-W>k
+map <C-ö> <C-W>l
 
 " Leader-s to sort selected lines e.g. to sort python imports alphabetically
 vnoremap <Leader>s :sort<CR> 
