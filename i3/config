@@ -124,3 +124,15 @@ bindsym $mod+Control+Shift+j move workspace to output left
 bindsym $mod+Control+Shift+k move workspace to output down
 bindsym $mod+Control+Shift+l move workspace to output up
 bindsym $mod+Control+Shift+odiaeresis move workspace to output right
+
+# Soundboard
+# Rosling
+bindsym Shift+F12 exec "curl https://jakob.su/soundboard/rosling.mp3 > /tmp/soundboard.mp3; mplayer /tmp/soundboard.mp3"
+# Snake
+bindsym Shift+F11 exec "curl https://jakob.su/soundboard/snakesnakesnake.mp3 > /tmp/soundboard.mp3; mplayer /tmp/soundboard.mp3"
+# Rimshot
+bindsym Shift+F10 exec "curl https://jakob.su/soundboard/rimshot.mp3 > /tmp/soundboard.mp3; mplayer /tmp/soundboard.mp3"
+# Orimligt
+bindsym Shift+F9 exec "curl https://jakob.su/soundboard/orimligt.mp3 > /tmp/soundboard.mp3; mplayer /tmp/soundboard.mp3"
+# Geim
+bindsym Shift+F8 exec "curl https://jakob.su/soundboard/geim.mp3 > /tmp/soundboard.mp3; mplayer /tmp/soundboard.mp3"
