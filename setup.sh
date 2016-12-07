@@ -3,8 +3,7 @@
 DIR="$( cd "$( dirname "$0" )" && pwd )"
 
 GROUPED=$(pacman -Sg xorg i3 | cut -d ' ' -f2 | tr '\n' ' ')
-#XORG = $(pacman -Sg xorg | cut -d ' ' -f2 | tr '\n' ' ')
-sudo pacman --needed -qSy $GROUPED python xf86-video-intel mesa-libgl vulkan-intel lib32-mesa-libgl git curl sudo openssh dmenu zsh urxvt-perls jshon python2 ruby lua perl tcl openconnect wpa_supplicant alsa-utils mpv udev wget the_silver_searcher xbindkeys imagemagick htop ttf-hack
+sudo pacman --needed -qSy $GROUPED python xf86-video-intel mesa-libgl vulkan-intel lib32-mesa-libgl git curl sudo openssh dmenu zsh urxvt-perls jshon python2 ruby lua perl tcl openconnect wpa_supplicant alsa-utils mpv udev wget the_silver_searcher xbindkeys imagemagick htop ttf-hack scrot
 sudo pacman --needed -qSy gvim
 
 # get aura
