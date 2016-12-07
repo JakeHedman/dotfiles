@@ -1,0 +1,11 @@
+#!/bin/bash
+
+RES=$(xrandr | grep \* | cut -d' ' -f4)
+if [ ! -f /tmp/lock-bg-$RES.png ] || [ ! -f /tmp/lock-bg.png ]; then
+    convert ~/.i3/lock-bg.png -adaptive-resize $RES /tmp/lock-bg-$RES.png
+    cp /tmp/lock-bg-$RES.png /tmp/lock-bg.png
+fi
+
+if [ ! "$1" == "nolock" ]; then
+    i3lock -p win -c 000000 -f -i /tmp/lock-bg.png
+fi

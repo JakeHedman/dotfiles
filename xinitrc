@@ -10,4 +10,7 @@ xset r rate 250 30
 # Keyboard layout
 setxkbmap se -option caps:escape
 
+# Key bindings
+xbindkeys
+
 exec i3

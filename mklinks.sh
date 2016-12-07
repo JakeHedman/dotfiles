@@ -15,6 +15,7 @@ mkdir ~/.i3
 ln -s $DIR/i3/i3status.conf ~/.i3status.conf
 ln -s $DIR/i3/config ~/.i3/config
 ln -s $DIR/i3/bg.png ~/.i3/bg.png
+ln -s $DIR/i3/lock-bg.png ~/.i3/lock-bg.png
 
 # vim
 ln -Ts $DIR/vim ~/.vim

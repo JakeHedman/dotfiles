@@ -16,5 +16,7 @@
     XF86AudioPlay
 "xbacklight -dec 1 -time 0 -steps 1"
     XF86MenuKB
-"i3lock"
+"~/bin/lock"
+    XF86LaunchA
+"~/bin/lock && systemctl suspend"
     XF86LaunchB

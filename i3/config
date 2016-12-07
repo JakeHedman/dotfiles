@@ -139,3 +139,6 @@ bindsym Shift+F8 exec "curl https://jakob.su/soundboard/geim.mp3 > /tmp/soundboa
 
 # Set resolution on notebook
 exec_always --no-startup-id "[ -f ~/.notebook ] && xrandr && xrandr --output eDP1 --mode 1920x1200"
+
+# Cache scaled i3lock background
+exec_always --no-startup-id "lock nolock"

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pacman --needed -Sy python xf86-video-intel mesa-libgl xorg i3 vulkan-intel lib32-mesa-libgl git curl sudo openssh dmenu zsh urxvt-perls jshon python2 ruby lua perl tcl openconnect wpa_supplicant alsa-utils mpv udev wget the_silver_searcher xbindkeys
+sudo pacman --needed -Sy python xf86-video-intel mesa-libgl xorg i3 vulkan-intel lib32-mesa-libgl git curl sudo openssh dmenu zsh urxvt-perls jshon python2 ruby lua perl tcl openconnect wpa_supplicant alsa-utils mpv udev wget the_silver_searcher xbindkeys imagemagick
 sudo pacman --needed -Sy gvim
 
 # get aura
