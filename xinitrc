@@ -8,6 +8,6 @@ xset fp rehash
 xset r rate 250 30
 
 # Keyboard layout
-setxkbmap se -option caps:super
+setxkbmap se -option caps:escape
 
 exec i3
