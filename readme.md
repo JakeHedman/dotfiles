@@ -10,7 +10,7 @@ Note to self
 - :VundleInstall
 - gem install scss-lint
 - pip install pyflakes
-- sudo npm install -g csslint jshint
+- change default sound card in alsa
 
 TODO
 =========
