@@ -12,7 +12,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # open a browser window
-bindsym $mod+shift+Return exec google-chrome
+bindsym $mod+shift+Return exec google-chrome-stable
 
 # kill focused window
 bindsym $mod+shift+w kill
@@ -136,3 +136,6 @@ bindsym Shift+F10 exec "curl https://jakob.su/soundboard/rimshot.mp3 > /tmp/soun
 bindsym Shift+F9 exec "curl https://jakob.su/soundboard/orimligt.mp3 > /tmp/soundboard.mp3; mplayer /tmp/soundboard.mp3"
 # Geim
 bindsym Shift+F8 exec "curl https://jakob.su/soundboard/geim.mp3 > /tmp/soundboard.mp3; mplayer /tmp/soundboard.mp3"
+
+# Set resolution on notebook
+exec_always --no-startup-id "[ -f ~/.notebook ] && xrandr && xrandr --output eDP1 --mode 1920x1200"
