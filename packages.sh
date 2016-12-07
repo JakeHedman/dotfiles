@@ -26,3 +26,4 @@ if [ -f ~/.notebook ]; then
 fi
 
 sudo usermod -g audio jake
+sudo ln -s /bin/google-chrome-stable /bin/google-chrome
