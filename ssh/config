@@ -7,3 +7,6 @@ ServerAliveCountMax 3
 
 # ~~. to terminate connection
 EscapeChar ~
+
+# Include host specific config
+Include hosts_config
