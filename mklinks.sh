@@ -2,6 +2,14 @@
 
 DIR="$( cd "$( dirname "$0" )" && pwd )"
 
+if [ $1 = "notebook" ]; then
+    touch ~/.notebook
+fi
+
+if [ $1 = "desktop" ]; then
+    touch ~/.desktop
+fi
+
 # i3
 mkdir ~/.i3
 ln -s $DIR/i3/i3status.conf ~/.i3status.conf
