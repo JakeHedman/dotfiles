@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pacman --needed -Sy python xf86-video-intel mesa-libgl xorg i3 vulkan-intel lib32-mesa-libgl git curl sudo openssh dmenu zsh urxvt-perls jshon python2 ruby lua perl tcl openconnect
+sudo pacman --needed -Sy python xf86-video-intel mesa-libgl xorg i3 vulkan-intel lib32-mesa-libgl git curl sudo openssh dmenu zsh urxvt-perls jshon python2 ruby lua perl tcl openconnect wpa_supplicant
 sudo pacman --needed -Sy gvim
 
 # get aura
@@ -17,5 +17,9 @@ sudo aura --needed -Ay spotify google-chrome rxvt-unicode-patched tldr-cpp-clien
 
 if [ -f ~/.notebook ]; then
     sudo pacman --needed -Sy connman
-    sudo aura --needed -Ay connman-ncurses
+    sudo aura --needed -Ay connman-ncurses connman_dmenu-git
+    sudo systemctl enable connman
+    sudo systemctl start connman
+    sudo systemctl disable netctl
+    sudo systemctl stop netctl
 fi

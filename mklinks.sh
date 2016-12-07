@@ -52,3 +52,6 @@ ln -s $DIR/ackrc ~/.ackrc
 
 # screen
 ln -s $DIR/screenrc ~/.screenrc
+
+# bin
+ln -s $DIR/bin ~/bin
