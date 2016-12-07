@@ -37,3 +37,6 @@ if [ ! "$(localectl list-locales | grep en_US.utf8)" ]; then
     sudo sh -c "grep -E '^en_US.UTF-8 UTF-8' /etc/locale.gen || echo en_US.UTF-8 UTF-8 >> /etc/locale.gen"
     sudo locale-gen
 fi
+
+sudo pacman -Syu
+sudo aura -Ayu
