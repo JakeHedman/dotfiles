@@ -17,11 +17,12 @@ sudo aura --needed -Ay spotify google-chrome rxvt-unicode-patched tldr-cpp-clien
 
 if [ -f ~/.notebook ]; then
     sudo pacman --needed -Sy connman
-    sudo aura --needed -Ay connman-ncurses connman_dmenu-git
+    sudo aura --needed -Ay connman-ncurses connman_dmenu-git kbdlight
     sudo systemctl enable connman
     sudo systemctl start connman
     sudo systemctl disable netctl
     sudo systemctl stop netctl
+    sudo sh -c "echo XHC1 > /proc/acpi/wakeup"
 fi
 
 sudo usermod -g audio jake
