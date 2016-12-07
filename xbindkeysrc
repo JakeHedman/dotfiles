@@ -16,3 +16,5 @@
     XF86AudioPlay
 "xbacklight -dec 1 -time 0 -steps 1"
     XF86MenuKB
+"i3lock"
+    XF86LaunchB
