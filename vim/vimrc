@@ -1,9 +1,21 @@
 set nocompatible
 filetype off
 
-" Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+let s:editor_root=expand("~/.vim")
+
+" Setting up Vundle - the vim plugin bundler
+let vundle_installed=1
+let vundle_readme=s:editor_root . '/bundle/vundle/README.md'
+if !filereadable(vundle_readme)
+    echo "Installing Vundle.."
+    echo ""
+    " silent execute "! mkdir -p ~/." . s:editor_path_name . "/bundle"
+    silent call mkdir(s:editor_root . '/bundle', "p")
+    silent execute "!git clone https://github.com/gmarik/vundle " . s:editor_root . "/bundle/vundle"
+    let vundle_installed=0
+endif
+let &rtp = &rtp . ',' . s:editor_root . '/bundle/vundle/'
+call vundle#rc(s:editor_root . '/bundle')
 
 " Let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
@@ -21,8 +33,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'mxw/vim-jsx'
 
-" All of your Plugins must be added before the following line
-call vundle#end()
+if vundle_installed == 0
+    :BundleInstall
+endif
+
 filetype plugin indent on
 
 " Toggle paste mode (no auto indent) with f2
@@ -100,10 +114,12 @@ set incsearch
 set ignorecase
 set smartcase
 
-" UTF-8!!
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8
+" UTF-8!
+if &modifiable
+    set encoding=utf-8
+    set fileencoding=utf-8
+    set fileencodings=utf-8
+endif
 
 " No beepin'
 set vb t_vb=
