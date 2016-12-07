@@ -4,7 +4,7 @@ DIR="$( cd "$( dirname "$0" )" && pwd )"
 
 GROUPED=$(pacman -Sg xorg i3 | cut -d ' ' -f2 | tr '\n' ' ')
 #XORG = $(pacman -Sg xorg | cut -d ' ' -f2 | tr '\n' ' ')
-sudo pacman --needed -qSy $GROUPED python xf86-video-intel mesa-libgl vulkan-intel lib32-mesa-libgl git curl sudo openssh dmenu zsh urxvt-perls jshon python2 ruby lua perl tcl openconnect wpa_supplicant alsa-utils mpv udev wget the_silver_searcher xbindkeys imagemagick htop
+sudo pacman --needed -qSy $GROUPED python xf86-video-intel mesa-libgl vulkan-intel lib32-mesa-libgl git curl sudo openssh dmenu zsh urxvt-perls jshon python2 ruby lua perl tcl openconnect wpa_supplicant alsa-utils mpv udev wget the_silver_searcher xbindkeys imagemagick htop ttf-hack
 sudo pacman --needed -qSy gvim
 
 # get aura
@@ -17,7 +17,7 @@ which aura || curl https://raw.githubusercontent.com/keenerd/packer/master/packe
 nvm install stable
 nvm use stable
 
-sudo aura --needed -qAy spotify google-chrome rxvt-unicode-patched tldr-cpp-client progress-git
+sudo aura --needed -qAy spotify google-chrome rxvt-unicode-patched tldr-cpp-client progress-git urxvt-font-git
 
 if [ -f ~/.notebook ]; then
     sudo pacman --needed -qSy connman
