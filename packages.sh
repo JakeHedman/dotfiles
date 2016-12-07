@@ -13,7 +13,7 @@ which nvm || curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/i
 nvm install stable
 nvm use stable
 
-sudo aura --needed -Ay spotify google-chrome rxvt-unicode-patched tldr-cpp-client
+sudo aura --needed -Ay spotify google-chrome rxvt-unicode-patched tldr-cpp-client progress-git
 
 if [ -f ~/.notebook ]; then
     sudo pacman --needed -Sy connman
