@@ -54,11 +54,11 @@ map <Down> <C-W>-
 map <Left> <C-W><
 map <Right> <C-W>>
 
-" ^jklö to navigate split windows
-map <C-j> <C-W>h
-map <C-k> <C-W>j
-map <C-l> <C-W>k
-map <C-ö> <C-W>l
+" §j §k §l §ö to navigate split windows
+map §j <C-W>h
+map §k <C-W>j
+map §l <C-W>k
+map §ö <C-W>l
 
 " Leader-s to sort selected lines e.g. to sort python imports alphabetically
 vnoremap <Leader>s :sort<CR> 
