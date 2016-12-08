@@ -26,6 +26,9 @@ if [ -f ~/.notebook ]; then
     sudo systemctl disable netctl
     sudo systemctl stop netctl
     sudo sh -c "echo XHC1 > /proc/acpi/wakeup"
+    sudo sh -c "echo 2 > /sys/module/hid_apple/parameters/fnmode"
+    sudo cp $DIR/services/notebook.service /etc/systemd/system/notebook.service
+    sudo systemctl enable notebook
 fi
 
 [ "$(groups jake | grep audio)" ] || sudo usermod -g audio jake

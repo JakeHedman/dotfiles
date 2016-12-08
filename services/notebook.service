@@ -1,0 +1,8 @@
+[Unit]
+Description=notebook
+
+[Service]
+ExecStart=/bin/sh -c "echo XHC1 > /proc/acpi/wakeup; echo 2 > /sys/module/hid_apple/parameters/fnmode"
+
+[Install]
+WantedBy=multi-user.target
