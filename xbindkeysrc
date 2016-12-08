@@ -18,5 +18,3 @@
     XF86MenuKB
 "~/bin/lock"
     XF86LaunchA
-"~/bin/lock && systemctl suspend"
-    XF86LaunchB
