@@ -19,7 +19,7 @@ sudo chsh -s /bin/zsh jake
 nvm install stable
 nvm use stable
 
-sudo aura --needed -qAy spotify google-chrome rxvt-unicode-patched tldr-cpp-client progress-git urxvt-font-git ttf-emojione-color
+sudo aura --needed -qAy spotify google-chrome rxvt-unicode-patched tldr-cpp-client progress-git ttf-emojione-color
 
 sudo sh -c 'mkdir -p /etc/systemd/system/getty@tty1.service.d/'
 sudo sh -c 'echo -e "[Service]\nTTYVTDisallocate=no" > /etc/systemd/system/getty@tty1.service.d/noclear.conf'
@@ -27,6 +27,13 @@ sudo sh -c 'echo -e "KEYMAP=sv-latin1\nFONT=ter-v22n" > /etc/vconsole.conf'
 
 sudo cp $DIR/services/i3lock.service /etc/systemd/system/i3lock.service
 sudo systemctl enable i3lock
+
+mkdir -p ~/bin/
+if [ ! -f ~/bin/mole ]; then
+    mkdir -p /tmp/mole
+    curl -L https://github.com/calmh/mole/releases/download/v4.0.17/mole-linux-amd64.tar.gz | tar -xzC /tmp/mole
+    cp /tmp/mole/bin/mole-linux-amd64 ~/bin/mole
+fi
 
 if [ -f ~/.notebook ]; then
     sudo pacman --needed -qSy connman
