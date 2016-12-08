@@ -16,7 +16,7 @@ which aura || curl https://raw.githubusercontent.com/keenerd/packer/master/packe
 nvm install stable
 nvm use stable
 
-sudo aura --needed -qAy spotify google-chrome rxvt-unicode-patched tldr-cpp-client progress-git urxvt-font-git
+sudo aura --needed -qAy spotify google-chrome rxvt-unicode-patched tldr-cpp-client progress-git urxvt-font-git ttf-emojione-color
 
 if [ -f ~/.notebook ]; then
     sudo pacman --needed -qSy connman
