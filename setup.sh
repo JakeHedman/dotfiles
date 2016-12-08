@@ -3,7 +3,7 @@
 DIR="$( cd "$( dirname "$0" )" && pwd )"
 
 GROUPED=$(pacman -Sg xorg i3 | cut -d ' ' -f2 | tr '\n' ' ')
-sudo pacman --needed -qSy $GROUPED python xf86-video-intel mesa-libgl vulkan-intel lib32-mesa-libgl git curl sudo openssh dmenu zsh urxvt-perls jshon python2 ruby lua perl tcl openconnect wpa_supplicant alsa-utils mpv udev wget the_silver_searcher xbindkeys imagemagick htop ttf-hack scrot
+sudo pacman --needed -qSy $GROUPED python xf86-video-intel mesa-libgl vulkan-intel lib32-mesa-libgl git curl sudo openssh dmenu zsh urxvt-perls jshon python2 ruby lua perl tcl openconnect wpa_supplicant alsa-utils mpv udev wget the_silver_searcher xbindkeys imagemagick htop ttf-hack scrot terminus-font
 sudo pacman --needed -qSy gvim
 
 # get aura
@@ -12,11 +12,21 @@ which aura || curl https://raw.githubusercontent.com/keenerd/packer/master/packe
 # get nvm
 [ -d ~/.nvm ] || curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
 
+sudo chsh -s /bin/zsh root
+sudo chsh -s /bin/zsh jake
+
 . ~/.nvm/nvm.sh
 nvm install stable
 nvm use stable
 
 sudo aura --needed -qAy spotify google-chrome rxvt-unicode-patched tldr-cpp-client progress-git urxvt-font-git ttf-emojione-color
+
+sudo sh -c 'mkdir -p /etc/systemd/system/getty@tty1.service.d/'
+sudo sh -c 'echo -e "[Service]\nTTYVTDisallocate=no" > /etc/systemd/system/getty@tty1.service.d/noclear.conf'
+sudo sh -c 'echo -e "KEYMAP=sv-latin1\nFONT=ter-v22n" > /etc/vconsole.conf'
+
+sudo cp $DIR/services/i3lock.service /etc/systemd/system/i3lock.service
+sudo systemctl enable i3lock
 
 if [ -f ~/.notebook ]; then
     sudo pacman --needed -qSy connman
