@@ -28,7 +28,6 @@ sudo sh -c 'echo -e "KEYMAP=sv-latin1\nFONT=ter-v22n" > /etc/vconsole.conf'
 sudo cp $DIR/services/i3lock.service /etc/systemd/system/i3lock.service
 sudo systemctl enable i3lock
 
-mkdir -p ~/bin/
 if [ ! -f ~/bin/mole ]; then
     mkdir -p /tmp/mole
     curl -L https://github.com/calmh/mole/releases/download/v4.0.17/mole-linux-amd64.tar.gz | tar -xzC /tmp/mole
