@@ -272,3 +272,9 @@ noremap ö l
 noremap l k
 noremap k j
 noremap j h
+
+" Yank to system clipboard (PRIMARY)
+set clipboard=unnamed
+
+" ,p to paste from system clipboard (CLIPBOARD)
+nmap <leader>p "+p
