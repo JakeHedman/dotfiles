@@ -267,7 +267,7 @@ nnoremap <leader>gpl :Dispatch! git pull<CR>
 " Kill all splits except focused
 nnoremap <leader>o :only<CR>
 
-" jköl it is
+" jklö it is
 noremap ö l
 noremap l k
 noremap k j
@@ -278,3 +278,6 @@ set clipboard=unnamed
 
 " ,p to paste from system clipboard (CLIPBOARD)
 nmap <leader>p "+p
+
+" Execute with ,b
+vnoremap <leader>b :.w !bash
