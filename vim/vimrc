@@ -281,3 +281,6 @@ nmap <leader>p "+p
 
 " Execute with ,b
 vnoremap <leader>b :.w !bash
+
+" Activate jsx support for .js files
+let g:jsx_ext_required = 0
