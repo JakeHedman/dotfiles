@@ -1,5 +1,4 @@
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
+# Super as mod
 set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
@@ -9,10 +8,10 @@ font pango:hack 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec termite
 
 # open a browser window
-bindsym $mod+shift+Return exec google-chrome
+bindsym $mod+shift+Return exec google-chrome-stable
 
 # kill focused window
 bindsym $mod+shift+w kill
@@ -82,7 +81,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+R restart
 
-# exit i3 (logs you out of your X session)
+# exit sway
 bindsym $mod+Control+Mod1+E exit
 
 bindsym $mod+Control+Mod1+j resize shrink   width   1 px or 1 ppt
@@ -95,8 +94,7 @@ bindsym $mod+Mod1+k resize shrink   height  5 px or 5 ppt
 bindsym $mod+Mod1+l resize grow     height  5 px or 5 ppt
 bindsym $mod+Mod1+odiaeresis resize grow     width   5 px or 5 ppt
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# Status bar
 bar {
     status_command i3status
 }
@@ -104,8 +102,8 @@ bar {
 # No borders
 new_window none
 
-# Except for urxvt
-for_window [class="URxvt"] border pixel 1
+# Except for terminal
+for_window [class="termite"] border pixel 1
 
 # No borders at edge of screen
 hide_edge_borders both
@@ -116,29 +114,8 @@ bindsym $mod+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+period scratchpad show
 
-# Wallpaper
-exec feh --bg-scale ~/.i3/bg.png
-
 # Move windows between monitors
-bindsym $mod+Control+Shift+j move workspace to output left
-bindsym $mod+Control+Shift+k move workspace to output down
-bindsym $mod+Control+Shift+l move workspace to output up
-bindsym $mod+Control+Shift+odiaeresis move workspace to output right
-
-# Soundboard
-# Rosling
-bindsym Shift+F12 exec "curl https://jakob.su/soundboard/rosling.mp3 > /tmp/soundboard.mp3; mplayer /tmp/soundboard.mp3"
-# Snake
-bindsym Shift+F11 exec "curl https://jakob.su/soundboard/snakesnakesnake.mp3 > /tmp/soundboard.mp3; mplayer /tmp/soundboard.mp3"
-# Rimshot
-bindsym Shift+F10 exec "curl https://jakob.su/soundboard/rimshot.mp3 > /tmp/soundboard.mp3; mplayer /tmp/soundboard.mp3"
-# Orimligt
-bindsym Shift+F9 exec "curl https://jakob.su/soundboard/orimligt.mp3 > /tmp/soundboard.mp3; mplayer /tmp/soundboard.mp3"
-# Geim
-bindsym Shift+F8 exec "curl https://jakob.su/soundboard/geim.mp3 > /tmp/soundboard.mp3; mplayer /tmp/soundboard.mp3"
-
-# Set resolution on notebook
-exec_always --no-startup-id "[ -f ~/.notebook ] && xrandr && xrandr --output eDP1 --mode 1920x1200"
-
-# Cache scaled i3lock background
-exec_always --no-startup-id "lock nolock"
+#bindsym $mod+Control+Shift+j move workspace to output left
+#bindsym $mod+Control+Shift+k move workspace to output down
+#bindsym $mod+Control+Shift+l move workspace to output up
+#bindsym $mod+Control+Shift+odiaeresis move workspace to output right

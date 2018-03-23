@@ -1,43 +1,36 @@
+" Required for vundle
 set nocompatible
 filetype off
+set shell=/bin/bash
 
-let s:editor_root=expand("~/.vim")
-
-" Setting up Vundle - the vim plugin bundler
-let vundle_installed=1
-let vundle_readme=s:editor_root . '/bundle/vundle/README.md'
+" Automatic Vundle install
+let firstRun=0
+let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
 if !filereadable(vundle_readme)
-    echo "Installing Vundle.."
-    echo ""
-    " silent execute "! mkdir -p ~/." . s:editor_path_name . "/bundle"
-    silent call mkdir(s:editor_root . '/bundle', "p")
-    silent execute "!git clone https://github.com/gmarik/vundle " . s:editor_root . "/bundle/vundle"
-    let vundle_installed=0
+  echo "Installing Vundle.."
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  let firstRun=1
 endif
-let &rtp = &rtp . ',' . s:editor_root . '/bundle/vundle/'
-call vundle#rc(s:editor_root . '/bundle')
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#rc()
 
-" Let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'kien/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'mnpk/vim-jira-complete'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'heavenshell/vim-jsdoc'
+Plugin 'mxw/vim-jsx'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'mxw/vim-jsx'
 
-if vundle_installed == 0
-    :BundleInstall
+if firstRun == 1
+  echo "Installing Bundles, please ignore key map error messages"
+  :PluginInstall
 endif
-
-filetype plugin indent on
 
 " Toggle paste mode (no auto indent) with f2
 set pastetoggle=<f2>
@@ -48,19 +41,19 @@ let mapleader = ","
 " Leader-h to show hidden chars
 nmap <leader>h :set list!<CR>
 
-" Arrow keys to resize split windows
+" Arrow keys to resize splits
 map <Up> <C-W>+
 map <Down> <C-W>-
 map <Left> <C-W><
 map <Right> <C-W>>
 
-" §j §k §l §ö to navigate split windows
+" §j §k §l §ö to navigate splits
 map §j <C-W>h
 map §k <C-W>j
 map §l <C-W>k
 map §ö <C-W>l
 
-" Leader-s to sort selected lines e.g. to sort python imports alphabetically
+" Leader-s to sort selected lines e.g. to sort lines alphabetically
 vnoremap <Leader>s :sort<CR> 
 
 " Q wraps paragraph
@@ -76,10 +69,6 @@ filetype off
 filetype plugin indent on
 syntax on
 
-" Textwidth - Maximum width of text that is being inserted.  A longer line will
-" be broken after white space to get this width.  A zero value disables  
-" set tw=79
-
 " Don't wrap lines
 set nowrap
 
@@ -88,46 +77,38 @@ set fo-=t
 set colorcolumn=80
 highlight ColorColumn ctermbg=DarkGray
 
-" BAM your <Tab> and <Backspace> keys are convenient now without the pain
-" associated with \t characters in source files
-set shiftwidth=4
-set softtabstop=4 expandtab
+" Indent with 2 spaces
+set softtabstop=2 expandtab
+set shiftwidth=2
 
-" Don't add newlines at ends of files
-set fileformats+=dos
-
-" Save >9k actions in undo history
-set undolevels=9001
+" Longer undo history
+set undolevels=20000
 
 " Highlight all search results
 set hlsearch
 
-" ,l redraws the screen and removes any search highlighting. 
+" ,l redraws the screen and removes any search highlighting
 nnoremap <silent> <Leader>l :nohl<CR>
 
 " Search while typing
 set incsearch
 
-" When 'ignorecase' and 'smartcase' are both on, if a pattern contains an
-" uppercase letter, it is case sensitive, otherwise, it is not. For example,
-" /The would find only "The", while /the would find "the" or "The" etc.
+" Smart case search (case sensitive i any capital letter in pattern)
 set ignorecase
 set smartcase
 
-" UTF-8!
+" UTF-8
 if &modifiable
     set encoding=utf-8
     set fileencoding=utf-8
     set fileencodings=utf-8
 endif
 
-" No beepin'
+" No beeping
 set vb t_vb=
 
-" Center cursor vertically
+" Center cursor vertically (toggle with ,z)
 set scrolloff=999
-
-" Toggle scrolloff with ,z
 nnoremap <silent> <Leader>z :let &scrolloff=999-&scrolloff<CR>
 
 " Hilight current line
@@ -136,15 +117,14 @@ set cursorline
 " Toggle column hilight with ,c
 nnoremap <Silent> <Leader>c :set cursorcolumn!<CR>
 
-" Try to save swapfiles in ~/.vim/swap, save in current dir if it fails
-set directory^=$HOME/.vim/swap//,.
+" swapfiles in ~/.vim/swap
+set directory^=$HOME/.vim/swap/
 
-" Molokai (monokai from textmate)
+" Molokai theme (like monokai from textmate)
 colors molokai
 set background=light
 
-
-" Fix backspace in insert mode
+" Normal backspace in insert mode
 set backspace=2
 
 " Disable paste mode when leaving Insert Mode
@@ -153,7 +133,7 @@ au InsertLeave * set nopaste
 " Open new splits to the right/bottom
 set splitright splitbelow
 
-" Always show status/power-line
+" Always show statusline
 set laststatus=2
 
 " bash-like bindings for vim's command line
@@ -175,13 +155,10 @@ command Wq wq
 command W w
 command Q q
 
-" (Hopefully) removes the delay when hitting esc in insert mode
+" Remove delay when hitting esc in insert mode
 set noesckeys
 set ttimeout
 set ttimeoutlen=1
-
-" Fix arrow keys for code completion
-set nocompatible
 
 " Statusline
 " %F - Longer path
@@ -198,22 +175,17 @@ set statusline=%F%r%m\ %y%=%{fugitive#head()}\ 0x%B\ %c\ %l/%L\ %P
 " Disable double leader in EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
 
-" Make multi cursors not annoying
+" Don't delete multiple cursors when trying to enter normal mode
 let g:multi_cursor_exit_from_insert_mode = 0
 let g:multi_cursor_exit_from_visual_mode = 0
 
-" Hide git gutter by default
+" Hide gitgutter and line numbers and toggle with f12
 let g:gitgutter_enabled = 0
-
-" f12 to show line numbers and git gutter
 map <F12> :set number!<CR>:GitGutterToggle<CR>
 inoremap <F12> <Esc>:set number!<CR>:GitGutterToggle<CR>i
 
-" Better tab completion
+" Better tab completion in command line
 set wildmenu
-
-" tabs are 4 spaces
-set tabstop=4
 
 " ,t for new tab
 nnoremap <leader>t <Esc>:tabnew<CR>
@@ -227,20 +199,12 @@ hi IndentGuidesOdd ctermbg=234
 hi IndentGuidesEven ctermbg=235
 set wildignore+=*bower_components,node_modules,webroot,tmp
 
-" Use the silver search instead of slow ack
-let g:ackprg = 'ag --vimgrep'
-
 " Syntastic
 let g:syntastic_python_checkers = ['pyflakes']
 let g:syntastic_javascript_checkers = ['jscs', 'jshint']
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_css_checkers = ['csslint']
 let g:syntastic_aggregate_errors = 1
-
-" Jira
-let g:jiracomplete_url = { 'url': 'http://tickets.int.prnw.net/', 'verify': 'False' }
-let g:jiracomplete_username = 'jhedman'
-imap <silent> <unique> <leader>j <Plug>JiraComplete
 
 " Title
 set title
@@ -264,10 +228,10 @@ nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gps :Dispatch! git push<CR>
 nnoremap <leader>gpl :Dispatch! git pull<CR>
 
-" Kill all splits except focused
+" ,o to close all splits except focused
 nnoremap <leader>o :only<CR>
 
-" jklö it is
+" jklö instead of hjkl
 noremap ö l
 noremap l k
 noremap k j
@@ -279,8 +243,8 @@ set clipboard=unnamed
 " ,p to paste from system clipboard (CLIPBOARD)
 nmap <leader>p "+p
 
-" Execute with ,b
+" Execute selected text with ,b
 vnoremap <leader>b :.w !bash
 
-" Activate jsx support for .js files
+" Don't require .jsx extension for jsx syntax
 let g:jsx_ext_required = 0
