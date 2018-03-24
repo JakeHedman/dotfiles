@@ -1,7 +1,9 @@
 # Arch Linux install cheat sheet
 
 ## Create usb
+```sh
 dd bs=4M if=/path/to/archlinux.iso of=/dev/sd... status=progress oflag=sync
+```
 
 ## Install system
 ```sh

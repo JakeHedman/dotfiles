@@ -29,6 +29,7 @@ pacman --needed -qSy \
   python-prompt_toolkit \
   ttf-liberation
 
+# Install vim after python to get +python
 pacman --needed -qSy gvim
 
 # give sudo to sudo group
@@ -47,7 +48,7 @@ sudo -u $USERNAME git config --global user.name 'Jake Hedman'
 which aura || curl https://raw.githubusercontent.com/keenerd/packer/master/packer | sudo -u $USERNAME bash -s -- -S --noconfirm aura-bin
 
 # AUR packages
-sudo -u $USERNAME sudo aura --needed -Ay xonsh google-chrome ttf-ms-fonts spotify
+sudo -u $USERNAME sudo aura --needed -Ay xonsh google-chrome ttf-ms-fonts spotify brightnessctl
 
 # Use xonsh shell from AUR
 chsh -s /usr/bin/xonsh $USERNAME
