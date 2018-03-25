@@ -133,6 +133,7 @@ if [ ! -f "$LTEPATH" ]; then
   echo "[gsm]" >> "$LTEPATH"
   echo "apn=4g.tele2.se" >> "$LTEPATH"
 fi
+nmcli con reload
 
 # (Auto)start network stuff
 systemctl enable NetworkManager
@@ -148,7 +149,6 @@ timedatectl set-ntp true
 
 # Auto enable lte when wifi is down
 cp /home/"$USERNAME"/dotfiles/lte-auto-toggle.sh /etc/NetworkManager/dispatcher.d/
-
 
 # Syslinux config
 sed -i 's/INITRD ..\/initramfs-linux.img/INITRD ..\/intel-ucode.img,..\/initramfs-linux.img/' /boot/syslinux/syslinux.cfg
