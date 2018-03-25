@@ -7,14 +7,17 @@ dd bs=4M if=/path/to/archlinux.iso of=/dev/sd... status=progress oflag=sync
 
 ## Install system
 ```sh
-# Partition single ext4 partition (bootlable)
+# Set keymap
+loadkeys sv-latin1
+
+# Partition single 32bit ext4 partition (bootlable)
 cfdisk /dev/disk/by-id/...
 mkfs.ext4 -O "^64bit" /dev/disk/by-id/...-part1
 
 # Mount to /mnt
 mount /dev/disk/by-id/...-part1 /mnt
 
-# Select mirror
+# Select mirror (optional)
 vi /etc/pacman.d/mirrorlist
 
 # Install system
@@ -26,8 +29,8 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # Chroot to new system
 arch-chroot /mnt
 
-# Install bootloader and intel microcode
-pacman -Syu intel-ucode syslinux
+# Install bootloader
+pacman -Syu syslinux
 
 # Install bootloader
 syslinux-install_update -i -a -m
@@ -38,25 +41,21 @@ passwd
 # Set hostname
 echo hostname > /etc/hostname
 
-# Configure bootloader
-# - Short timeout: change "TIMEOUT 10" to "TIMEOUT 1"
 # - Change partition path (APPEND root=...) to /dev/disk/by-uuid/UUID
-# - Add intel-ucode after "APPEND ..." line under "LABEL arch":
-#   INITRD ../intel-ucode.img,../initramfs-linux.img
 vi /boot/syslinux/syslinux.cfg
 
 # Reboot to live system and disconnect USB drive
 reboot
 ```
 
-## Network setup (optional)
+## Wlan setup (optional)
 
 ```sh
 # Install and enable networkmanager
 pacman -Syu networkmanager
 systemctl start NetworkManager
 
-# Connect to wifi
+# Connect to wlan
 nmtui
 ```
 

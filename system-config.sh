@@ -17,6 +17,7 @@ pacman --noconfirm --needed -qSy \
   git \
   htop \
   i3status \
+  intel-ucode \
   jshon \
   libnotify \
   mesa \
@@ -51,9 +52,12 @@ if ! grep -Fx "$SUDOCONF" /etc/sudoers; then
 fi
 
 # Create user
-groupadd sudo
-useradd $USERNAME -mG sudo,audio && passwd $USERNAME
-sudo -u $USERNAME mkdir /home/$USERNAME/bin
+if [ ! -d /home/$USERNAME ]; then
+  groupadd sudo
+  useradd $USERNAME -mG sudo,audio
+  passwd $USERNAME
+  sudo -u $USERNAME mkdir /home/$USERNAME/bin
+fi
 
 # Git config
 (cd /home/$USERNAME; sudo -u $USERNAME git config --global user.email "$EMAIL")
@@ -66,7 +70,7 @@ if ! which aura; then
 fi
 
 # AUR packages
-env SUDO_USER="$USERNAME" aura --noconfirm --needed -qAy
+env SUDO_USER="$USERNAME" aura --noconfirm --needed -Ay \
   brightnessctl \
   google-chrome \
   spotify \
@@ -82,7 +86,7 @@ if [ -z "$ALTHOST" ]; then
 elif [ ! -f /home/$USERNAME/.ssh/private_config ]; then
    sudo -u $USERNAME scp \
      $ALTHOST:.ssh/{id_rsa,id_rsa.pub,private_config} \
-     /home/$USERNAME/.ssh 
+     /home/$USERNAME/.ssh
 fi
 
 # Set locale
@@ -144,3 +148,10 @@ timedatectl set-ntp true
 
 # Auto enable lte when wifi is down
 cp /home/"$USERNAME"/dotfiles/lte-auto-toggle.sh /etc/NetworkManager/dispatcher.d/
+
+
+# Syslinux config
+sed -i 's/INITRD ..\/initramfs-linux.img/INITRD ..\/intel-ucode.img,..\/initramfs-linux.img/' /boot/syslinux/syslinux.cfg
+sed -i 's/TIMEOUT 50/TIMEOUT 1/' /boot/syslinux/syslinux.cfg
+
+echo Done!
