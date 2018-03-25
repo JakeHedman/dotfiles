@@ -1,24 +1,35 @@
-#!/bin/sh
+#!/bin/bash
 
-# user to be created
-USERNAME=jake
+# Personal settings
+EMAIL="jake@hedman.email"
+NAME="Jake Hedman"
+REPO="JakeHedman/dotfiles"
+USERNAME="jake"
 
 # Exit if missingroot privileges
-[ $(whoami) != 'root' ] && echo 'I need root' && exit 1
+if [ $(whoami) != "root" ]; then
+  echo "I need root"
+  exit 1
+fi
 
 # Install packages
-pacman --needed -qSy \
+pacman --noconfirm --needed -qSy \
   git \
   htop \
   i3status \
   jshon \
   libnotify \
   mesa \
+  modemmanager \
+  networkmanager \
   nmap \
   nodejs \
   openssh \
+  pavucontrol \
   progress \
+  pulseaudio \
   python \
+  python-prompt_toolkit \
   python2 \
   ripgrep \
   scrot \
@@ -26,14 +37,18 @@ pacman --needed -qSy \
   termite \
   tldr \
   ttf-hack \
-  python-prompt_toolkit \
-  ttf-liberation
+  ttf-liberation \
+  usb_modeswitch \
+  usbutils \
 
 # Install vim after python to get +python
-pacman --needed -qSy gvim
+pacman --noconfirm --needed -qSy gvim
 
 # give sudo to sudo group
-grep -Fx '%sudo ALL=(ALL) ALL' /etc/sudoers || echo '%sudo ALL=(ALL) ALL' >> /etc/sudoers
+SUDOCONF="%sudo ALL=(ALL) ALL"
+if ! grep -Fx "$SUDOCONF" /etc/sudoers; then
+  echo "$SUDOCONF" >> /etc/sudoers
+fi
 
 # Create user
 groupadd sudo
@@ -41,49 +56,91 @@ useradd $USERNAME -mG sudo,audio && passwd $USERNAME
 sudo -u $USERNAME mkdir /home/$USERNAME/bin
 
 # Git config
-sudo -u $USERNAME git config --global user.email 'jake@hedman.email'
-sudo -u $USERNAME git config --global user.name 'Jake Hedman'
+(cd /home/$USERNAME; sudo -u $USERNAME git config --global user.email "$EMAIL")
+(cd /home/$USERNAME; sudo -u $USERNAME git config --global user.name "$NAME")
 
 # Install aur client aura using aur client packer
-which aura || curl https://raw.githubusercontent.com/keenerd/packer/master/packer | sudo -u $USERNAME bash -s -- -S --noconfirm aura-bin
+if ! which aura; then
+  curl https://raw.githubusercontent.com/keenerd/packer/master/packer | \
+    sudo -u $USERNAME bash -s -- -S --noconfirm aura-bin
+fi
 
 # AUR packages
-sudo -u $USERNAME sudo aura --needed -Ay xonsh google-chrome ttf-ms-fonts spotify brightnessctl
+env SUDO_USER="$USERNAME" aura --noconfirm --needed -qAy
+  brightnessctl \
+  google-chrome \
+  spotify \
+  ttf-ms-fonts \
+  xonsh \
 
 # Use xonsh shell from AUR
 chsh -s /usr/bin/xonsh $USERNAME
 
+# Fetch ssh config
 if [ -z "$ALTHOST" ]; then
-  echo 'WARNING: Missing $ALTHOST'
-else
-  # Fetch ssh config
-  [ ! -f /home/$USERNAME/.ssh/private_config ] && sudo -u $USERNAME scp $ALTHOST:.ssh/{id_rsa,id_rsa.pub,private_config} /home/$USERNAME/.ssh 
+  echo "WARNING: Missing \$ALTHOST"
+elif [ ! -f /home/$USERNAME/.ssh/private_config ]; then
+   sudo -u $USERNAME scp \
+     $ALTHOST:.ssh/{id_rsa,id_rsa.pub,private_config} \
+     /home/$USERNAME/.ssh 
 fi
 
 # Set locale
-if [ ! "$(localectl list-locales | grep en_US.utf8)" ]; then
-    echo "LANG=en_US.UTF-8" > /etc/locale.conf
-    echo "LC_ALL=en_US.UTF-8" >> /etc/locale.conf
-    echo en_US.UTF-8 UTF-8 > /etc/locale.gen
-    locale-gen
+if ! (localectl list-locales | grep en_US.utf8); then
+  echo "LANG=en_US.UTF-8" > /etc/locale.conf
+  echo "LC_ALL=en_US.UTF-8" >> /etc/locale.conf
+  echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+  locale-gen
 fi
 
 # Full system upgrade
-pacman -Syu
-sudo -u $USERNAME sudo aura -Ayu
+pacman --noconfirm -qSyu
+env SUDO_USER="$USERNAME" aura --noconfirm -qAyu
 
 # Don't clear tty after boot
 mkdir -p /etc/systemd/system/getty@tty1.service.d/
-echo -e "[Service]\nTTYVTDisallocate=no" > /etc/systemd/system/getty@tty1.service.d/noclear.conf
+NOCLEARPATH="/etc/systemd/system/getty@tty1.service.d/noclear.conf"
+echo "[Service]" > "$NOCLEARPATH"
+echo "TTYVTDisallocate=no" >> "$NOCLEARPATH"
 
 # Keymap/font in tty
-echo -e "KEYMAP=sv-latin1\nFONT=ter-v22n" > /etc/vconsole.conf
+echo "KEYMAP=sv-latin1" > /etc/vconsole.conf
+echo "FONT=ter-v22n" >> /etc/vconsole.conf
 
 # Fix buggy trackpoint
 echo "options psmouse proto=imps" > /etc/modprobe.d/trackpoint.conf
 
 # Download this repo
-sudo -u $USERNAME git clone git@github.com:JakeHedman/dotfiles.git /home/$USERNAME/dotfiles
+REPOPATH="/home/$USERNAME/dotfiles"
+if [ ! -d "$REPOPATH" ]; then
+  sudo -u $USERNAME git clone git@github.com:"$REPO".git "$REPOPATH"
+fi
 
 # Symlink dotfiles
 sudo -u $USERNAME /home/$USERNAME/dotfiles/link-dotfiles.sh
+
+# Create LTE connection
+LTEPATH="/etc/NetworkManager/system-connections/LTE"
+if [ ! -f "$LTEPATH" ]; then
+  echo "[connection]" > "$LTEPATH"
+  echo "id=LTE" >> "$LTEPATH"
+  echo "type=gsm" >> "$LTEPATH"
+  echo "autoconnect=true" >> "$LTEPATH"
+  echo "[gsm]" >> "$LTEPATH"
+  echo "apn=4g.tele2.se" >> "$LTEPATH"
+fi
+
+# (Auto)start network stuff
+systemctl enable NetworkManager
+systemctl restart NetworkManager
+systemctl enable ModemManager
+systemctl restart ModemManager
+
+# Set timezone
+timedatectl set-timezone Europe/Stockholm
+
+# Enable ntp
+timedatectl set-ntp true
+
+# Auto enable lte when wifi is down
+cp /home/"$USERNAME"/dotfiles/lte-auto-toggle.sh /etc/NetworkManager/dispatcher.d/

@@ -1,0 +1,53 @@
+#coding: utf-8
+# Swedish keys
+$XKB_DEFAULT_LAYOUT = 'se'
+$XKB_DEFAULT_VARIANT = 'nodeadkeys'
+$XKB_DEFAULT_OPTIONS = 'caps:escape'
+
+# Use rg config path
+$RIPGREP_CONFIG_PATH = '~/.rgrc'
+
+# Vim-like bindings
+$VI_MODE = True
+
+# chrome/vim
+$BROWSER = 'google-chrome-stable'
+$EDITOR = 'vim'
+
+# Rebind hjlk to jkl; in vim mode
+from prompt_toolkit.filters import ViNavigationMode
+from prompt_toolkit.key_binding.input_processor import KeyPress
+from prompt_toolkit.key_binding.manager import KeyBindingManager
+from prompt_toolkit.keys import Keys
+
+manager = KeyBindingManager.for_prompt()
+
+@events.on_ptk_create
+def custom_keybindings(bindings, **kw):
+    @bindings.registry.add_binding('j', filter=ViNavigationMode())
+    def _(event):
+      buff = event.current_buffer
+      buff.cursor_position += buff.document.get_cursor_left_position(count=event.arg)
+
+    @bindings.registry.add_binding('k', filter=ViNavigationMode())
+    def _(event):
+      event.cli.input_processor.feed(KeyPress(Keys.Down, ''))
+
+    @bindings.registry.add_binding('l', filter=ViNavigationMode())
+    def _(event):
+      event.cli.input_processor.feed(KeyPress(Keys.Up, ''))
+
+    @bindings.registry.add_binding('\xF6', filter=ViNavigationMode())
+    def _(event):
+      buff = event.current_buffer
+      buff.cursor_position += buff.document.get_cursor_right_position(count=event.arg)
+
+# LANG
+$LANG = 'en_US.UTF-8'
+$LC_ALL = 'en_US.UTF-8'
+
+# Autostart sway
+if $(tty).strip() == '/dev/tty1':
+  import sys
+  sway
+  sys.exit()

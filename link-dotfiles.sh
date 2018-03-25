@@ -23,3 +23,6 @@ mkdir -p ~/.config/termite
 
 # rg
 [ ! -f ~/.rgrc ] && ln -s $DIR/rgrc ~/.rgrc
+
+# xonsh
+[ ! -f ~/.xonshrc ] && ln -s $DIR/xonshrc ~/.xonshrc

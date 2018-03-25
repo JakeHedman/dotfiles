@@ -54,7 +54,6 @@ reboot
 ```sh
 # Install and enable networkmanager
 pacman -Syu networkmanager
-systemctl enable NetworkManager
 systemctl start NetworkManager
 
 # Connect to wifi
@@ -68,4 +67,3 @@ export ALTHOST=jakob@192.168.1.111
 
 # Run config script from github
 curl https://raw.githubusercontent.com/JakeHedman/dotfiles/master/system-config.sh | bash
-```
