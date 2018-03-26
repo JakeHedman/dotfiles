@@ -26,6 +26,16 @@ if [ $(whoami) != "root" ]; then
   exit 1
 fi
 
+# Create user
+if [ ! -d /home/$USERNAME ]; then
+  groupadd sudo
+  useradd $USERNAME -mG sudo,audio
+  read -sp "Password: " PASSWORD </dev/tty
+  echo -e "$PASSWORD""\n""$PASSWORD""\n" | passwd "$USERNAME"
+  unset PASSWORD
+  sudo -u $USERNAME mkdir /home/$USERNAME/bin
+fi
+
 # Install packages
 pacman --noconfirm --needed -qSy \
   git \
@@ -59,20 +69,19 @@ pacman --noconfirm --needed -qSy \
 # Install vim after python to get +python
 pacman --noconfirm --needed -qSy gvim
 
+# (Auto)start network stuff
+systemctl enable NetworkManager
+systemctl restart NetworkManager
+systemctl enable ModemManager
+systemctl restart ModemManager
+
+# Wait for network manager
+sleep 2
+
 # give sudo to sudo group
 SUDOCONF="%sudo ALL=(ALL) ALL"
 if ! grep -Fx "$SUDOCONF" /etc/sudoers; then
   echo "$SUDOCONF" >> /etc/sudoers
-fi
-
-# Create user
-if [ ! -d /home/$USERNAME ]; then
-  groupadd sudo
-  useradd $USERNAME -mG sudo,audio
-  read -sp "Password: " PASSWORD </dev/tty
-  echo -e "$PASSWORD""\n""$PASSWORD""\n" | passwd "$USERNAME"
-  unset PASSWORD
-  sudo -u $USERNAME mkdir /home/$USERNAME/bin
 fi
 
 # Git config
@@ -154,14 +163,12 @@ chmod 600 "$LTEPATH"
 # Load LTE config
 nmcli con reload
 
+# Scan for modems
+mmcli -S
+sleep 3
+
 # Enable modem
 mmcli -m 0 -e
-
-# (Auto)start network stuff
-systemctl enable NetworkManager
-systemctl restart NetworkManager
-systemctl enable ModemManager
-systemctl restart ModemManager
 
 # Set timezone
 timedatectl set-timezone Europe/Stockholm
