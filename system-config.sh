@@ -170,7 +170,7 @@ nmcli con reload
 timedatectl set-timezone Europe/Stockholm
 
 # Enable ntp
-timedatectl set-ntp true
+systemctl enable --now systemd-timesyncd.service
 
 # Auto enable lte when wifi is down
 cp /home/"$USERNAME"/dotfiles/lte-auto-toggle.sh /etc/NetworkManager/dispatcher.d/
