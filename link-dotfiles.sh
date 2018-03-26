@@ -26,3 +26,5 @@ mkdir -p ~/.config/termite
 
 # xonsh
 [ ! -f ~/.xonshrc ] && ln -s $DIR/xonshrc ~/.xonshrc
+
+exit 0

@@ -6,6 +6,20 @@ NAME="Jake Hedman"
 REPO="JakeHedman/dotfiles"
 USERNAME="jake"
 
+# Exit on error
+set -e
+
+# Success/error message on exit
+done=0
+function finish {
+  if [ $done == 1 ]; then
+    echo SUCCESS: Done
+  else
+    echo ERROR: Crashed
+  fi
+}
+trap finish EXIT
+
 # Exit if missingroot privileges
 if [ $(whoami) != "root" ]; then
   echo "I need root"
@@ -55,7 +69,9 @@ fi
 if [ ! -d /home/$USERNAME ]; then
   groupadd sudo
   useradd $USERNAME -mG sudo,audio
-  passwd $USERNAME
+  read -sp "Password: " PASSWORD </dev/tty
+  echo -e "$PASSWORD""\n""$PASSWORD""\n" | passwd "$USERNAME"
+  unset PASSWORD
   sudo -u $USERNAME mkdir /home/$USERNAME/bin
 fi
 
@@ -99,7 +115,7 @@ fi
 
 # Full system upgrade
 pacman --noconfirm -qSyu
-env SUDO_USER="$USERNAME" aura --noconfirm -qAyu
+(env SUDO_USER="$USERNAME" aura --noconfirm -Ayu) || :
 
 # Don't clear tty after boot
 mkdir -p /etc/systemd/system/getty@tty1.service.d/
@@ -133,7 +149,13 @@ if [ ! -f "$LTEPATH" ]; then
   echo "[gsm]" >> "$LTEPATH"
   echo "apn=4g.tele2.se" >> "$LTEPATH"
 fi
+chmod 600 "$LTEPATH"
+
+# Load LTE config
 nmcli con reload
+
+# Enable modem
+mmcli -m 0 -e
 
 # (Auto)start network stuff
 systemctl enable NetworkManager
@@ -154,4 +176,5 @@ cp /home/"$USERNAME"/dotfiles/lte-auto-toggle.sh /etc/NetworkManager/dispatcher.
 sed -i 's/INITRD ..\/initramfs-linux.img/INITRD ..\/intel-ucode.img,..\/initramfs-linux.img/' /boot/syslinux/syslinux.cfg
 sed -i 's/TIMEOUT 50/TIMEOUT 1/' /boot/syslinux/syslinux.cfg
 
-echo Done!
+# Print success in trap
+done=1
