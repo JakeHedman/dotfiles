@@ -6,6 +6,7 @@ if ([[ $1 == wlp* ]]); then
       nmcli radio wwan off
       ;;
     down)
+      mmcli -m 0 -e
       nmcli radio wwan on
       ;;
   esac

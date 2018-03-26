@@ -33,7 +33,8 @@ if [ ! -d /home/$USERNAME ]; then
   read -sp "Password: " PASSWORD </dev/tty
   echo -e "$PASSWORD""\n""$PASSWORD""\n" | passwd "$USERNAME"
   unset PASSWORD
-  sudo -u $USERNAME mkdir /home/$USERNAME/bin
+  sudo -u $USERNAME mkdir -p /home/$USERNAME/bin
+  sudo -u $USERNAME mkdir -p /home/$USERNAME/.ssh
 fi
 
 # Install packages
@@ -77,7 +78,7 @@ systemctl restart ModemManager
 
 # Wait for network
 while ! curl http://google.com --connect-timeout 5 > /dev/null; do
-  sleep 1
+  sleep 3
 done
 
 # give sudo to sudo group
@@ -164,13 +165,6 @@ chmod 600 "$LTEPATH"
 
 # Load LTE config
 nmcli con reload
-
-# Scan for modems
-mmcli -S
-sleep 3
-
-# Enable modem
-mmcli -m 0 -e
 
 # Set timezone
 timedatectl set-timezone Europe/Stockholm
