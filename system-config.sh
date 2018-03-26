@@ -75,8 +75,10 @@ systemctl restart NetworkManager
 systemctl enable ModemManager
 systemctl restart ModemManager
 
-# Wait for network manager
-sleep 2
+# Wait for network
+while ! curl http://google.com --connect-timeout 5 > /dev/null; do
+  sleep 1
+done
 
 # give sudo to sudo group
 SUDOCONF="%sudo ALL=(ALL) ALL"
