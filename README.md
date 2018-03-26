@@ -33,7 +33,7 @@ arch-chroot /mnt
 pacman -Syu syslinux
 
 # Install bootloader
-syslinux-install_update -i -a -m
+syslinux-install_update -iam
 
 # Set root password
 passwd
