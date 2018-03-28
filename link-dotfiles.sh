@@ -14,9 +14,8 @@ mkdir -p ~/.sway
 [ ! -f ~/.vimrc ] && ln -s $DIR/vim/vimrc ~/.vimrc
 
 # ssh
-mkdir -p ~/.ssh
+mkdir -p ~/.ssh/controlmasters
 [ ! -f ~/.ssh/config ] && ln -s $DIR/ssh ~/.ssh/config
-
 # termite
 mkdir -p ~/.config/termite
 [ ! -f ~/.config/termite/config ] && ln -s $DIR/termite ~/.config/termite/config
