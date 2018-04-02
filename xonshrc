@@ -52,6 +52,7 @@ $PATH.append('~/pusco/pusco/bin')
 aliases[':q'] = 'exit'
 
 # Git aliases
+aliases['g'] = 'git'
 aliases['gs'] = 'git status'
 aliases['gd'] = 'git diff'
 aliases['gdc'] = 'git diff --cached'
