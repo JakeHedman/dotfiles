@@ -49,6 +49,9 @@ $LC_ALL = 'en_US.UTF-8'
 $PATH.append('~/pusco/pusco/bin')
 
 # Aliases
+aliases[':q'] = 'exit'
+
+# Git aliases
 aliases['gs'] = 'git status'
 aliases['gd'] = 'git diff'
 aliases['gdc'] = 'git diff --cached'
