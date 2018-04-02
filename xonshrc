@@ -46,6 +46,7 @@ def custom_keybindings(bindings, **kw):
 $LANG = 'en_US.UTF-8'
 $LC_ALL = 'en_US.UTF-8'
 
+$PATH.append('~/.yarn/bin')
 $PATH.append('~/pusco/pusco/bin')
 
 # Aliases
