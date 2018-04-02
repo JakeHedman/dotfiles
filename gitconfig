@@ -1,0 +1,7 @@
+[user]
+  email = jake@hedman.email
+  name = Jake Hedman
+[pull]
+  rebase = true
+
+# vi:syntax=gitconfig

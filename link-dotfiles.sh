@@ -26,4 +26,7 @@ mkdir -p ~/.config/termite
 # xonsh
 [ ! -f ~/.xonshrc ] && ln -s $DIR/xonshrc ~/.xonshrc
 
+# git
+[ ! -f ~/.gitconfig ] && ln -s $DIR/gitconfig ~/.gitconfig
+
 exit 0
