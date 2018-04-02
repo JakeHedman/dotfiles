@@ -66,6 +66,7 @@ pacman --noconfirm --needed -qSy \
   ttf-liberation \
   usb_modeswitch \
   usbutils \
+  yarn \
 
 # Install vim after python to get +python
 pacman --noconfirm --needed -qSy gvim

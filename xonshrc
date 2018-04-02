@@ -46,6 +46,15 @@ def custom_keybindings(bindings, **kw):
 $LANG = 'en_US.UTF-8'
 $LC_ALL = 'en_US.UTF-8'
 
+$PATH.append('~/pusco/pusco/bin')
+
+# Aliases
+aliases['gs'] = 'git status'
+aliases['gd'] = 'git diff'
+aliases['gdc'] = 'git diff --cached'
+aliases['gc'] = 'git commit'
+aliases['ga'] = 'git add'
+
 # Autostart sway
 if $(tty).strip() == '/dev/tty1':
   import sys

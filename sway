@@ -100,7 +100,7 @@ bar {
 }
 
 # No borders
-new_window none
+default_border none
 
 # Except for terminal
 for_window [class="termite"] border pixel 1
