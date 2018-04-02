@@ -91,6 +91,7 @@ fi
 # Git config
 (cd /home/$USERNAME; sudo -u $USERNAME git config --global user.email "$EMAIL")
 (cd /home/$USERNAME; sudo -u $USERNAME git config --global user.name "$NAME")
+(cd /home/$USERNAME; sudo -u $USERNAME git config --global pull.rebase true)
 
 # Install aur client aura using aur client packer
 if ! which aura; then
