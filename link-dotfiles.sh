@@ -29,4 +29,8 @@ mkdir -p ~/.config/termite
 # git
 [ ! -f ~/.gitconfig ] && ln -s $DIR/gitconfig ~/.gitconfig
 
+# bin dir
+mkdir -p ~/bin
+[ ! -f ~/bin/extract ] && ln -s $DIR/extract ~/bin/extract
+
 exit 0
