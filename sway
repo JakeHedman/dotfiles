@@ -16,9 +16,6 @@ bindsym $mod+shift+Return exec google-chrome-stable
 # Super+shift+w to kill focused window
 bindsym $mod+shift+w kill
 
-# Super+space to start rofi (dmenu replacement)
-bindsym $mod+space exec rofi
-
 # Super+j/k/l/ö to move focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -120,8 +117,11 @@ bindsym $mod+Control+Shift+k move workspace to output down
 bindsym $mod+Control+Shift+l move workspace to output up
 bindsym $mod+Control+Shift+odiaeresis move workspace to output right
 
-# Suprt+space to lock screen
-bindsym $mod+Space exec swaylock
+# Super+Escape to lock screen
+bindsym $mod+Escape exec swaylock
+
+# Super+Space to start dmenu launcher
+bindsym $mod+Space exec dmenu_run
 
 # Function keys
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%
