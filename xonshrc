@@ -54,6 +54,7 @@ aliases[':q'] = 'exit'
 
 # Git aliases
 aliases['g'] = 'git'
+aliases['gl'] = 'git log'
 aliases['gs'] = 'git status'
 aliases['gd'] = 'git diff'
 aliases['gdc'] = 'git diff --cached'
