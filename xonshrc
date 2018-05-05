@@ -60,6 +60,12 @@ aliases['gdc'] = 'git diff --cached'
 aliases['gc'] = 'git commit'
 aliases['ga'] = 'git add'
 
+# Exec dir to cd
+$AUTO_CD = True
+
+# Avoid termite TERM
+$TERM = 'rxvt-unicode-256color'
+
 # Autostart sway
 if $(tty).strip() == '/dev/tty1':
   import sys
