@@ -59,8 +59,9 @@ aliases['gl'] = 'git log'
 aliases['gs'] = 'git status'
 aliases['gd'] = 'git diff'
 aliases['gdc'] = 'git diff --cached'
-aliases['gc'] = 'git commit'
 aliases['ga'] = 'git add'
+aliases['gco'] = 'git commit'
+aliases['gch'] = 'git checkout'
 
 # Exec dir to cd
 $AUTO_CD = True
