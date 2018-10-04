@@ -131,8 +131,8 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86WLAN exec ~/dotfiles/toggle-wlan.sh
 
-# Trackpoint settings
-input 2:1:PS/2_Synaptics_TouchPad {
+# Trackpoint settings (psmouse.synaptics_intertouch=1 required)
+input 1739:0:Synaptics_TM3288-003 {
   scroll_method two_finger
   tap disabled
 }

@@ -48,7 +48,8 @@ $LC_ALL = 'en_US.UTF-8'
 
 $PATH.insert(0, '~/bin')
 $PATH.append('~/.yarn/bin')
-$PATH.append('~/pusco/pusco/bin')
+$PATH.append('~/.cargo/bin')
+$PATH.append('~/Manager/bin')
 
 # Aliases
 aliases[':q'] = 'exit'
