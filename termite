@@ -11,7 +11,7 @@ cursor_blink = off
 # Disable URL clicking
 clickable_url = false
 
-#mouse_autohide = false
+mouse_autohide = true
 
 # Don't scroll to bottom on new output
 scroll_on_output = false
@@ -77,5 +77,3 @@ color18 = #282828
 color19 = #383838
 color20 = #b8b8b8
 color21 = #e8e8e8
-
-# vim: ft=dosini cms=#%s
