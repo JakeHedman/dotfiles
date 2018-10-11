@@ -67,7 +67,16 @@ pacman --noconfirm --needed -qSy \
   usb_modeswitch \
   usbutils \
   yarn \
+  docker \
   dmenu
+
+# Groups
+usermod -a -G docker $USERNAME
+usermod -a -G video $USERNAME
+
+# Autostart docker
+
+systemctl enable docker
 
 # Install vim after python to get +python
 pacman --noconfirm --needed -qSy gvim
@@ -176,6 +185,9 @@ cp /home/"$USERNAME"/dotfiles/lte-auto-toggle.sh /etc/NetworkManager/dispatcher.
 # Syslinux config
 sed -i 's/INITRD ..\/initramfs-linux.img/INITRD ..\/intel-ucode.img,..\/initramfs-linux.img/' /boot/syslinux/syslinux.cfg
 sed -i 's/TIMEOUT 50/TIMEOUT 1/' /boot/syslinux/syslinux.cfg
+
+# Backlight udev rules
+cp /home/"$USERNAME"/dotfiles/backlight.rules /etc/udev/rules.d/backlight.rules
 
 # Print success in trap
 done=1
