@@ -30,6 +30,8 @@ Plugin 'tpope/vim-jdaddy'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'simnalamburt/vim-mundo'
+Plugin 'roryokane/detectindent'
 
 if firstRun == 1
   echo "Installing Bundles, please ignore key map error messages"
@@ -155,11 +157,6 @@ command! Wq wq
 command! W w
 command! Q q
 
-" Remove delay when hitting esc in insert mode
-set noesckeys
-set ttimeout
-set ttimeoutlen=1
-
 " Statusline
 " %F - Longer path
 " %r readonly flag
@@ -247,3 +244,6 @@ let g:jsx_ext_required = 0
 " Colors
 let base16colorspace=256
 colorscheme base16-default-dark
+
+" Show undo tree
+nnoremap <F5> :MundoToggle<CR>
