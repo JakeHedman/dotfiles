@@ -247,3 +247,9 @@ colorscheme base16-default-dark
 
 " Show undo tree
 nnoremap <F5> :MundoToggle<CR>
+
+" Esc delay
+set timeout
+set ttimeout
+set timeoutlen=1
+set ttimeoutlen=1
