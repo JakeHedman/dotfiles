@@ -53,7 +53,8 @@ $PATH.append('~/.cargo/bin')
 
 # Aliases
 aliases[':q'] = 'exit'
-aliases['v'] = 'vim'
+aliases['v'] = 'nvim'
+aliases['vim'] = 'nvim'
 
 # Git aliases
 aliases['g'] = 'git'

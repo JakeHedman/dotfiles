@@ -68,7 +68,8 @@ pacman --noconfirm --needed -qSy \
   usbutils \
   yarn \
   docker \
-  dmenu
+  dmenu \
+  blueman
 
 # Groups
 usermod -a -G docker $USERNAME
@@ -79,7 +80,7 @@ usermod -a -G video $USERNAME
 systemctl enable docker
 
 # Install vim after python to get +python
-pacman --noconfirm --needed -qSy gvim
+pacman --noconfirm --needed -qSy gvim neovim
 
 # (Auto)start network stuff
 systemctl enable NetworkManager

@@ -9,9 +9,9 @@ mkdir -p ~/.sway
 # i3status
 [ ! -f ~/.i3status.conf ] && ln -s $DIR/i3status.conf ~/.i3status.conf
 
-# vim
-[ ! -d ~/.vim ] && ln -Ts $DIR/vim ~/.vim
-[ ! -f ~/.vimrc ] && ln -s $DIR/vim/vimrc ~/.vimrc
+# neovim
+mkdir -p ~/.config/nvim
+[ ! -f ~/.config/nvim/init.vim ] && ln -s $DIR/init.vim ~/.config/nvim/init.vim
 
 # ssh
 mkdir -p ~/.ssh/controlmasters

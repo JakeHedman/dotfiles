@@ -140,5 +140,5 @@ input 1739:0:Synaptics_TM3288-003 {
 
 # DPMS
 exec swayidle \
-  timeout 600 'swaylock -fec 000000aa && swaymsg "output * dpms off"' \
+  timeout 600 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"'
