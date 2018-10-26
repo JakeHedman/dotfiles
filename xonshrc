@@ -75,5 +75,8 @@ $TERM = 'rxvt-unicode-256color'
 # Autostart sway
 if $(tty).strip() == '/dev/tty1':
   import sys
-  sway
+  try:
+    sway
+  except:
+    pass
   sys.exit()
