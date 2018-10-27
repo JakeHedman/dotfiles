@@ -12,7 +12,7 @@ $VI_MODE = True
 
 # chrome/vim
 $BROWSER = 'google-chrome-stable'
-$EDITOR = 'vim'
+$EDITOR = 'nvim'
 
 # Rebind hjlk to jkl; in vim mode
 from prompt_toolkit.filters import ViNavigationMode
