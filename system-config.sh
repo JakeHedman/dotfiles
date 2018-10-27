@@ -69,7 +69,8 @@ pacman --noconfirm --needed -qSy \
   yarn \
   docker \
   dmenu \
-  blueman
+  blueman \
+  xclip
 
 # Groups
 usermod -a -G docker $USERNAME
