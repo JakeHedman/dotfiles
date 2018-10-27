@@ -1,42 +1,31 @@
-" Required for vundle
-set nocompatible
-filetype off
-set shell=/bin/bash
-
-" Automatic Vundle install
-let firstRun=0
-let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
-if !filereadable(vundle_readme)
-  echo "Installing Vundle.."
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-  let firstRun=1
+" Automatic vim-plug install
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'chriskempson/base16-vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'heavenshell/vim-jsdoc'
-Plugin 'mxw/vim-jsx'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-jdaddy'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'simnalamburt/vim-mundo'
-Plugin 'roryokane/detectindent'
-
-if firstRun == 1
-  echo "Installing Bundles, please ignore key map error messages"
-  :PluginInstall
-endif
+call plug#begin('~/.local/share/nvim/plugged')
+  Plug 'VundleVim/Vundle.vim'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'chriskempson/base16-vim'
+  Plug 'easymotion/vim-easymotion'
+  Plug 'heavenshell/vim-jsdoc'
+  Plug 'mxw/vim-jsx'
+  Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'pangloss/vim-javascript'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'terryma/vim-multiple-cursors'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-jdaddy'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'kchmck/vim-coffee-script'
+  Plug 'ntpeters/vim-better-whitespace'
+  Plug 'simnalamburt/vim-mundo'
+  Plug 'roryokane/detectindent'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-repeat'
+call plug#end()
 
 " Toggle paste mode (no auto indent) with f2
 set pastetoggle=<f2>
@@ -60,7 +49,7 @@ map §l <C-W>k
 map §ö <C-W>l
 
 " Leader-s to sort selected lines e.g. to sort lines alphabetically
-vnoremap <Leader>s :sort<CR> 
+vnoremap <Leader>s :sort<CR>
 
 " Q wraps paragraph
 vmap Q gq
@@ -105,9 +94,9 @@ set smartcase
 
 " UTF-8
 if &modifiable
-    set encoding=utf-8
-    set fileencoding=utf-8
-    set fileencodings=utf-8
+  set encoding=utf-8
+  set fileencoding=utf-8
+  set fileencodings=utf-8
 endif
 
 " No beeping
@@ -121,7 +110,7 @@ nnoremap <silent> <Leader>z :let &scrolloff=999-&scrolloff<CR>
 set cursorline
 
 " Toggle column hilight with ,c
-nnoremap <Silent> <Leader>c :set cursorcolumn!<CR>
+nnoremap <silent> <Leader>c :set cursorcolumn!<CR>
 
 " swapfiles in ~/.vim/swap
 set directory^=$HOME/.vim/swap/
@@ -146,9 +135,6 @@ cnoremap <C-d>  <Delete>
 cnoremap <M-b>  <S-Left>
 cnoremap <M-f>  <S-Right>
 cnoremap <M-d>  <S-right><Delete>
-cnoremap <Esc>b <S-Left>
-cnoremap <Esc>f <S-Right>
-cnoremap <Esc>d <S-right><Delete>
 cnoremap <C-g>  <C-c>
 
 " ...
@@ -176,10 +162,12 @@ let g:EasyMotion_leader_key = '<Leader>'
 let g:multi_cursor_exit_from_insert_mode = 0
 let g:multi_cursor_exit_from_visual_mode = 0
 
-" Hide gitgutter and line numbers and toggle with f12
-let g:gitgutter_enabled = 0
-map <F12> :set number!<CR>:GitGutterToggle<CR>
-inoremap <F12> <Esc>:set number!<CR>:GitGutterToggle<CR>i
+" F12 to toggle gitgutter and line numbers with
+map <F12> :set number!<CR>:GitGutterSignsToggle<CR>
+inoremap <F12> <Esc>:set number!<CR>:GitGutterSignsToggle<CR>i
+
+" Show line numbers
+set number
 
 " Better tab completion in command line
 set wildmenu
@@ -205,35 +193,11 @@ let g:syntastic_aggregate_errors = 1
 set title
 set titlestring=VIM:\ %-25.55F\ %a%r%m titlelen=70
 
-" fugitive git bindings
-nnoremap <leader>ga :Git add %:p<CR><CR>
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gc :Gcommit -v -q<CR>
-nnoremap <leader>gt :Gcommit -v -q %:p<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>ge :Gedit<CR>
-nnoremap <leader>gr :Gread<CR>
-nnoremap <leader>gw :Gwrite<CR><CR>
-nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
-nnoremap <leader>gp :Ggrep<Space>
-nnoremap <leader>gm :Gmove<Space>
-nnoremap <leader>gbr :Git branch<Space>
-nnoremap <leader>gbl :Gblame<CR>
-nnoremap <leader>go :Git checkout<Space>
-nnoremap <leader>gps :Dispatch! git push<CR>
-nnoremap <leader>gpl :Dispatch! git pull<CR>
-
-" ,o to close all splits except focused
-nnoremap <leader>o :only<CR>
-
 " jklö instead of hjkl
 noremap ö l
 noremap l k
 noremap k j
 noremap j h
-
-" Yank to system clipboard
-set clipboard=unnamedplus
 
 " Execute selected text with ,b
 vnoremap <leader>b :.w !bash
@@ -248,8 +212,17 @@ colorscheme base16-default-dark
 " Show undo tree
 nnoremap <F5> :MundoToggle<CR>
 
-" Esc delay
-set timeout
-set ttimeout
-set timeoutlen=1
-set ttimeoutlen=1
+" Auto reload init.vim on save
+autocmd! BufWritePost $MYVIMRC source $MYVIMRC
+
+" ,p ,y to PRIMARY yank/paste
+function! ClipboardYank()
+  call system('xclip -i -selection primary', @@)
+endfunction
+function! ClipboardPaste()
+  let @@ = system('xclip -o -selection primary')
+endfunction
+
+vnoremap <silent> <leader>y y:call ClipboardYank()<cr>
+onoremap <silent> <leader>y y:call ClipboardYank()<cr>
+nnoremap <silent> <leader>p :call ClipboardPaste()<cr>p
