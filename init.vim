@@ -6,7 +6,6 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.local/share/nvim/plugged')
-  Plug 'VundleVim/Vundle.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'chriskempson/base16-vim'
   Plug 'easymotion/vim-easymotion'
