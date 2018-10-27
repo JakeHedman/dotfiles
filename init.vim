@@ -216,17 +216,8 @@ nnoremap <F5> :MundoToggle<CR>
 " Auto reload init.vim on save
 autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 
-" ,p ,y to PRIMARY yank/paste
-function! ClipboardYank()
-  call system('xclip -i -selection primary', @@)
-endfunction
-function! ClipboardPaste()
-  let @@ = system('xclip -o -selection primary')
-endfunction
-
-vnoremap <silent> <leader>y y:call ClipboardYank()<cr>
-onoremap <silent> <leader>y y:call ClipboardYank()<cr>
-nnoremap <silent> <leader>p :call ClipboardPaste()<cr>p
+" Use PRIMARY clipboard
+set clipboard=unnamed
 
 " ctrl-p to search files with fzf
 nnoremap <c-p> :Files<cr>
