@@ -224,3 +224,16 @@ nnoremap <c-p> :Files<cr>
 
 " ,r to search file contents with rg + fzf
 nnoremap <leader>r :Rg<cr>
+
+" :Files with preview
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files('', fzf#vim#with_preview())
+"  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': '--reverse'}), <bang>0)
+
+" :Rg with preview
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
