@@ -227,8 +227,7 @@ nnoremap <leader>r :Rg<cr>
 
 " :Files with preview
 command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files('', fzf#vim#with_preview())
-"  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': '--reverse'}), <bang>0)
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': '--reverse'}), <bang>0)
 
 " :Rg with preview
 command! -bang -nargs=* Rg
