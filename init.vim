@@ -223,7 +223,7 @@ set clipboard=unnamed
 nnoremap <c-p> :Files<cr>
 
 " ,r to search file contents with rg + fzf
-nnoremap <leader>r :Rg<cr>
+nnoremap <leader>r :Rg!<cr>
 
 " :Files with preview
 command! -bang -nargs=? -complete=dir Files
