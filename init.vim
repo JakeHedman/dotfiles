@@ -18,13 +18,15 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'terryma/vim-multiple-cursors'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-jdaddy'
-  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'kchmck/vim-coffee-script'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'simnalamburt/vim-mundo'
   Plug 'roryokane/detectindent'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-commentary'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " Toggle paste mode (no auto indent) with f2
@@ -226,3 +228,9 @@ endfunction
 vnoremap <silent> <leader>y y:call ClipboardYank()<cr>
 onoremap <silent> <leader>y y:call ClipboardYank()<cr>
 nnoremap <silent> <leader>p :call ClipboardPaste()<cr>p
+
+" ctrl-p to search files with fzf
+nnoremap <c-p> :Files<cr>
+
+" ,r to search file contents with rg + fzf
+nnoremap <leader>r :Rg<cr>
