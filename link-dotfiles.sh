@@ -12,6 +12,7 @@ mkdir -p ~/.sway
 # neovim
 mkdir -p ~/.config/nvim
 [ ! -f ~/.config/nvim/init.vim ] && ln -s $DIR/init.vim ~/.config/nvim/init.vim
+[ ! -f ~/.vimrc ] && ln -s $DIR/init.vim ~/.vimrc
 
 # ssh
 mkdir -p ~/.ssh/controlmasters
