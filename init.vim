@@ -222,7 +222,7 @@ autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 set clipboard=unnamed
 
 " ctrl-p to search files with fzf
-nnoremap <c-p> :Files<cr>
+nnoremap <c-p> :Files!<cr>
 
 " ,r to search file contents with rg + fzf
 nnoremap <leader>r :Rg!<cr>
@@ -238,7 +238,6 @@ command! -bang -nargs=* Rg
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
-
 
 " Set $SHELL since fzf preview doesn't like xonsh
 let $SHELL='/bin/bash'
