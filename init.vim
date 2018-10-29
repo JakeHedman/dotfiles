@@ -219,7 +219,7 @@ nnoremap <F5> :MundoToggle<CR>
 autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 
 " Use PRIMARY clipboard
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " ctrl-p to search files with fzf
 nnoremap <c-p> :Files!<cr>
@@ -229,14 +229,13 @@ nnoremap <leader>r :Rg!<cr>
 
 " :Files with preview
 command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': '--reverse'}), <bang>0)
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('up:70%'), <bang>0)
 
 " :Rg with preview
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   fzf#vim#with_preview('up:70%'),
   \   <bang>0)
 
 " Set $SHELL since fzf preview doesn't like xonsh

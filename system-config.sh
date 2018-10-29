@@ -70,7 +70,8 @@ pacman --noconfirm --needed -qSy \
   docker \
   dmenu \
   blueman \
-  xclip
+  xclip \
+  xonsh
 
 # Groups
 usermod -a -G docker $USERNAME
@@ -111,8 +112,7 @@ env SUDO_USER="$USERNAME" aura --noconfirm --needed -Ay \
   brightnessctl \
   google-chrome \
   spotify \
-  ttf-ms-fonts \
-  xonsh \
+  ttf-ms-fonts
 
 # Use xonsh shell from AUR
 chsh -s /usr/bin/xonsh $USERNAME
