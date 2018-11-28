@@ -15,7 +15,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'mxw/vim-jsx'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'pangloss/vim-javascript'
-  Plug 'scrooloose/nerdcommenter'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-jdaddy'
