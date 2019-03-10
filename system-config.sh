@@ -71,7 +71,8 @@ pacman --noconfirm --needed -qSy \
   dmenu \
   blueman \
   xclip \
-  xonsh
+  xonsh \
+  mako
 
 # Groups
 usermod -a -G docker $USERNAME

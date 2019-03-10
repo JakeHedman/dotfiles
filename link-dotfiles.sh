@@ -33,5 +33,6 @@ mkdir -p ~/.config/termite
 # bin dir
 mkdir -p ~/bin
 [ ! -f ~/bin/extract ] && ln -s $DIR/extract ~/bin/extract
+[ ! -f ~/bin/fpwd ] && ln -s $DIR/fpwd ~/bin/fpwd
 
 exit 0

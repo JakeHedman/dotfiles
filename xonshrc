@@ -50,6 +50,7 @@ aliases['mkcd'] = _mkcd
 $LANG = 'en_US.UTF-8'
 $LC_ALL = 'en_US.UTF-8'
 
+$PATH.insert(0, '~/Android/Sdk')
 $PATH.insert(0, '~/bin')
 $PATH.insert(1, '~/Manager/bin')
 $PATH.append('~/.yarn/bin')

@@ -104,9 +104,8 @@ endif
 " No beeping
 set vb t_vb=
 
-" Center cursor vertically (toggle with ,z)
+" Center cursor vertically
 set scrolloff=999
-nnoremap <silent> <Leader>z :let &scrolloff=999-&scrolloff<CR>
 
 " Hilight current line
 set cursorline
@@ -238,4 +237,4 @@ command! -bang -nargs=* Rg
   \   <bang>0)
 
 " Set $SHELL since fzf preview doesn't like xonsh
-let $SHELL='/bin/bash'
+let $SHELL='/bin/sh'

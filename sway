@@ -8,13 +8,22 @@ font hack 11
 floating_modifier $mod
 
 # Super+enter opens terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec termite -d $(fpwd ~)
 
 # Super+shift+enter opens chrome
 bindsym $mod+shift+Return exec google-chrome-stable
 
-# Super+shift+w to kill focused window
-bindsym $mod+shift+w kill
+# Super+shift+space opens nvim
+bindsym $mod+n exec termite -d $(fpwd ~) -e "nvim ."
+
+# Super+shift+x to kill focused window
+bindsym $mod+shift+x kill
+
+# Super+Escape to lock screen
+bindsym $mod+Escape exec swaylock
+
+# Super+Space to start dmenu launcher
+bindsym $mod+Space exec dmenu_run
 
 # Super+j/k/l/ö to move focus
 bindsym $mod+j focus left
@@ -44,40 +53,40 @@ bindsym $mod+c layout tabbed
 bindsym $mod+g floating toggle
 
 # Super+e to foxus parent
-bindsym $mod+e focus parent
+bindsym $mod+d focus parent
 
 # Super+d to foxus child
-bindsym $mod+d focus child
+bindsym $mod+h focus child
 
 # Super+1...0 switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+q workspace 0:q
+bindsym $mod+w workspace 1:w
+bindsym $mod+e workspace 2:e
+bindsym $mod+r workspace 3:r
+bindsym $mod+t workspace 4:t
+bindsym $mod+y workspace 5:y
+bindsym $mod+u workspace 6:u
+bindsym $mod+i workspace 7:i
+bindsym $mod+o workspace 8:o
+bindsym $mod+p workspace 9:p
 
 # Super+1...0 to move window to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+q move container to workspace 0:q
+bindsym $mod+Shift+w move container to workspace 1:w
+bindsym $mod+Shift+e move container to workspace 2:e
+bindsym $mod+Shift+r move container to workspace 3:r
+bindsym $mod+Shift+t move container to workspace 4:t
+bindsym $mod+Shift+y move container to workspace 5:y
+bindsym $mod+Shift+u move container to workspace 6:u
+bindsym $mod+Shift+i move container to workspace 7:i
+bindsym $mod+Shift+o move container to workspace 8:o
+bindsym $mod+Shift+p move container to workspace 9:p
 
-# Super+shift+r to reload config
-bindsym $mod+Shift+R reload
+# Super+alt+r to reload config
+bindsym $mod+Mod1+r reload
 
 # Super+control+alt to exit sway
-bindsym $mod+Control+Mod1+E exit
+bindsym $mod+Control+Mod1+e exit
 
 # Super+control+alt+j/k/l/ö to resize window more
 bindsym $mod+Mod1+j resize shrink width 5 px or 5 ppt
@@ -94,6 +103,7 @@ bindsym $mod+Control+Mod1+odiaeresis resize grow width 1 px or 1 ppt
 # Status bar
 bar {
   status_command i3status
+  strip_workspace_numbers yes
 }
 
 # No borders
@@ -117,12 +127,6 @@ bindsym $mod+Control+Shift+k move workspace to output down
 bindsym $mod+Control+Shift+l move workspace to output up
 bindsym $mod+Control+Shift+odiaeresis move workspace to output right
 
-# Super+Escape to lock screen
-bindsym $mod+Escape exec swaylock
-
-# Super+Space to start dmenu launcher
-bindsym $mod+Space exec dmenu_run
-
 # Function keys
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
@@ -142,3 +146,6 @@ input 1739:0:Synaptics_TM3288-003 {
 exec swayidle \
   timeout 600 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"'
+
+# Notification daemon
+exec mako
