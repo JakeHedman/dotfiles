@@ -6,12 +6,16 @@ set $w0 0:doc
 set $w1 1:vim
 set $w2 2:exec
 set $w3 3:web
-set $w4 4:util
-set $w5 5:misc0
-set $w6 6:misc1
-set $w7 7:misc2
-set $w8 8:work
-set $w9 9:irc
+set $w4 4:work
+set $w5 5:irc
+
+# Workspace keys
+set $wk0 y
+set $wk1 u
+set $wk2 i
+set $wk3 o
+set $wk4 p
+set $wk5 aring
 
 # Font for window titles
 font hack 11
@@ -19,94 +23,60 @@ font hack 11
 # Super+mouse1/mouse2 to drag/resize floating windows
 floating_modifier $mod
 
-# Super+enter opens terminal
+# Bindings
 bindsym $mod+Return exec termite -d $(fpwd ~)
-
-# Super+shift+enter opens chrome
-bindsym $mod+shift+Return exec google-chrome-stable
-
-# Super+shift+space opens nvim
+bindsym $mod+m exec google-chrome-stable
 bindsym $mod+n exec termite -d $(fpwd ~) -e "nvim ."
-
-# Super+shift+x to kill focused window
-bindsym $mod+shift+x kill
-
-# Super+Escape to lock screen
+bindsym $mod+h exec dmenu_run
 bindsym $mod+Escape exec swaylock
-
-# Super+Space to start dmenu launcher
-bindsym $mod+Space exec dmenu_run
-
-# Super+j/k/l/ö to move focus
+bindsym $mod+f fullscreen
+bindsym $mod+equal kill
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
+bindsym $mod+minus move scratchpad
+bindsym $mod+period scratchpad show
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86WLAN exec ~/dotfiles/toggle-wlan.sh
 bindsym $mod+odiaeresis focus right
-
-# Super+j/k/l/ö to move windows
+bindsym $mod+a split v
+bindsym $mod+s split h
+bindsym $mod+z layout default
+bindsym $mod+x layout stacking
+bindsym $mod+c layout tabbed
+bindsym $mod+g floating toggle
+bindsym $mod+e focus parent
+bindsym $mod+d focus child
+bindsym $mod+r reload
+bindsym $mod+Shift+e exit
+bindsym $mod+$wk0 workspace $w0
+bindsym $mod+$wk1 workspace $w1
+bindsym $mod+$wk2 workspace $w2
+bindsym $mod+$wk3 workspace $w3
+bindsym $mod+$wk4 workspace $w4
+bindsym $mod+$wk5 workspace $w5
+bindsym $mod+Shift+$wk0 move container to workspace $w0
+bindsym $mod+Shift+$wk1 move container to workspace $w1
+bindsym $mod+Shift+$wk2 move container to workspace $w2
+bindsym $mod+Shift+$wk3 move container to workspace $w3
+bindsym $mod+Shift+$wk4 move container to workspace $w4
+bindsym $mod+Shift+$wk5 move container to workspace $w5
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+odiaeresis move right
-
-# Super+a/s to split vertical/horizontal
-bindsym $mod+a split v
-bindsym $mod+s split h
-
-# Super+f to fullscreen window
-bindsym $mod+f fullscreen
-
-# Super+z/x/c to change layout (default/stacking/tabbed)
-bindsym $mod+z layout default
-bindsym $mod+x layout stacking
-bindsym $mod+c layout tabbed
-
-# Super+g to toggle floating window
-bindsym $mod+g floating toggle
-
-# Super+e to foxus parent
-bindsym $mod+d focus parent
-
-# Super+d to foxus child
-bindsym $mod+h focus child
-
-# Super+1...0 switch to workspace
-bindsym $mod+q workspace $w0
-bindsym $mod+w workspace $w1
-bindsym $mod+e workspace $w2
-bindsym $mod+r workspace $w3
-bindsym $mod+t workspace $w4
-bindsym $mod+y workspace $w5
-bindsym $mod+u workspace $w6
-bindsym $mod+i workspace $w7
-bindsym $mod+o workspace $w8
-bindsym $mod+p workspace $w9
-
-# Super+1...0 to move window to workspace
-bindsym $mod+Shift+q move container to workspace $w0
-bindsym $mod+Shift+w move container to workspace $w1
-bindsym $mod+Shift+e move container to workspace $w2
-bindsym $mod+Shift+r move container to workspace $w3
-bindsym $mod+Shift+t move container to workspace $w4
-bindsym $mod+Shift+y move container to workspace $w5
-bindsym $mod+Shift+u move container to workspace $w6
-bindsym $mod+Shift+i move container to workspace $w7
-bindsym $mod+Shift+o move container to workspace $w8
-bindsym $mod+Shift+p move container to workspace $w9
-
-# Super+alt+r to reload config
-bindsym $mod+Mod1+r reload
-
-# Super+control+alt to exit sway
-bindsym $mod+Control+Mod1+e exit
-
-# Super+control+alt+j/k/l/ö to resize window more
+bindsym $mod+Control+Shift+j move workspace to output left
+bindsym $mod+Control+Shift+k move workspace to output down
+bindsym $mod+Control+Shift+l move workspace to output up
+bindsym $mod+Control+Shift+odiaeresis move workspace to output right
 bindsym $mod+Mod1+j resize shrink width 5 px or 5 ppt
 bindsym $mod+Mod1+k resize shrink height 5 px or 5 ppt
 bindsym $mod+Mod1+l resize grow height 5 px or 5 ppt
 bindsym $mod+Mod1+odiaeresis resize grow width 5 px or 5 ppt
-
-# Super+control+alt+j/k/l/ö to resize window less
 bindsym $mod+Control+Mod1+j resize shrink width 1 px or 1 ppt
 bindsym $mod+Control+Mod1+k resize shrink height 1 px or 1 ppt
 bindsym $mod+Control+Mod1+l resize grow height 1 px or 1 ppt
@@ -126,26 +96,6 @@ for_window [class="termite"] border pixel 1
 
 # No borders at edge of screen
 hide_edge_borders both
-
-# Super+- to move window to scratchpad
-bindsym $mod+minus move scratchpad
-
-# Super+. to show window to cycle through scratchpad
-bindsym $mod+period scratchpad show
-
-# Super+control+shift+j/k/l/ö to move windows between monitors
-bindsym $mod+Control+Shift+j move workspace to output left
-bindsym $mod+Control+Shift+k move workspace to output down
-bindsym $mod+Control+Shift+l move workspace to output up
-bindsym $mod+Control+Shift+odiaeresis move workspace to output right
-
-# Function keys
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
-bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
-bindsym XF86MonBrightnessUp exec brightnessctl set +10%
-bindsym XF86WLAN exec ~/dotfiles/toggle-wlan.sh
 
 # Trackpoint settings (psmouse.synaptics_intertouch=1 required)
 input 1739:0:Synaptics_TM3288-003 {
