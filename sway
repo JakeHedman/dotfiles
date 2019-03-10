@@ -1,6 +1,18 @@
 # Super as mod
 set $mod Mod4
 
+# Workspaces
+set $w0 0:doc
+set $w1 1:vim
+set $w2 2:exec
+set $w3 3:web
+set $w4 4:util
+set $w5 5:misc0
+set $w6 6:misc1
+set $w7 7:misc2
+set $w8 8:work
+set $w9 9:irc
+
 # Font for window titles
 font hack 11
 
@@ -59,28 +71,28 @@ bindsym $mod+d focus parent
 bindsym $mod+h focus child
 
 # Super+1...0 switch to workspace
-bindsym $mod+q workspace 0:q
-bindsym $mod+w workspace 1:w
-bindsym $mod+e workspace 2:e
-bindsym $mod+r workspace 3:r
-bindsym $mod+t workspace 4:t
-bindsym $mod+y workspace 5:y
-bindsym $mod+u workspace 6:u
-bindsym $mod+i workspace 7:i
-bindsym $mod+o workspace 8:o
-bindsym $mod+p workspace 9:p
+bindsym $mod+q workspace $w0
+bindsym $mod+w workspace $w1
+bindsym $mod+e workspace $w2
+bindsym $mod+r workspace $w3
+bindsym $mod+t workspace $w4
+bindsym $mod+y workspace $w5
+bindsym $mod+u workspace $w6
+bindsym $mod+i workspace $w7
+bindsym $mod+o workspace $w8
+bindsym $mod+p workspace $w9
 
 # Super+1...0 to move window to workspace
-bindsym $mod+Shift+q move container to workspace 0:q
-bindsym $mod+Shift+w move container to workspace 1:w
-bindsym $mod+Shift+e move container to workspace 2:e
-bindsym $mod+Shift+r move container to workspace 3:r
-bindsym $mod+Shift+t move container to workspace 4:t
-bindsym $mod+Shift+y move container to workspace 5:y
-bindsym $mod+Shift+u move container to workspace 6:u
-bindsym $mod+Shift+i move container to workspace 7:i
-bindsym $mod+Shift+o move container to workspace 8:o
-bindsym $mod+Shift+p move container to workspace 9:p
+bindsym $mod+Shift+q move container to workspace $w0
+bindsym $mod+Shift+w move container to workspace $w1
+bindsym $mod+Shift+e move container to workspace $w2
+bindsym $mod+Shift+r move container to workspace $w3
+bindsym $mod+Shift+t move container to workspace $w4
+bindsym $mod+Shift+y move container to workspace $w5
+bindsym $mod+Shift+u move container to workspace $w6
+bindsym $mod+Shift+i move container to workspace $w7
+bindsym $mod+Shift+o move container to workspace $w8
+bindsym $mod+Shift+p move container to workspace $w9
 
 # Super+alt+r to reload config
 bindsym $mod+Mod1+r reload
@@ -103,7 +115,7 @@ bindsym $mod+Control+Mod1+odiaeresis resize grow width 1 px or 1 ppt
 # Status bar
 bar {
   status_command i3status
-  strip_workspace_numbers yes
+  # strip_workspace_numbers yes
 }
 
 # No borders
