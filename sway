@@ -28,9 +28,10 @@ bindsym $mod+Return exec termite -d $(fpwd ~)
 bindsym $mod+m exec google-chrome-stable
 bindsym $mod+n exec termite -d $(fpwd ~) -e "nvim ."
 bindsym $mod+h exec dmenu_run
-bindsym $mod+Escape exec swaylock
+bindsym $mod+comma exec scrcpy
+bindsym $mod+Tab exec swaylock
 bindsym $mod+f fullscreen
-bindsym $mod+equal kill
+bindsym $mod+apostrophe kill
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
@@ -73,14 +74,43 @@ bindsym $mod+Control+Shift+j move workspace to output left
 bindsym $mod+Control+Shift+k move workspace to output down
 bindsym $mod+Control+Shift+l move workspace to output up
 bindsym $mod+Control+Shift+odiaeresis move workspace to output right
-bindsym $mod+Mod1+j resize shrink width 5 px or 5 ppt
-bindsym $mod+Mod1+k resize shrink height 5 px or 5 ppt
-bindsym $mod+Mod1+l resize grow height 5 px or 5 ppt
-bindsym $mod+Mod1+odiaeresis resize grow width 5 px or 5 ppt
-bindsym $mod+Control+Mod1+j resize shrink width 1 px or 1 ppt
-bindsym $mod+Control+Mod1+k resize shrink height 1 px or 1 ppt
-bindsym $mod+Control+Mod1+l resize grow height 1 px or 1 ppt
-bindsym $mod+Control+Mod1+odiaeresis resize grow width 1 px or 1 ppt
+bindsym $mod+shift+m resize shrink width 5 px or 5 ppt
+bindsym $mod+shift+comma resize shrink height 5 px or 5 ppt
+bindsym $mod+shift+period resize grow height 5 px or 5 ppt
+bindsym $mod+shift+minus resize grow width 5 px or 5 ppt
+
+# Super
+#* ╭──────┬──────┬──────┬──────┬──────┬──────╮ ╭──────┬──────┬──────┬──────┬──────┬──────╮
+#* │ lock │      │      │parent│reload│      │ │go doc│go vim│goexec│go web│gowork│go irc│
+#* ├──────┼──────┼──────┼──────┼──────┼──────┤ ├──────┼──────┼──────┼──────┼──────┼──────┤
+#* │      │vsplit│hsplit│child │fullsc│float │ │dmenu │ go < │ go v │ go ^ │ go > │      │
+#* ├──────┼──────┼──────┼──────┼──────┼──────┤ ├──────┼──────┼──────┼──────┼──────┼──────┤
+#* │      │deflt │sacked│tabbed│      │      │ │ nvim │ web  │scrcpy│scrpd+│scrpd-│      │
+#* ├──────┼──────┼──────┼──────┼──────┼──────┤ ├──────┼──────┼──────┼──────┼──────┼──────┤
+#* │      │      │      │██████│      │      │ │ term │      │      │      │      │ kill │
+#* ╰──────┴──────┴──────┴──────┴──────┴──────╯ ╰──────┴──────┴──────┴──────┴──────┴──────╯
+#
+# Super+Shift
+#* ╭──────┬──────┬──────┬──────┬──────┬──────╮ ╭──────┬──────┬──────┬──────┬──────┬──────╮
+#* │      │      │      │ exit │      │      │ │mv doc│mv vim│mvexec│mv web│mvwork│mv irc│
+#* ├──────┼──────┼──────┼──────┼──────┼──────┤ ├──────┼──────┼──────┼──────┼──────┼──────┤
+#* │      │      │      │      │      │      │ │      │ mv < │ mv v │ mv ^ │ mv > │      │
+#* ├──────┼──────┼──────┼──────┼──────┼──────┤ ├──────┼──────┼──────┼──────┼──────┼──────┤
+#* │██████│      │      │      │      │      │ │      │size <│size v│size ^│size >│      │
+#* ├──────┼──────┼──────┼──────┼──────┼──────┤ ├──────┼──────┼──────┼──────┼──────┼──────┤
+#* │      │      │      │██████│      │      │ │      │      │      │      │      │      │
+#* ╰──────┴──────┴──────┴──────┴──────┴──────╯ ╰──────┴──────┴──────┴──────┴──────┴──────╯
+#
+# Super+Shift+Control
+#* ╭──────┬──────┬──────┬──────┬──────┬──────╮ ╭──────┬──────┬──────┬──────┬──────┬──────╮
+#* │      │      │      │      │      │      │ │      │      │      │      │      │      │
+#* ├──────┼──────┼──────┼──────┼──────┼──────┤ ├──────┼──────┼──────┼──────┼──────┼──────┤
+#* │      │      │      │      │      │      │ │      │mv wp<│mv wpv│mv wp^│mv wp>│      │
+#* ├──────┼──────┼──────┼──────┼──────┼──────┤ ├──────┼──────┼──────┼──────┼──────┼──────┤
+#* │██████│      │      │      │      │      │ │      │      │      │      │      │      │
+#* ├──────┼──────┼──────┼──────┼──────┼──────┤ ├──────┼──────┼──────┼──────┼──────┼──────┤
+#* │██████│      │      │██████│      │      │ │      │      │      │      │      │      │
+#* ╰──────┴──────┴──────┴──────┴──────┴──────╯ ╰──────┴──────┴──────┴──────┴──────┴──────╯
 
 # Status bar
 bar {
