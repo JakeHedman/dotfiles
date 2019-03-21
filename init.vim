@@ -27,6 +27,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
+  Plug 'w0rp/ale'
+  Plug 'ludovicchabant/vim-gutentags'
+  Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 call plug#end()
 
 " Toggle paste mode (no auto indent) with f2
@@ -238,3 +241,19 @@ command! -bang -nargs=* Rg
 
 " Set $SHELL since fzf preview doesn't like xonsh
 let $SHELL='/bin/sh'
+
+" leave terminal mode with escape
+tnoremap <Esc> <C-\><C-n>
+
+" Ale
+let g:ale_linters = {
+\   'javascript': ['prettier', 'eslint'],
+\   'css': ['prettier'],
+\}
+
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\}
+nmap <leader>af :ALEFix<CR>
+let g:ale_sign_column_always = 1
