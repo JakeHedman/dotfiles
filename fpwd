@@ -1,80 +1,81 @@
 #!node
 
-const { spawn } = require('child_process');
+const { spawn } = require("child_process");
 
 const execAsync = (cmd, args) => {
   return new Promise((resolve, reject) => {
-    let stdout = ''
-    let stderr = ''
-    const child = spawn(cmd, args)
-    child.stdout.on('data', data => {
-      stdout += data.toString()
-    })
-    child.stderr.on('data', data => {
-      stderr += data.toString()
-    })
-    child.on('error', () => {})
-    child.on('close', code => {
+    let stdout = "";
+    let stderr = "";
+    const child = spawn(cmd, args);
+    child.stdout.on("data", data => {
+      stdout += data.toString();
+    });
+    child.stderr.on("data", data => {
+      stderr += data.toString();
+    });
+    child.on("error", () => {});
+    child.on("close", code => {
       if (code !== 0) {
-        reject(stderr)
+        reject(stderr);
       } else {
-        resolve(stdout)
+        resolve(stdout);
       }
-    })
-  })
-}
+    });
+  });
+};
 
-const findFocusedChild = (node) => {
+const findFocusedChild = node => {
   if (node.focused) {
-    return node
+    return node;
   } else if (node.nodes) {
-    return node.nodes.map(findFocusedChild).find(x => x)
+    return node.nodes.map(findFocusedChild).find(x => x);
   }
-}
+};
 
 const getProcessPwd = async pid => {
-  const pwdx = await execAsync('pwdx', [pid])
-  return pwdx.split(/\s/)[1]
-}
+  const pwdx = await execAsync("pwdx", [pid]);
+  return pwdx.split(/\s/)[1];
+};
 
 const printFallbackPath = () => {
-  process.argv.length > 2 && console.log(process.argv[2])
-}
+  process.argv.length > 2 && console.log(process.argv[2]);
+};
 
-;(async () => {
-  let treeJSon
+(async () => {
+  let treeJSon;
   try {
-    treeJson = await execAsync('swaymsg', ['-t', 'get_tree'])
+    treeJson = await execAsync("swaymsg", ["-t", "get_tree"]);
   } catch (err) {
-    treeJson = await execAsync('i3-msg', ['-t', 'get_tree'])
+    treeJson = await execAsync("i3-msg", ["-t", "get_tree"]);
   }
-  const tree = JSON.parse(treeJson)
-  const focused = findFocusedChild(tree)
+  const tree = JSON.parse(treeJson);
+  const focused = findFocusedChild(tree);
 
   if (!focused) {
-    return printFallbackPath()
+    return printFallbackPath();
   }
 
-  let focusedPid
+  let focusedPid;
   if (focused.pid) {
-    focusedPid = focused.pid
+    focusedPid = focused.pid;
   } else if (focused.window) {
-    const xprops = await execAsync('xprop', ['-id', focused.window])
+    const xprops = await execAsync("xprop", ["-id", focused.window]);
     focusedPid = xprops
-      .split('\n')
-      .find(line => line.startsWith('_NET_WM_PID'))
-      .split(' = ')
-      [1]
+      .split("\n")
+      .find(line => line.startsWith("_NET_WM_PID"))
+      .split(" = ")[1];
   } else {
-    return printFallbackPath()
+    return printFallbackPath();
   }
 
-  const psTree = await execAsync('pstree', ['-Tcpl', focusedPid])
-  const psLine = psTree.split('\n')[0]
-  const psPids = psLine.match(/.*?\)/g).reverse()
-  const psPid = psPids.find(text => !text.includes('pstree') && !text.includes('xclip'))
-  const pid = psPid.match(/\((\d+)\)/)[1]
+  const psTree = await execAsync("pstree", ["-Tcpl", focusedPid]);
+  const psLine = psTree.split("\n")[0];
+  const psPids = psLine.match(/.*?\)/g).reverse();
+  const psPid = psPids.find(
+    text => !text.includes("pstree") && !text.includes("xclip")
+  );
+  const pid = psPid.match(/\((\d+)\)/)[1];
 
-  const pwd = await getProcessPwd(pid)
-  console.log(pwd)
-})()
+  const pwd = await getProcessPwd(pid);
+  console.log(pwd);
+})();
