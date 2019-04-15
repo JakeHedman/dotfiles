@@ -35,4 +35,7 @@ mkdir -p ~/bin
 [ ! -f ~/bin/extract ] && ln -s $DIR/extract ~/bin/extract
 [ ! -f ~/bin/fpwd ] && ln -s $DIR/fpwd ~/bin/fpwd
 
+# tridactyl
+[ ! -f ~/.tridactylrc ] && ln -s $DIR/tridactylrc ~/.tridactylrc
+
 exit 0

@@ -25,8 +25,9 @@ floating_modifier $mod
 
 # Bindings
 bindsym $mod+Return exec termite -d $(fpwd ~)
-bindsym $mod+m exec google-chrome-stable
-bindsym $mod+n exec termite -d $(fpwd ~) -e "nvim ."
+bindsym $mod+m exec env GDK_BACKEND=wayland firefox-nightly
+bindsym $mod+BackSpace exec env GDK_BACKEND=wayland firefox-nightly -P Work
+bindsym $mod+n exec termite -d $(fpwd ~) -e "nvim"
 bindsym $mod+h exec dmenu_run
 bindsym $mod+comma exec scrcpy
 bindsym $mod+Tab exec swaylock

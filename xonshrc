@@ -55,6 +55,7 @@ $PATH.insert(0, '~/bin')
 $PATH.insert(1, '~/Manager/bin')
 $PATH.append('~/.yarn/bin')
 $PATH.append('~/.cargo/bin')
+$PATH.append('~/.gem/ruby/2.6.0/bin')
 
 # Aliases
 aliases[':q'] = 'exit'
@@ -77,6 +78,8 @@ $AUTO_CD = True
 
 # Avoid termite TERM
 $TERM = 'rxvt-unicode-256color'
+
+$ANDROID_HOME = $HOME + '/Android/Sdk'
 
 # Autostart sway
 if $(tty).strip() == '/dev/tty1':

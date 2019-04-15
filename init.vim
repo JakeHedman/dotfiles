@@ -15,7 +15,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'mxw/vim-jsx'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'pangloss/vim-javascript'
-  Plug 'terryma/vim-multiple-cursors'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-jdaddy'
   Plug 'kchmck/vim-coffee-script'
@@ -27,9 +26,10 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
-  Plug 'w0rp/ale'
   Plug 'ludovicchabant/vim-gutentags'
   Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
+  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+  Plug 'mg979/vim-visual-multi'
 call plug#end()
 
 " Toggle paste mode (no auto indent) with f2
@@ -245,15 +245,13 @@ let $SHELL='/bin/sh'
 " leave terminal mode with escape
 tnoremap <Esc> <C-\><C-n>
 
-" Ale
-let g:ale_linters = {
-\   'javascript': ['prettier', 'eslint'],
-\   'css': ['prettier'],
-\}
+" vim-coc
+let g:coc_global_extensions = [
+\  'coc-prettier',
+\  'coc-json',
+\  'coc-html',
+\  'coc-css',
+\  'coc-eslint'
+\]
 
-let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'css': ['prettier'],
-\}
-nmap <leader>af :ALEFix<CR>
-let g:ale_sign_column_always = 1
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
