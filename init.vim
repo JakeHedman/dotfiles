@@ -28,8 +28,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'ludovicchabant/vim-gutentags'
   Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
-  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
   Plug 'mg979/vim-visual-multi'
+  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+  Plug 'HerringtonDarkholme/yats.vim'
 call plug#end()
 
 " Toggle paste mode (no auto indent) with f2
@@ -251,7 +252,8 @@ let g:coc_global_extensions = [
 \  'coc-json',
 \  'coc-html',
 \  'coc-css',
-\  'coc-eslint'
+\  'coc-eslint',
+\  'coc-tsserver'
 \]
 
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
