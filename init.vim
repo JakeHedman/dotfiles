@@ -370,5 +370,7 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 nnoremap <silent> <space>f  :<C-u>CocList files<CR>
 " Grep
 nnoremap <silent> <space>g  :<C-u>CocList -I grep<CR>
+" Buffers
+nnoremap <silent> <space>b  :<C-u>CocList buffers<CR>
 
 set noshowmode
