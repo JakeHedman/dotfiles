@@ -27,12 +27,14 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
-  Plug 'mg979/vim-visual-multi'
+  Plug 'terryma/vim-multiple-cursors'
   Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
   Plug 'HerringtonDarkholme/yats.vim'
   Plug 'itchyny/lightline.vim'
-  Plug 'pablopunk/hot-reload.vim'
 call plug#end()
+
+" Auto reload vimrc on save
+autocmd! bufwritepost .vimrc,init.vim source %
 
 " Toggle paste mode (no auto indent) with f2
 set pastetoggle=<f2>
@@ -148,18 +150,6 @@ command! WQ wq
 command! Wq wq
 command! W w
 command! Q q
-
-" Statusline
-" %F - Longer path
-" %r readonly flag
-" %m modified flag
-" %y filetype
-" %c column
-" %l line
-" %L number of lines
-" %P percentage through buffer
-" %= right side
-set statusline=%F%r%m\ %y%=%{fugitive#head()}\ 0x%B\ %c\ %l/%L\ %P
 
 " Disable double leader in EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
@@ -349,20 +339,31 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` to fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
-
 " Add diagnostic info for https://github.com/itchyny/lightline.vim
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status'
-      \ },
-      \ }
-
-
+\ 'colorscheme': 'wombat',
+\ 'active': {
+\   'left': [
+\     [ 'mode', 'paste' ],
+\     [ 'gitbranch', 'cocstatus', 'readonly', 'filename', 'modified' ]
+\   ],
+\   'right': [
+\     ['lineinfo'],
+\     ['percent'],
+\     ['fileformat'],
+\     ['fileencoding'],
+\     ['filetype'],
+\     ['charvaluehex']
+\   ]
+\ },
+\ 'component': {
+\   'charvaluehex': '0x%B'
+\ },
+\ 'component_function': {
+\   'cocstatus': 'coc#status',
+\   'gitbranch': 'fugitive#head'
+\ },
+\}
 
 " Using CocList
 " Show all diagnostics
