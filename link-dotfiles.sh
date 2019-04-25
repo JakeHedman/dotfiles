@@ -38,4 +38,8 @@ mkdir -p ~/bin
 # tridactyl
 [ ! -f ~/.tridactylrc ] && ln -s $DIR/tridactylrc ~/.tridactylrc
 
+# vim-coc
+mkdir -p ~/.config/nvim
+[ ! -f ~/.config/nvim/coc-settings.json ] && ln -s $DIR/coc-settings.json ~/.config/nvim/coc-settings.json
+
 exit 0

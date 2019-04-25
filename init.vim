@@ -25,8 +25,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-commentary'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
   Plug 'HerringtonDarkholme/yats.vim'
@@ -214,23 +212,6 @@ autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 " Use PRIMARY clipboard
 set clipboard=unnamedplus
 
-" ctrl-p to search files with fzf
-nnoremap <c-p> :GitFiles!<cr>
-
-" ,r to search file contents with rg + fzf
-nnoremap <leader>r :Rg!<cr>
-
-" :Files with preview
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('up:70%'), <bang>0)
-
-" :Rg with preview
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview('up:70%'),
-  \   <bang>0)
-
 " Set $SHELL since fzf preview doesn't like xonsh
 let $SHELL='/bin/sh'
 
@@ -239,12 +220,15 @@ tnoremap <Leader><Esc> <C-\><C-n>
 
 " vim-coc
 let g:coc_global_extensions = [
-\  'coc-prettier',
-\  'coc-json',
-\  'coc-html',
-\  'coc-css',
-\  'coc-eslint',
-\  'coc-tsserver'
+\ 'coc-prettier',
+\ 'coc-json',
+\ 'coc-html',
+\ 'coc-css',
+\ 'coc-eslint',
+\ 'coc-tsserver',
+\ 'coc-snippets',
+\ 'coc-rls',
+\ 'coc-lists'
 \]
 
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
@@ -382,5 +366,9 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+" Search files
+nnoremap <silent> <space>f  :<C-u>CocList files<CR>
+" Grep
+nnoremap <silent> <space>g  :<C-u>CocList -I grep<CR>
 
 set noshowmode
