@@ -62,7 +62,6 @@ pacman --noconfirm --needed -qSy \
   sway \
   termite \
   tldr \
-  ttf-hack \
   ttf-liberation \
   usb_modeswitch \
   usbutils \
@@ -113,7 +112,8 @@ env SUDO_USER="$USERNAME" aura --noconfirm --needed -Ay \
   brightnessctl \
   google-chrome \
   spotify \
-  ttf-ms-fonts
+  ttf-ms-fonts \
+  nerd-fonts-complete
 
 # Use xonsh shell from AUR
 chsh -s /usr/bin/xonsh $USERNAME
