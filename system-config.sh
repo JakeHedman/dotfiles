@@ -70,7 +70,10 @@ pacman --noconfirm --needed -qSy \
   blueman \
   xclip \
   xonsh \
-  i3 \
+  i3-wm \
+  i3lock \
+  i3blocks \
+  xorg \
   xorg-xinit
 
 # Groups

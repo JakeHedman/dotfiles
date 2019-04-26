@@ -42,4 +42,7 @@ mkdir -p ~/bin
 mkdir -p ~/.config/nvim
 [ ! -f ~/.config/nvim/coc-settings.json ] && ln -s $DIR/coc-settings.json ~/.config/nvim/coc-settings.json
 
+# xinit
+[ ! -f ~/.xinitrc ] && ln -s $DIR/xinitrc ~/.xinitrc
+
 exit 0
