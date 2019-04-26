@@ -61,7 +61,6 @@ $PATH.append('~/.gem/ruby/2.6.0/bin')
 aliases[':q'] = 'exit'
 aliases['v'] = 'nvim'
 aliases['vim'] = 'nvim'
-aliases['xtermite'] = 'env GDK_BACKEND=x11 termite'
 
 # Git aliases
 aliases['g'] = 'git'
@@ -77,15 +76,15 @@ aliases['gch'] = 'git checkout'
 $AUTO_CD = True
 
 # Avoid termite TERM
-$TERM = 'rxvt-unicode-256color'
+$TERM = 'xterm-256color'
 
 $ANDROID_HOME = $HOME + '/Android/Sdk'
 
-# Autostart sway
+# Autostart i3
 if $(tty).strip() == '/dev/tty1':
   import sys
   try:
-    sway
+    startx
   except:
     pass
   sys.exit()

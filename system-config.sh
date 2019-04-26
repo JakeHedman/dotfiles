@@ -59,7 +59,6 @@ pacman --noconfirm --needed -qSy \
   python2 \
   ripgrep \
   scrot \
-  sway \
   termite \
   tldr \
   ttf-liberation \
@@ -70,8 +69,7 @@ pacman --noconfirm --needed -qSy \
   dmenu \
   blueman \
   xclip \
-  xonsh \
-  mako
+  xonsh
 
 # Groups
 usermod -a -G docker $USERNAME
