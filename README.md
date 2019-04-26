@@ -1,72 +1,141 @@
 # Arch Linux install cheat sheet
 
 ## Create usb
+
+Find url of latest iso: https://ftp.acc.umu.se/mirror/archlinux/iso/latest/
+
 ```sh
-dd bs=4M if=/path/to/archlinux.iso of=/dev/sd... status=progress oflag=sync
+curl -L https://... | dd of=/dev/sd... bs=4M status=progress oflag=sync
 ```
 
 ## Install system
+
+Keymap and wifi (if needed)
+
 ```sh
-# Set keymap
 loadkeys sv-latin1
+wifi-menu
+```
 
-# Partition single 32bit ext4 partition (bootlable)
-cfdisk /dev/disk/by-id/...
-mkfs.ext4 -O "^64bit" /dev/disk/by-id/...-part1
+Clear old partition table
 
-# Mount to /mnt
-mount /dev/disk/by-id/...-part1 /mnt
+```sh
+dd if=/dev/zero of=/dev/nvme0n1 bs=1M count=1
+```
 
-# Select mirror (optional)
-vi /etc/pacman.d/mirrorlist
+Create partition table (gpt) and partitions according to the table
 
-# Install system
+```sh
+cfdisk /dev/disk/nvme0n1
+```
+
+| Device         | Mountpoint | Type                 | Size                     |
+| -------------- | ---------- | -------------------- | ------------------------ |
+| /dev/nvme0n1p1 | /          | Linux Filesystem     | Max possible             |
+| /dev/nvme0n1p2 | /boot      | EFI System Partition | 1G                       |
+| /dev/nvme0n1p3 | N/A        | Linux Swap           | >= RAM (for hibernation) |
+
+Create filesystems
+
+```sh
+mkfs.ext4 /dev/nvme0n1p1
+mkfs.fat -F32 /dev/nvme0n1p2
+mkswap /dev/nvme0n1p3
+```
+
+Mount filesystems
+
+```sh
+mount /dev/nvme0n1p1 /mnt
+mkdir /mnt/boot
+mount /dev/nvme0n1p2 /mnt/boot
+```
+
+Select umu.se mirror
+
+```sh
+vim /etc/pacman.d/mirrorlist
+```
+
+Install system
+
+```sh
 pacstrap /mnt base base-devel
+```
 
-# Generate fstab
+Generate fstab
+
+```sh
 genfstab -U /mnt >> /mnt/etc/fstab
+```
 
-# Chroot to new system
+Chroot to new system
+
+```sh
 arch-chroot /mnt
+```
 
-# Install bootloader
-pacman -Syu syslinux
+Install packages
 
-# Install bootloader
-syslinux-install_update -iam
+```sh
+pacman -Syu networkmanager vim
+```
 
-# Set root password
-passwd
+Install systemd-boot
 
-# Set hostname
+```sh
+bootctl install
+```
+
+Configure systemd-boot
+
+```sh
+vim /boot/loader/entries/arch.conf
+```
+
+```
+title Arch Linux
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
+```
+
+```sh
+echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/nvme0n1p1) rw" >> /boot/loader/entries/arch.conf
+```
+
+TODO: Intel microcode stuff
+
+Set hostname
+
+```sh
 echo hostname > /etc/hostname
+```
 
-# - Change partition path (APPEND root=...) to /dev/disk/by-uuid/UUID
-vi /boot/syslinux/syslinux.cfg
+Reboot to live system and disconnect USB drive
 
-# Reboot to live system and disconnect USB drive
+```sh
+exit
 reboot
 ```
 
-## Wlan setup (optional)
+## System config
+
+Enable wlan interface and connect to wifi (if needed)
 
 ```sh
-# Install and enable networkmanager
-pacman -Syu networkmanager
-systemctl start NetworkManager
-
-# Connect to wlan
+ip l set wlp4s0 up
+systemctl enable NetworkManager
 nmtui
 ```
 
-## System config script
+Select system to scp private config from
+
 ```sh
-# Set ssh host of system with files to fetch
-export ALTHOST=jakob@192.168.1.111
+export ALTHOST=user@host
+```
 
-# Run config script from github
+Run system-config.sh
+
+```sh
 curl https://raw.githubusercontent.com/JakeHedman/dotfiles/master/system-config.sh | bash
-
-# Firefox fullscreen windowed
-about:config
-full-screen-api.ignore-widgets = true
+```

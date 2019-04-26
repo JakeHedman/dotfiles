@@ -78,7 +78,6 @@ usermod -a -G docker $USERNAME
 usermod -a -G video $USERNAME
 
 # Autostart docker
-
 systemctl enable docker
 
 # Install vim after python to get +python
