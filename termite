@@ -1,6 +1,6 @@
 [options]
 # Hack typeface
-font = Hack 12
+font = Hack Nerd Font 12
 
 # Infinite scrollback
 scrollback_lines = -1

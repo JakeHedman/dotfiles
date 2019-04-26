@@ -187,10 +187,6 @@ systemctl enable --now systemd-timesyncd.service
 # Auto enable lte when wifi is down
 cp /home/"$USERNAME"/dotfiles/lte-auto-toggle.sh /etc/NetworkManager/dispatcher.d/
 
-# Syslinux config
-sed -i 's/INITRD ..\/initramfs-linux.img/INITRD ..\/intel-ucode.img,..\/initramfs-linux.img/' /boot/syslinux/syslinux.cfg
-sed -i 's/TIMEOUT 50/TIMEOUT 1/' /boot/syslinux/syslinux.cfg
-
 # Backlight udev rules
 cp /home/"$USERNAME"/dotfiles/backlight.rules /etc/udev/rules.d/backlight.rules
 
