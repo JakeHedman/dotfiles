@@ -2,9 +2,9 @@
 
 DIR="$( cd "$( dirname "$0" )" && pwd )"
 
-# Sway
-mkdir -p ~/.sway
-[ ! -f ~/.sway/config ] && ln -s $DIR/sway ~/.sway/config
+# i3
+mkdir -p ~/.i3
+[ ! -f ~/.i3/config ] && ln -s $DIR/i3 ~/.i3/config
 
 # i3status
 [ ! -f ~/.i3status.conf ] && ln -s $DIR/i3status.conf ~/.i3status.conf

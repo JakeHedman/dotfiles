@@ -69,7 +69,9 @@ pacman --noconfirm --needed -qSy \
   dmenu \
   blueman \
   xclip \
-  xonsh
+  xonsh \
+  i3 \
+  xorg-xinit
 
 # Groups
 usermod -a -G docker $USERNAME
