@@ -9,16 +9,13 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
   Plug 'airblade/vim-gitgutter'
-  Plug 'chriskempson/base16-vim'
+  Plug 'joshdick/onedark.vim'
   Plug 'easymotion/vim-easymotion'
   Plug 'heavenshell/vim-jsdoc'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'pangloss/vim-javascript'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-jdaddy'
-  Plug 'leafgarland/typescript-vim'
-  Plug 'peitalin/vim-jsx-typescript'
-  Plug 'kchmck/vim-coffee-script'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'simnalamburt/vim-mundo'
   Plug 'roryokane/detectindent'
@@ -27,9 +24,58 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'HerringtonDarkholme/yats.vim'
   Plug 'itchyny/lightline.vim'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'peitalin/vim-jsx-typescript'
 call plug#end()
+
+
+" Colors
+let g:onedark_termcolors=256
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
+syntax on
+colorscheme onedark
+
+" Blues
+" light blues
+hi xmlTagName guifg=#59ACE5
+hi xmlTag guifg=#59ACE5
+
+" dark blues
+hi xmlEndTag guifg=#2974a1
+hi jsxCloseString guifg=#2974a1
+hi htmlTag guifg=#2974a1
+hi htmlEndTag guifg=#2974a1
+hi htmlTagName guifg=#59ACE5
+hi jsxAttrib guifg=#1BD1C1
+
+" cyan
+hi Constant guifg=#56B6C2
+hi typescriptBraces guifg=#56B6C2
+hi typescriptEndColons guifg=#56B6C2
+hi typescriptRef guifg=#56B6C2
+hi typescriptPropietaryMethods guifg=#56B6C2
+hi typescriptEventListenerMethods guifg=#56B6C2
+hi typescriptFunction guifg=#56B6C2
+hi typescriptVars guifg=#56B6C2
+hi typescriptParen guifg=#56B6C2
+hi typescriptDotNotation guifg=#56B6C2
+hi typescriptBracket guifg=#56B6C2
+hi typescriptBlock guifg=#56B6C2
+hi typescriptJFunctions guifg=#56B6C2
+hi typescriptSFunctions guifg=#56B6C2
+hi typescriptInterpolationDelimiter guifg=#56B6C2
+hi typescriptIdentifier guifg=#907161 cterm=italic
+
+" javascript
+hi jsParens guifg=#56B6C2
+hi jsObjectBraces guifg=#C678DD
+hi jsFuncBraces guifg=#56B6C2
+hi jsObjectFuncName guifg=#D19A66
+hi jsObjectKey guifg=#56B6C2
 
 " Auto reload vimrc on save
 autocmd! bufwritepost .vimrc,init.vim source %
@@ -65,11 +111,6 @@ nmap Q gqap
 " Do not deselect when indenting
 vnoremap < <gv
 vnoremap > >gv
-
-" Syntax highlighting
-filetype off
-filetype plugin indent on
-syntax on
 
 " Don't wrap lines
 set nowrap
@@ -199,10 +240,6 @@ vnoremap <leader>b :.w !bash
 " Don't require .jsx extension for jsx syntax
 let g:jsx_ext_required = 0
 
-" Colors
-let base16colorspace=256
-colorscheme base16-default-dark
-
 " Show undo tree
 nnoremap <F5> :MundoToggle<CR>
 
@@ -325,7 +362,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add diagnostic info for https://github.com/itchyny/lightline.vim
 let g:lightline = {
-\ 'colorscheme': 'wombat',
+\ 'colorscheme': 'onedark',
 \ 'active': {
 \   'left': [
 \     [ 'mode', 'paste' ],
