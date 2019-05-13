@@ -2,4 +2,6 @@ intel ucode
 x keymap
 pavuctrl
 fn keys
+autolock
 swapiness
+hibernate kernel param
