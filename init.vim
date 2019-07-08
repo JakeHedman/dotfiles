@@ -256,18 +256,6 @@ let $SHELL='/bin/sh'
 tnoremap <Leader><Esc> <C-\><C-n>
 
 " vim-coc
-let g:coc_global_extensions = [
-\ 'coc-prettier',
-\ 'coc-json',
-\ 'coc-html',
-\ 'coc-css',
-\ 'coc-eslint',
-\ 'coc-tsserver',
-\ 'coc-snippets',
-\ 'coc-rls',
-\ 'coc-lists'
-\]
-
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 " if hidden is not set, TextEdit might fail.
@@ -411,3 +399,6 @@ nnoremap <silent> <space>g  :<C-u>CocList -I grep<CR>
 nnoremap <silent> <space>b  :<C-u>CocList buffers<CR>
 
 set noshowmode
+
+" ,ef eslint fix
+nmap <leader>ef :CocCommand eslint.executeAutofix<CR>
