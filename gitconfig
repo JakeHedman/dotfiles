@@ -3,5 +3,7 @@
   name = Jake Hedman
 [pull]
   rebase = true
+[alias]
+  credit = blame
 
 # vi:syntax=gitconfig
