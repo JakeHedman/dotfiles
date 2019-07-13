@@ -34,6 +34,7 @@ mkdir -p ~/.config/termite
 mkdir -p ~/bin
 [ ! -f ~/bin/extract ] && ln -s $DIR/extract ~/bin/extract
 [ ! -f ~/bin/fpwd ] && ln -s $DIR/fpwd ~/bin/fpwd
+[ ! -f ~/bin/chromecat ] && ln -s $DIR/chromecat ~/bin/chromecat
 
 # tridactyl
 [ ! -f ~/.tridactylrc ] && ln -s $DIR/tridactylrc ~/.tridactylrc

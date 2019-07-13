@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# chromecat - Pipe HTML to chrome (maybe from your e-mail client)
+#
+# Usage: echo "<h1>Heyy</h1>" | chromecat
+#
+# - Reads HTML on stdin
+# - Waits for window to close before exiting
+# - Uses a temporary chrome profile without access to your data
+# - Runs in incognito mode
+# - The chrome (address bar etc) is hidden (--app)
+# - No network access
+
+# Temporary chrome profile as "jail"
+PROFILE=/tmp/chromecat/$RANDOM
+
+# Create b64 data-url from the piped HTML
+URL="data:text/html;base64,$(base64 -w 0 <&0)"
+
+google-chrome-stable \
+  --user-data-dir="$PROFILE" `# Use temporary prifile` \
+  --incognito `# Incognito since history isn't important` \
+  --disable-extensions `# Disable extensions for faster start` \
+  --disable-features="TranslateUI,NativeNotifications" `# Do not ask to translate the pages` \
+  --enable-fast-unload `# Close faster` \
+  --fast `# Faster animations` \
+  --disable-infobars `# Disable infobar popups` \
+  --no-first-run `# Disable setup wizard` \
+  --noerrdialogs `# Disable error popups` \
+  --host-rules="MAP * [100::]" `# Disable network (Send all traffic to RFC666 discard address)` \
+  --proxy-server="[100::]" `# Disable network access (Broken proxy config just in case)` \
+  --disable-gpu `# Get rid of GPU warnings` \
+  --app="$URL" # Hide chrome
+
+
+# Cleanup
+rm -r $PROFILE
