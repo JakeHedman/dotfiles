@@ -28,11 +28,11 @@ def custom_keybindings(bindings, **kw):
 
   @bindings.add('k', filter=ViNavigationMode())
   def _(event):
-    event.cli.input_processor.feed(KeyPress(Keys.Down, ''))
+    event.cli.key_processor.feed(KeyPress(Keys.Down, ''))
 
   @bindings.add('l', filter=ViNavigationMode())
   def _(event):
-    event.cli.input_processor.feed(KeyPress(Keys.Up, ''))
+    event.cli.key_processor.feed(KeyPress(Keys.Up, ''))
 
   @bindings.add('\xF6', filter=ViNavigationMode())
   def _(event):
@@ -57,6 +57,7 @@ $PATH.insert(1, '~/Manager/bin')
 $PATH.append('~/.yarn/bin')
 $PATH.append('~/.cargo/bin')
 $PATH.append('~/.gem/ruby/2.6.0/bin')
+$PATH.append('~/depot_tools')
 
 # Aliases
 aliases[':q'] = 'exit'
