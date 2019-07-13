@@ -34,9 +34,9 @@ for (const url of data.match(pattern)) {
   const path = getPath();
   const short = `file://${path}`;
   const html = `
-  <meta http-equiv="refresh" content="0; URL=${url}" />
-  <script>location = ${JSON.stringify(url)}</script>
-  <a href="${url}">${url}</a>
+    <meta http-equiv="refresh" content="0; URL=${url}" />
+    <script>location = ${JSON.stringify(url)}</script>
+    <a href="${url}">${url}</a>
   `;
   fs.writeFileSync(path, html);
   data = data.replace(
