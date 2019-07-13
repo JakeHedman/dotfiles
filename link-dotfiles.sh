@@ -35,6 +35,7 @@ mkdir -p ~/bin
 [ ! -f ~/bin/extract ] && ln -s $DIR/extract ~/bin/extract
 [ ! -f ~/bin/fpwd ] && ln -s $DIR/fpwd ~/bin/fpwd
 [ ! -f ~/bin/chromecat ] && ln -s $DIR/chromecat ~/bin/chromecat
+[ ! -f ~/bin/urlshort ] && ln -s $DIR/urlshort ~/bin/urlshort
 
 # tridactyl
 [ ! -f ~/.tridactylrc ] && ln -s $DIR/tridactylrc ~/.tridactylrc

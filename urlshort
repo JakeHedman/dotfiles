@@ -1,0 +1,51 @@
+#!/usr/bin/node
+
+const fs = require("fs");
+const path = require("path");
+
+const FILE_LENGTH = 4;
+const TMP_DIR = "/tmp/us";
+let data = fs.readFileSync("/dev/stdin", "utf-8");
+const pattern = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
+
+if (!fs.existsSync(TMP_DIR)) {
+  fs.mkdirSync(TMP_DIR);
+}
+
+function getPath() {
+  const letters = [...new Array(26).keys()]
+    .map(i => String.fromCharCode(i + 65))
+    .join("");
+  const digits = [...new Array(10).keys()].join("");
+  const chars = letters + letters.toLowerCase() + digits;
+  const random = new Array(FILE_LENGTH)
+    .fill(null)
+    .map(() => chars[Math.floor(chars.length * Math.random())])
+    .join("");
+  const fullPath = path.join(TMP_DIR, random + ".htm");
+  if (fs.existsSync(fullPath)) {
+    return getPath();
+  } else {
+    return fullPath;
+  }
+}
+
+for (const url of data.match(pattern)) {
+  const path = getPath();
+  const short = `file://${path}`;
+  const html = `
+  <meta http-equiv="refresh" content="0; URL=${url}" />
+  <script>location = ${JSON.stringify(url)}</script>
+  <a href="${url}">${url}</a>
+  `;
+  fs.writeFileSync(path, html);
+  data = data.replace(
+    url,
+    `${short} (${url
+      .split("//")
+      .slice(1)
+      .join("//")})`
+  );
+}
+
+console.log(data);
