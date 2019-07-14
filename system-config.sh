@@ -116,6 +116,7 @@ env SUDO_USER="$USERNAME" aura --noconfirm --needed -Ay \
   google-chrome \
   spotify \
   ttf-ms-fonts \
+  mimi-git \
   nerd-fonts-complete
 
 # Use xonsh shell from AUR

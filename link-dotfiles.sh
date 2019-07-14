@@ -53,4 +53,8 @@ mkdir -p ~/.config/aerc
 [ ! -f ~/.config/aerc/binds.conf ] && ln -s $DIR/aerc/binds.conf ~/.config/aerc/binds.conf
 [ ! -f ~/.config/aerc/accounts.conf ] && ln -s $DIR/aerc/accounts.conf ~/.config/aerc/accounts.conf
 
+# mimi
+mkdir -p ~/.config/mimi
+[ ! -f ~/.config/mimi/mime.conf ] && ln -s $DIR/mime.conf ~/.config/mimi/mime.conf
+
 exit 0
