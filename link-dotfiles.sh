@@ -47,4 +47,10 @@ mkdir -p ~/.config/nvim
 # xinit
 [ ! -f ~/.xinitrc ] && ln -s $DIR/xinitrc ~/.xinitrc
 
+# aerc
+mkdir -p ~/.config/aerc
+[ ! -f ~/.config/aerc/aerc.conf ] && ln -s $DIR/aerc/aerc.conf ~/.config/aerc/aerc.conf
+[ ! -f ~/.config/aerc/binds.conf ] && ln -s $DIR/aerc/binds.conf ~/.config/aerc/binds.conf
+[ ! -f ~/.config/aerc/accounts.conf ] && ln -s $DIR/aerc/accounts.conf ~/.config/aerc/accounts.conf
+
 exit 0

@@ -74,6 +74,7 @@ pacman --noconfirm --needed -qSy \
   i3lock \
   i3blocks \
   xorg \
+  py3status \
   xorg-xinit
 
 # Groups

@@ -30,7 +30,7 @@ function getPath() {
   }
 }
 
-for (const url of data.match(pattern)) {
+for (const url of data.match(pattern) || []) {
   const path = getPath();
   const short = `file://${path}`;
   const html = `

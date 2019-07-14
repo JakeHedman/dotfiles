@@ -1,5 +1,5 @@
 # Show randomart
-VisualHostKey=yes 
+VisualHostKey=yes
 
 # Don't disconnect
 ServerAliveInterval 15
@@ -9,4 +9,8 @@ ServerAliveCountMax 3
 EscapeChar ~
 
 # Load private config
-Include private_config
+Include ~/.secrets/ssh
+
+# Keys
+Host *
+  IdentityFile ~/.secrets/id_rsa

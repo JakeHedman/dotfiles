@@ -54,6 +54,7 @@ bindsym $mod+g floating toggle
 bindsym $mod+e focus parent
 bindsym $mod+d focus child
 bindsym $mod+r reload
+bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exit
 bindsym $mod+$wk0 workspace $w0
 bindsym $mod+$wk1 workspace $w1
@@ -115,7 +116,7 @@ bindsym $mod+shift+minus resize grow width 5 px or 5 ppt
 
 # Status bar
 bar {
-  status_command i3status
+  status_command py3status
   # strip_workspace_numbers yes
 }
 
