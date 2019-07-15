@@ -40,6 +40,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
   Plug 'wix/import-cost', {'as': 'coc-import-cost', 'rtp': 'packages/coc-import-cost', 'do': 'cd packages/coc-import-cost && npm i && npm run coc:prepublish'}
   Plug 'dhruvasagar/vim-table-mode'
+  Plug 'delphinus/vim-firestore'
 call plug#end()
 
 
