@@ -9,8 +9,4 @@ ServerAliveCountMax 3
 EscapeChar ~
 
 # Load private config
-Include ~/.secrets/ssh
-
-# Keys
-Host *
-  IdentityFile ~/.secrets/id_rsa
+Include private_config

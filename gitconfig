@@ -1,9 +1,14 @@
 [user]
   email = jake@hedman.email
   name = Jake Hedman
+  signingkey = 0xF371DB53
 [pull]
   rebase = true
 [alias]
   credit = blame
+[commit]
+  gpgsign = true
+[tag]
+  gpgsign = true
 
 # vi:syntax=gitconfig
