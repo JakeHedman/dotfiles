@@ -125,15 +125,6 @@ env SUDO_USER="$USERNAME" aura --noconfirm --needed -Ay \
 # Use xonsh shell from AUR
 chsh -s /usr/bin/xonsh $USERNAME
 
-# Fetch ssh config
-if [ -z "$ALTHOST" ]; then
-  echo "WARNING: Missing \$ALTHOST"
-elif [ ! -f /home/$USERNAME/.ssh/private_config ]; then
-   sudo -u $USERNAME scp \
-     $ALTHOST:.ssh/{id_rsa,id_rsa.pub,private_config} \
-     /home/$USERNAME/.ssh
-fi
-
 # Set locale
 if ! (localectl list-locales | grep en_US.utf8); then
   echo "LANG=en_US.UTF-8" > /etc/locale.conf

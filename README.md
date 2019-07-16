@@ -128,12 +128,6 @@ systemctl enable NetworkManager
 nmtui
 ```
 
-Select system to scp private config from
-
-```sh
-export ALTHOST=user@host
-```
-
 Run system-config.sh
 
 ```sh
