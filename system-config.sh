@@ -76,6 +76,8 @@ pacman --noconfirm --needed -qSy \
   xorg \
   py3status \
   bash-completion \
+  rofi \
+  python-tldextract \
   xorg-xinit
 
 # Groups

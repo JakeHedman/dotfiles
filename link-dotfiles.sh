@@ -57,4 +57,10 @@ mkdir -p ~/.config/aerc
 mkdir -p ~/.config/mimi
 [ ! -f ~/.config/mimi/mime.conf ] && ln -s $DIR/mime.conf ~/.config/mimi/mime.conf
 
+# qutebrowser
+mkdir -p ~/.config/qutebrowser
+[ ! -f ~/.config/qutebrowser/config.py ] && ln -s $DIR/qutebrowser.py ~/.config/qutebrowser/config.py
+mkdir -p ~/.qutebrowser-work/config
+[ ! -f ~/.qutebrowser-work/config/config/.py ] && ln -s $DIR/qutebrowser.py ~/.qutebrowser-work/config/config.py
+
 exit 0

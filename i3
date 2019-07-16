@@ -25,8 +25,8 @@ floating_modifier $mod
 
 # Bindings
 bindsym $mod+Return exec termite -d $(fpwd ~)
-bindsym $mod+m exec google-chrome-stable --profile-directory=Default
-bindsym $mod+BackSpace exec google-chrome-stable --profile-directory="Profile 1"
+bindsym $mod+m exec qutebrowser
+bindsym $mod+BackSpace exec qutebrowser --basedir ~/.qutebrowser-work
 bindsym $mod+n exec termite -d $(fpwd ~) -e "nvim"
 bindsym $mod+h exec dmenu_run
 bindsym $mod+comma exec scrcpy

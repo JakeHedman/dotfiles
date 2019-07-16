@@ -10,8 +10,8 @@ $RIPGREP_CONFIG_PATH = '~/.rgrc'
 # Vim-like bindings
 $VI_MODE = True
 
-# chrome/vim
-$BROWSER = 'google-chrome-stable'
+# qutebrowser/vim
+$BROWSER = 'qutebrowser'
 $EDITOR = 'nvim'
 
 # Rebind hjlk to jkl; in vim mode
