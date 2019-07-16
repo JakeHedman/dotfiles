@@ -78,6 +78,10 @@ pacman --noconfirm --needed -qSy \
   bash-completion \
   rofi \
   python-tldextract \
+  pacman-contrib \
+  vte3 \
+  pv \
+  htop \
   xorg-xinit
 
 # Groups
@@ -117,9 +121,9 @@ fi
 env SUDO_USER="$USERNAME" aura --noconfirm --needed -Ay \
   brightnessctl \
   google-chrome \
-  spotify \
   ttf-ms-fonts \
   mimi-git \
+  ncspot-git \
   nerd-fonts-complete
 
 # Use xonsh shell from AUR

@@ -58,6 +58,7 @@ $PATH.append('~/.yarn/bin')
 $PATH.append('~/.cargo/bin')
 $PATH.append('~/.gem/ruby/2.6.0/bin')
 $PATH.append('~/depot_tools')
+$PATH.append('/var/lib/snapd/snap/bin')
 
 # Aliases
 aliases[':q'] = 'exit'

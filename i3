@@ -30,7 +30,7 @@ bindsym $mod+BackSpace exec qutebrowser --basedir ~/.qutebrowser-work
 bindsym $mod+n exec termite -d $(fpwd ~) -e "nvim"
 bindsym $mod+h exec dmenu_run
 bindsym $mod+comma exec scrcpy
-bindsym $mod+Tab exec swaylock
+bindsym $mod+Tab exec i3lock
 bindsym $mod+f fullscreen
 bindsym $mod+apostrophe kill
 bindsym $mod+j focus left

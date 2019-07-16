@@ -64,4 +64,8 @@ mkdir -p ~/.config/qutebrowser
 mkdir -p ~/.qutebrowser-work/config
 [ ! -f ~/.qutebrowser-work/config/config.py ] && ln -s $DIR/qutebrowser.py ~/.qutebrowser-work/config/config.py
 
+# ncspot
+mkdir -p ~/.config/ncspot
+[ ! -f ~/.config/ncspot/config.toml ] && ln -s $DIR/ncspot.toml ~/.config/ncspot/config.toml
+
 exit 0

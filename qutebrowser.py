@@ -5,9 +5,31 @@ c.tabs.show = 'multiple'
 c.statusbar.position = 'bottom'
 
 c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}'}
+c.url.searchengines['g'] = c.url.searchengines['DEFAULT']
 
 c.url.start_pages = ['about:blank']
 c.url.default_page = 'about:blank'
+
+c.hints.next_regexes = [
+  '\\bnext\\b',
+  '\\bnästa\\b',
+  '\\bmore\\b',
+  '\\bnewer\\b',
+  '\\b[>→≫]\\b',
+  '\\b(>>|»)\\b',
+  '\\bcontinue\\b',
+]
+
+c.hints.prev_regexes = [
+  '\\bprev(ious)?\\b',
+  '\\bföregående\\b',
+  '\\bback\\b',
+  '\\bolder\\b',
+  '\\b[<←≪]\\b',
+  '\\b(<<|«)\\b',
+]
+
+c.auto_save.session = False
 
 config.bind('<z><l>', 'spawn --userscript qute-pass --username-target secret --username-pattern "^Username: (.+)$"')
 config.bind('<z><u><l>', 'spawn --userscript qute-pass --username-only --username-target secret --username-pattern "^Username: (.+)$"')
