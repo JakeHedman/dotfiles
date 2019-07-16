@@ -52,6 +52,7 @@ mkdir -p ~/.config/aerc
 [ ! -f ~/.config/aerc/aerc.conf ] && ln -s $DIR/aerc/aerc.conf ~/.config/aerc/aerc.conf
 [ ! -f ~/.config/aerc/binds.conf ] && ln -s $DIR/aerc/binds.conf ~/.config/aerc/binds.conf
 [ ! -f ~/.config/aerc/accounts.conf ] && ln -s $DIR/aerc/accounts.conf ~/.config/aerc/accounts.conf
+chmod 600 ~/.config/aerc/accounts.conf
 
 # mimi
 mkdir -p ~/.config/mimi
@@ -61,6 +62,6 @@ mkdir -p ~/.config/mimi
 mkdir -p ~/.config/qutebrowser
 [ ! -f ~/.config/qutebrowser/config.py ] && ln -s $DIR/qutebrowser.py ~/.config/qutebrowser/config.py
 mkdir -p ~/.qutebrowser-work/config
-[ ! -f ~/.qutebrowser-work/config/config/.py ] && ln -s $DIR/qutebrowser.py ~/.qutebrowser-work/config/config.py
+[ ! -f ~/.qutebrowser-work/config/config.py ] && ln -s $DIR/qutebrowser.py ~/.qutebrowser-work/config/config.py
 
 exit 0
