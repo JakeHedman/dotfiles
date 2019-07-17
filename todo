@@ -5,5 +5,3 @@ fn keys
 autolock
 swapiness
 hibernate kernel param
-
-py3status git status in secrets, passwords, dotfiles

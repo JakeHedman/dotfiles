@@ -18,7 +18,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-jdaddy'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'simnalamburt/vim-mundo'
-  Plug 'roryokane/detectindent'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-commentary'
@@ -38,9 +37,11 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
   Plug 'wix/import-cost', {'as': 'coc-import-cost', 'rtp': 'packages/coc-import-cost', 'do': 'cd packages/coc-import-cost && npm i && npm run coc:prepublish'}
   Plug 'dhruvasagar/vim-table-mode'
   Plug 'delphinus/vim-firestore'
+  Plug 'myint/indent-finder'
 call plug#end()
 
 
@@ -229,13 +230,6 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 1
 set wildignore+=*bower_components,node_modules,webroot,tmp
-
-" Syntastic
-let g:syntastic_python_checkers = ['pyflakes']
-let g:syntastic_javascript_checkers = ['jscs', 'jshint']
-let g:syntastic_scss_checkers = ['scss_lint']
-let g:syntastic_css_checkers = ['csslint']
-let g:syntastic_aggregate_errors = 1
 
 " Title
 set title

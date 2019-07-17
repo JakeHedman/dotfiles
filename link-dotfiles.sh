@@ -68,4 +68,8 @@ mkdir -p ~/.qutebrowser-work/config
 mkdir -p ~/.config/ncspot
 [ ! -f ~/.config/ncspot/config.toml ] && ln -s $DIR/ncspot.toml ~/.config/ncspot/config.toml
 
+# py3status
+mkdir -p ~/.config/py3status/modules
+[ ! -f ~/.config/py3status/modules/git_status.py ] && ln -s $DIR/py3status/modules/git_status.py ~/.config/py3status/modules/git_status.py
+
 exit 0
