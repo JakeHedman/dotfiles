@@ -29,6 +29,8 @@ c.hints.prev_regexes = [
   '\\b(<<|«)\\b',
 ]
 
+config.bind('X', 'fake-key <Escape>')
+
 c.auto_save.session = False
 
 config.bind('<z><l>', 'spawn --userscript qute-pass --username-target secret --username-pattern "^Username: (.+)$"')

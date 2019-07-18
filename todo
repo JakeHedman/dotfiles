@@ -5,3 +5,7 @@ fn keys
 autolock
 swapiness
 hibernate kernel param
+
+colored statusbar in qutebrowser for profiles
+disable touchpad keyboard binding
+arch updates py3status

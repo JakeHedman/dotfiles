@@ -101,7 +101,7 @@ systemctl enable ModemManager
 systemctl restart ModemManager
 
 # Wait for network
-while ! curl http://google.com --connect-timeout 5 > /dev/null; do
+while ! curl http://example.com --connect-timeout 5 > /dev/null; do
   sleep 3
 done
 
@@ -112,13 +112,17 @@ if ! grep -Fx "$SUDOCONF" /etc/sudoers; then
 fi
 
 # Install aur client aura using aur client packer
-if ! which aura; then
-  curl https://raw.githubusercontent.com/keenerd/packer/master/packer | \
-    sudo -u $USERNAME bash -s -- -S --noconfirm aura-bin
+if ! which yay; then
+  yaydir=$(sudo -u $USERNAME mktemp -d)
+  git clone https://aur.archlinux.org/yay.git $yaydir
+  cd $yaydir
+  sudo -u $USERNAME makepkg
+  ls
+  pacman -U yay*.pkg.tar.xz --noconfirm
 fi
 
 # AUR packages
-env SUDO_USER="$USERNAME" aura --noconfirm --needed -Ay \
+sudo -u $USERNAME yay -Sy --noconfirm \
   brightnessctl \
   google-chrome \
   ttf-ms-fonts \
