@@ -3,9 +3,21 @@ config.load_autoconfig()
 c.tabs.tabs_are_windows = True
 c.tabs.show = 'multiple'
 c.statusbar.position = 'bottom'
+c.statusbar.widgets = ['keypress', 'url', 'scroll', 'history', 'progress']
 
-c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}'}
-c.url.searchengines['g'] = c.url.searchengines['DEFAULT']
+c.url.searchengines = {
+  'DEFAULT': 'https://duckduckgo.com/?q={}',
+  'ddg': 'https://duckduckgo.com/?q={}',
+  'g': 'https://google.com/search?q={}',
+  'gh': 'https://github.com/search?q={}',
+  'npm': 'https://www.npmjs.com/search?q={}',
+}
+c.fonts.hints = 'bold 10pt Hack Nerd Font'
+c.hints.uppercase = True
+c.colors.hints.bg = '#000'
+c.colors.hints.fg = '#fff'
+c.colors.hints.match.fg = '#888'
+c.hints.border = '1px solid #fff'
 
 c.url.start_pages = ['about:blank']
 c.url.default_page = 'about:blank'

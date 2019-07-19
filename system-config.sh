@@ -84,6 +84,10 @@ pacman --noconfirm --needed -qSy \
   htop \
   xorg-xinit
 
+if ! which ttp; then
+  npm install -g toggle-touchpad
+fi
+
 # Groups
 usermod -a -G docker $USERNAME
 usermod -a -G video $USERNAME

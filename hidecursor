@@ -1,0 +1,12 @@
+#!/bin/python
+
+import time
+from Xlib.display import Display
+
+display = Display()
+display.xfixes_query_version()
+display.screen().root.xfixes_hide_cursor()
+display.sync()
+
+while True:
+    time.sleep(10)

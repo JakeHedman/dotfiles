@@ -26,7 +26,7 @@ floating_modifier $mod
 # Bindings
 bindsym $mod+Return exec termite -d $(fpwd ~)
 bindsym $mod+m exec qutebrowser
-bindsym $mod+BackSpace exec qutebrowser --basedir ~/.qutebrowser-work
+bindsym $mod+BackSpace exec qutebrowser --basedir ~/.qutebrowser-work -s colors.statusbar.normal.bg '#002900'
 bindsym $mod+n exec termite -d $(fpwd ~) -e "nvim"
 bindsym $mod+h exec dmenu_run
 bindsym $mod+comma exec scrcpy
@@ -44,6 +44,8 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 bindsym XF86WLAN exec ~/dotfiles/toggle-wlan.sh
+bindsym Print exec killall hidecursor; exec ttp -e
+bindsym Shift+Print exec hidecursor &; exec ttp -d
 bindsym $mod+odiaeresis focus right
 bindsym $mod+a split v
 bindsym $mod+s split h
