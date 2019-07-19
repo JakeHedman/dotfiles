@@ -19,6 +19,8 @@ from prompt_toolkit.filters import ViNavigationMode
 from prompt_toolkit.key_binding.key_processor import KeyPress
 from prompt_toolkit.keys import Keys
 
+$DYNAMIC_CWD_WIDTH='30%'
+
 @events.on_ptk_create
 def custom_keybindings(bindings, **kw):
   @bindings.add('j', filter=ViNavigationMode())
