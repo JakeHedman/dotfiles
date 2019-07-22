@@ -73,4 +73,8 @@ mkdir -p ~/.config/ncspot
 mkdir -p ~/.config/py3status/modules
 [ ! -f ~/.config/py3status/modules/git_status.py ] && ln -s $DIR/py3status/modules/git_status.py ~/.config/py3status/modules/git_status.py
 
+# cargo
+mkdir -p ~/.cargo
+[ ! -f ~/.cargo/config ] && ln -s $DIR/cargo ~/.cargo/config
+
 exit 0
