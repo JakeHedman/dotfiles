@@ -42,6 +42,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'dhruvasagar/vim-table-mode'
   Plug 'delphinus/vim-firestore'
   Plug 'myint/indent-finder'
+  Plug 'rust-lang/rust.vim'
 call plug#end()
 
 
@@ -409,3 +410,5 @@ set noshowmode
 
 " ,ef eslint fix
 nmap <leader>ef :CocCommand eslint.executeAutofix<CR>
+
+"let g:rustfmt_autosave = 1
