@@ -93,3 +93,7 @@ if $(tty).strip() == '/dev/tty1':
   except:
     pass
   sys.exit()
+
+# Git commit glitch
+from xonsh.commands_cache import predict_false
+__xonsh__.commands_cache.threadable_predictors['git'] = predict_false
