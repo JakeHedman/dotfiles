@@ -69,7 +69,8 @@ pacman --noconfirm --needed -qSy \
   dmenu \
   blueman \
   xclip \
-  xonsh \
+  fish \
+  starfish \
   i3-wm \
   i3lock \
   i3blocks \
