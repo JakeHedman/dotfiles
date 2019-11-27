@@ -23,5 +23,5 @@
   },
   "typescript.suggest.completeFunctionCalls": false,
   "javascript.suggest.completeFunctionCalls": false,
-  "codeLens.enable": true
+  "codeLens.enable": false
 }
