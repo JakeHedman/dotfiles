@@ -25,6 +25,7 @@ floating_modifier $mod
 
 # Bindings
 bindsym $mod+Return exec termite -d $(fpwd ~)
+bindsym $mod+Shift+Return exec termite
 bindsym $mod+m exec qutebrowser
 bindsym $mod+BackSpace exec qutebrowser --basedir ~/.qutebrowser-work -s colors.statusbar.normal.bg '#002900'
 bindsym $mod+n exec termite -d $(fpwd ~) -e "nvim"
@@ -82,6 +83,9 @@ bindsym $mod+shift+m resize shrink width 5 px or 5 ppt
 bindsym $mod+shift+comma resize shrink height 5 px or 5 ppt
 bindsym $mod+shift+period resize grow height 5 px or 5 ppt
 bindsym $mod+shift+minus resize grow width 5 px or 5 ppt
+bindsym Mod1+a exec adb shell "input keyevent 82 && input keyevent 66 && input keyevent 66"
+bindsym Mod1+m exec ssh mac pbpaste | xclip -selection clipboard
+bindsym Mod1+s exec scrot -so /dev/stdout | xclip -selection clipboard -t image/png
 
 # Super
 #* ╭──────┬──────┬──────┬──────┬──────┬──────╮ ╭──────┬──────┬──────┬──────┬──────┬──────╮
