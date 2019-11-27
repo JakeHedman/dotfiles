@@ -70,7 +70,6 @@ pacman --noconfirm --needed -qSy \
   blueman \
   xclip \
   fish \
-  starfish \
   i3-wm \
   i3lock \
   i3blocks \
@@ -132,6 +131,8 @@ sudo -u $USERNAME yay -Sy --noconfirm \
   google-chrome \
   ttf-ms-fonts \
   mimi-git \
+  starfish \
+  diff-so-fancy \
   ncspot-git \
   nerd-fonts-complete
 
