@@ -77,4 +77,12 @@ mkdir -p ~/.config/py3status/modules
 mkdir -p ~/.cargo
 [ ! -f ~/.cargo/config ] && ln -s $DIR/cargo ~/.cargo/config
 
+# fish
+mkdir -p ~/.config/fish
+[ ! -f ~/.config/fish/config.fish ] && ln -s $DIR/config.fish ~/.config/fish/config.fish
+
+# starship
+mkdir -p ~/.config
+[ ! -f ~/.config/starship.toml ] && ln -s $DIR/starship.toml ~/.config/starship.toml
+
 exit 0
