@@ -166,7 +166,7 @@ endif
 set vb t_vb=
 
 " Center cursor vertically
-set scrolloff=999
+set scrolloff=5
 
 " Hilight current line
 set cursorline
