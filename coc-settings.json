@@ -23,5 +23,6 @@
   },
   "typescript.suggest.completeFunctionCalls": false,
   "javascript.suggest.completeFunctionCalls": false,
-  "codeLens.enable": false
+  "codeLens.enable": false,
+  "tsserver.log": "normal"
 }

@@ -25,9 +25,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
   Plug 'itchyny/lightline.vim'
   Plug 'sheerun/vim-polyglot'
-  Plug 'leafgarland/typescript-vim'
-  Plug 'peitalin/vim-jsx-typescript'
-  Plug 'dsznajder/vscode-es7-javascript-react-snippets'
   Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-lists', {'do': 'yarn install --frozen-lockfile'}
@@ -38,7 +35,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'wix/import-cost', {'as': 'coc-import-cost', 'rtp': 'packages/coc-import-cost', 'do': 'cd packages/coc-import-cost && npm i && npm run coc:prepublish'}
   Plug 'dhruvasagar/vim-table-mode'
   Plug 'delphinus/vim-firestore'
   Plug 'myint/indent-finder'
@@ -309,7 +305,7 @@ nmap <silent> ]e <Plug>(coc-diagnostic-next)
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gm <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
