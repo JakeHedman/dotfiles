@@ -73,6 +73,7 @@ pacman --noconfirm --needed -qSy \
   i3-wm \
   i3lock \
   i3blocks \
+  pass \
   xorg \
   py3status \
   bash-completion \
@@ -81,7 +82,8 @@ pacman --noconfirm --needed -qSy \
   pacman-contrib \
   vte3 \
   pv \
-  htop \
+  go \
+  npm \
   xorg-xinit
 
 if ! which ttp; then
@@ -96,7 +98,7 @@ usermod -a -G video $USERNAME
 systemctl enable docker
 
 # Install vim after python to get +python
-pacman --noconfirm --needed -qSy gvim neovim
+pacman --noconfirm --needed -qSy neovim
 
 # (Auto)start network stuff
 systemctl enable NetworkManager
@@ -115,14 +117,14 @@ if ! grep -Fx "$SUDOCONF" /etc/sudoers; then
   echo "$SUDOCONF" >> /etc/sudoers
 fi
 
-# Install aur client aura using aur client packer
+# yay
 if ! which yay; then
   yaydir=$(sudo -u $USERNAME mktemp -d)
   git clone https://aur.archlinux.org/yay.git $yaydir
   cd $yaydir
   sudo -u $USERNAME makepkg
   ls
-  pacman -U yay*.pkg.tar.xz --noconfirm
+  pacman -U yay*.pkg.tar.zst --noconfirm
 fi
 
 # AUR packages
@@ -131,13 +133,16 @@ sudo -u $USERNAME yay -Sy --noconfirm \
   google-chrome \
   ttf-ms-fonts \
   mimi-git \
-  starfish \
+  fish \
+  starship \
   diff-so-fancy \
   ncspot-git \
+  keybase \
+  keybase-gui \
   nerd-fonts-complete
 
-# Use xonsh shell from AUR
-chsh -s /usr/bin/xonsh $USERNAME
+# shell
+chsh -s /usr/bin/fish $USERNAME
 
 # Set locale
 if ! (localectl list-locales | grep en_US.utf8); then
@@ -149,7 +154,7 @@ fi
 
 # Full system upgrade
 pacman --noconfirm -qSyu
-(env SUDO_USER="$USERNAME" aura --noconfirm -Ayu) || :
+env SUDO_USER="$USERNAME" yay --noconfirm -Ayu
 
 # Don't clear tty after boot
 mkdir -p /etc/systemd/system/getty@tty1.service.d/

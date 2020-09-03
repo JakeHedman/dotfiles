@@ -60,7 +60,7 @@ vim /etc/pacman.d/mirrorlist
 Install system
 
 ```sh
-pacstrap /mnt base base-devel
+pacstrap /mnt base base-devel linux linux-firmware
 ```
 
 Generate fstab
@@ -73,6 +73,12 @@ Chroot to new system
 
 ```sh
 arch-chroot /mnt
+```
+
+Set password
+
+```sh
+passwd
 ```
 
 Install packages
