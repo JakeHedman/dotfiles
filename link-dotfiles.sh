@@ -79,8 +79,9 @@ mkdir -p ~/.cargo
 [ ! -f ~/.cargo/config ] && ln -s $DIR/cargo ~/.cargo/config
 
 # fish
-mkdir -p ~/.config/fish
+mkdir -p ~/.config/fish/completions
 [ ! -f ~/.config/fish/config.fish ] && ln -s $DIR/config.fish ~/.config/fish/config.fish
+[ ! -f ~/.config/fish/completions/pass.fish ] && ln -s $DIR/pass.fish ~/.config/fish/completions/pass.fish
 
 # starship
 mkdir -p ~/.config

@@ -1,19 +1,5 @@
 add_newline = false
 
-prompt_order = [
-  "directory",
-  "git_branch",
-  "git_state",
-  "git_status",
-  "nix_shell",
-  "cmd_duration",
-  "character",
-]
-
-[git_branch]
-symbol = " "
-prefix = ""
-
 [line_break]
 disabled = true
 
@@ -26,9 +12,6 @@ disabled = true
 [nodejs]
 disabled = true
 
-[git_status]
-stashed = ""
-
 [golang]
 disabled = true
 
@@ -36,4 +19,40 @@ disabled = true
 disabled = true
 
 [rust]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[hg_branch]
+disabled = true
+
+[battery]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[cmake]
+disabled = true
+
+[dart]
+disabled = true
+
+[dotnet]
+disabled = true
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[erlang]
+disabled = true
+
+[username]
+disabled = true
+
+[helm]
 disabled = true

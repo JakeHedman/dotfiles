@@ -84,8 +84,8 @@ bindsym $mod+shift+comma resize shrink height 5 px or 5 ppt
 bindsym $mod+shift+period resize grow height 5 px or 5 ppt
 bindsym $mod+shift+minus resize grow width 5 px or 5 ppt
 bindsym Mod1+a exec adb shell "input keyevent 82 && input keyevent 66 && input keyevent 66"
-bindsym Mod1+m exec ssh mac pbpaste | xclip -selection clipboard
 bindsym Mod1+s exec scrot -so /dev/stdout | xclip -selection clipboard -t image/png
+bindsym Mod1+c exec craption
 
 # Super
 #* ╭──────┬──────┬──────┬──────┬──────┬──────╮ ╭──────┬──────┬──────┬──────┬──────┬──────╮

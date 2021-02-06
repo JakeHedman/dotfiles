@@ -13,7 +13,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'easymotion/vim-easymotion'
   Plug 'heavenshell/vim-jsdoc'
   Plug 'nathanaelkane/vim-indent-guides'
-  Plug 'pangloss/vim-javascript'
+  " Plug 'pangloss/vim-javascript'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-jdaddy'
   Plug 'ntpeters/vim-better-whitespace'
