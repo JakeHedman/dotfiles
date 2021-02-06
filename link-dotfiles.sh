@@ -37,6 +37,7 @@ mkdir -p ~/bin
 [ ! -f ~/bin/chromecat ] && ln -s $DIR/chromecat ~/bin/chromecat
 [ ! -f ~/bin/urlshort ] && ln -s $DIR/urlshort ~/bin/urlshort
 [ ! -f ~/bin/hidecursor ] && ln -s $DIR/hidecursor ~/bin/hidecursor
+[ ! -f ~/bin/swapnode ] && ln -s $DIR/swapnode ~/bin/swapnode
 
 # tridactyl
 [ ! -f ~/.tridactylrc ] && ln -s $DIR/tridactylrc ~/.tridactylrc

@@ -8,7 +8,7 @@ set fish_greeting
 set -gx EDITOR vim
 set -gx BROWSER qutebrowser
 set -gx RIPGREP_CONFIG_PATH ~/.rgrc
-set -gx ANDROID_HOME $HOME/Android/Sdk
+set -gx ANDROID_SDK_ROOT /opt/android-sdk
 alias gs="git status"
 alias v="nvim"
 alias vim="nvim"

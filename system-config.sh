@@ -120,7 +120,7 @@ fi
 # yay
 if ! which yay; then
   yaydir=$(sudo -u $USERNAME mktemp -d)
-  git clone https://aur.archlinux.org/yay.git $yaydir
+  git clone https://aur.archlinux.org/yay-bin.git $yaydir
   cd $yaydir
   sudo -u $USERNAME makepkg
   ls
@@ -134,7 +134,7 @@ sudo -u $USERNAME yay -Sy --noconfirm \
   ttf-ms-fonts \
   mimi-git \
   fish \
-  starship \
+  starship-bin \
   diff-so-fancy \
   ncspot-git \
   keybase \

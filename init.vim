@@ -25,16 +25,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
   Plug 'itchyny/lightline.vim'
   Plug 'sheerun/vim-polyglot'
-  Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-lists', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
   Plug 'dhruvasagar/vim-table-mode'
   Plug 'delphinus/vim-firestore'
   Plug 'myint/indent-finder'
