@@ -44,7 +44,7 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
-bindsym XF86WLAN exec ~/dotfiles/toggle-wlan.sh
+# bindsym XF86WLAN exec ~/dotfiles/toggle-wlan.sh
 bindsym Print exec killall hidecursor; exec ttp -e
 bindsym Shift+Print exec hidecursor &; exec ttp -d
 bindsym $mod+odiaeresis focus right

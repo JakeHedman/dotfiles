@@ -26,5 +26,5 @@
   "javascript.suggest.completeFunctionCalls": false,
   "codeLens.enable": false,
   "tsserver.log": "normal",
-  "snippets.textmateSnippetsRoots": ["/home/jake/connect/web/.vscode"]
+  "snippets.textmateSnippetsRoots": ["/home/jake/connect/web/.vscode", "/home/jake/oc/.vscode"]
 }
