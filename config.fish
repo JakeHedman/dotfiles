@@ -13,9 +13,9 @@ set -gx RIPGREP_CONFIG_PATH ~/.rgrc
 set -gx ANDROID_SDK_ROOT /opt/android-sdk
 set -gx ANDROID_HOME $HOME/Android/Sdk
 set -gx PASSWORD_STORE_ENABLE_EXTENSIONS true
-set -gx TEMPDIR /tmp
+set -gx TMPDIR /tmp
 alias gs="git status"
 alias v="nvim"
 alias vi="/usr/bin/vim"
 alias vim="nvim"
-# set -gx TERM xterm-256color
+set -gx TERM xterm-256color

@@ -649,7 +649,7 @@ c.auto_save.session = False
 
 ## Enable host blocking.
 ## Type: Bool
-# c.content.host_blocking.enabled = True
+c.content.blocking.enabled = False
 
 ## List of URLs of lists which contain hosts to block.  The file can be
 ## in one of the following formats:  - An `/etc/hosts`-like file - One
