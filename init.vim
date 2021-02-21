@@ -407,3 +407,5 @@ nmap <leader>ef :CocCommand eslint.executeAutofix<CR>
 nmap <leader>oi :CocCommand tsserver.organizeImports<CR>
 
 "let g:rustfmt_autosave = 1
+
+nmap <Esc> :call coc#float#close_all() <CR>
