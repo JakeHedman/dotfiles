@@ -29,6 +29,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'delphinus/vim-firestore'
   Plug 'myint/indent-finder'
   Plug 'rust-lang/rust.vim'
+  Plug 'chrisbra/Colorizer'
 call plug#end()
 
 
@@ -409,3 +410,4 @@ nmap <leader>oi :CocCommand tsserver.organizeImports<CR>
 "let g:rustfmt_autosave = 1
 
 nmap <Esc> :call coc#float#close_all() <CR>
+:let g:colorizer_auto_filetype='css,html,typescript,javascript,typescriptreact,javascriptreact'
