@@ -1,6 +1,3 @@
-# Show randomart
-VisualHostKey=yes
-
 # Don't disconnect
 ServerAliveInterval 15
 ServerAliveCountMax 3
