@@ -5,6 +5,7 @@ c.tabs.show = 'multiple'
 c.statusbar.position = 'bottom'
 c.statusbar.widgets = ['keypress', 'url', 'scroll', 'history', 'progress']
 
+
 c.url.searchengines = {
   'DEFAULT': 'https://duckduckgo.com/?q={}',
   'ddg': 'https://duckduckgo.com/?q={}',
@@ -696,7 +697,7 @@ c.content.blocking.enabled = False
 
 ## Allow JavaScript to open new tabs without user interaction.
 ## Type: Bool
-# c.content.javascript.can_open_tabs_automatically = False
+c.content.javascript.can_open_tabs_automatically = True
 
 ## Enable JavaScript.
 ## Type: Bool

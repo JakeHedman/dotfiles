@@ -39,5 +39,5 @@ else
 fi
 
 yes | sudo pacman -Sy "$PACKAGE_NAME"
-echo -e "\nVersion have been changed to $(node -v)"
+echo -e "\nVersion has been changed to $(node -v)"
 exit 0
