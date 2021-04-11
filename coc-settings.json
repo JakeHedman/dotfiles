@@ -1,5 +1,6 @@
 {
   "css.enable": true,
+  "npm.binPath": "yarn",
   "suggest.triggerAfterInsertEnter": true,
   "suggest.noselect": false,
   "suggest.snippetIndicator": "►",
