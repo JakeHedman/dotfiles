@@ -87,4 +87,8 @@ mkdir -p ~/.config/fish/completions
 mkdir -p ~/.config
 [ ! -f ~/.config/starship.toml ] && ln -s $DIR/starship.toml ~/.config/starship.toml
 
+# mpv
+mkdir -p ~/.config/mpv
+[ ! -f ~/.config/mpv/mpv.conf ] && ln -s $DIR/mpv.conf ~/.config/mpv/mpv.conf
+
 exit 0
