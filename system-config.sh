@@ -129,6 +129,7 @@ fi
 
 # AUR packages
 sudo -u $USERNAME yay -Sy --noconfirm \
+  git-delta-bin \
   brightnessctl \
   google-chrome \
   ttf-ms-fonts \
