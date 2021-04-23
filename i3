@@ -44,6 +44,7 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86AudioMicMute exec pactl set-source-mute 1 toggle
 # bindsym XF86WLAN exec ~/dotfiles/toggle-wlan.sh
 bindsym Print exec killall hidecursor; exec ttp -e
 bindsym Shift+Print exec hidecursor &; exec ttp -d
@@ -86,6 +87,7 @@ bindsym $mod+shift+minus resize grow width 5 px or 5 ppt
 bindsym Mod1+a exec adb shell "input keyevent 82 && input keyevent 66 && input keyevent 66"
 bindsym Mod1+s exec scrot -so /dev/stdout | xclip -selection clipboard -t image/png
 bindsym Mod1+c exec craption
+
 
 # Super
 #* ╭──────┬──────┬──────┬──────┬──────┬──────╮ ╭──────┬──────┬──────┬──────┬──────┬──────╮
