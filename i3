@@ -136,3 +136,9 @@ for_window [class="termite"] border pixel 1
 
 # No borders at edge of screen
 hide_edge_borders both
+
+# Launch bluetooth applet
+exec --no-startup-id blueman-applet
+
+for_window [class="Pop" title="secondary"] floating enable
+for_window [class="Pop" title="main"] floating enable
