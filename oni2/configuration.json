@@ -32,7 +32,9 @@
   "experimental.viml": [
     "noremap ö l", "noremap l k", "noremap k j", "noremap j h",
     "nnoremap <silent> <Leader>l :nohl<CR>", "set ignorecase",
-    "set smartcase"
+    "set smartcase",
+    "nnoremap <leader>t <Esc>:tabnew<CR>"
+
   ],
   "editor.cursorSurroundingLines": 10
 }

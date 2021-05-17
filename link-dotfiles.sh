@@ -94,6 +94,6 @@ mkdir -p ~/.config/mpv
 # oni2
 mkdir -p ~/.config/oni2
 [ ! -f ~/.config/oni2/configuration.json ] && ln -s $DIR/oni2/configuration.json ~/.config/oni2/configuration.json
-[ ! -f ~/.config/oni2/keybindings.json ] && ln -s $DIR/keybindings.json ~/.config/oni2/keybindings.json
+[ ! -f ~/.config/oni2/keybindings.json ] && ln -s $DIR/oni2/keybindings.json ~/.config/oni2/keybindings.json
 
 exit 0
