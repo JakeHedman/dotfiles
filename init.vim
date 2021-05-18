@@ -411,3 +411,5 @@ nmap <leader>oi :CocCommand tsserver.organizeImports<CR>
 
 nmap <Esc> :call coc#float#close_all() <CR>
 :let g:colorizer_auto_filetype='css,html,typescript,javascript,typescriptreact,javascriptreact'
+
+set t_u7=
