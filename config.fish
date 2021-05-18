@@ -19,3 +19,15 @@ alias v="nvim"
 alias vi="/usr/bin/vim"
 alias vim="nvim"
 set -gx TERM xterm-256color
+
+bind -M default j backward-char
+bind -M visual j backward-char
+
+bind k down-or-search
+bind -M visual k down-line
+
+bind -M visual l up-line
+bind l up-or-search
+
+bind -M default ö forward-char
+bind -M visual ö forward-char
