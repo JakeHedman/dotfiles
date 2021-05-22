@@ -12,6 +12,7 @@ mkdir -p ~/.i3
 # neovim
 mkdir -p ~/.config/nvim
 [ ! -f ~/.config/nvim/init.vim ] && ln -s $DIR/init.vim ~/.config/nvim/init.vim
+[ ! -f ~/.config/nvim/spell/en.utf-8.add ] && ln -s $DIR/en.utf-8.add ~/.config/nvim/spell/en.utf-8.add
 [ ! -f ~/.vimrc ] && ln -s $DIR/init.vim ~/.vimrc
 
 # ssh

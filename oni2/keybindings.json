@@ -2,8 +2,9 @@
   // See the onivim documentation for details on the format:
   // https://onivim.github.io/docs/configuration/key-bindings
   // Add key bindings here, for example:
-  { "key": "<TAB>", "command": "workbench.action.quickOpen", when: "editorTextFocus" },
+  // { "key": "<TAB>", "command": "workbench.action.quickOpen", "when": "editorTextFocus" },
   // { "key": "jk", "command": "vim.esc", when: "insertMode" },
   // { "key": "gt", "command": "workbench.action.nextEditor", "when": "normalMode" },
   // { "key": "gT", "command": "workbench.action.previousEditor", "when": "normalMode" }
+  { "key": "<TAB>", "command": "workbench.action.editor.nextChange" }
 ]

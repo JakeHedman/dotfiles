@@ -13,7 +13,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'easymotion/vim-easymotion'
   Plug 'heavenshell/vim-jsdoc'
   Plug 'nathanaelkane/vim-indent-guides'
-  " Plug 'pangloss/vim-javascript'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-jdaddy'
   Plug 'ntpeters/vim-better-whitespace'
@@ -30,6 +29,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'myint/indent-finder'
   Plug 'rust-lang/rust.vim'
   Plug 'chrisbra/Colorizer'
+  Plug 'kamykn/spelunker.vim'
+  Plug 'neoclide/vim-jsx-improve'
+  Plug 'kamykn/popup-menu.nvim'
 call plug#end()
 
 
@@ -293,9 +295,13 @@ endif
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use `[e` and `]e` to navigate diagnostics
-nmap <silent> [e <Plug>(coc-diagnostic-prev)
-nmap <silent> ]e <Plug>(coc-diagnostic-next)
+" Use `[e` and `]e` to navigate errors
+nmap <silent> [e <Plug>(coc-diagnostic-prev-error)
+nmap <silent> ]e <Plug>(coc-diagnostic-next-error)
+
+" Use `[w` and `]w` to navigate all diagnostics
+nmap <silent> [w <Plug>(coc-diagnostic-prev)
+nmap <silent> ]w <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -407,9 +413,52 @@ nmap <leader>ef :CocCommand eslint.executeAutofix<CR>
 " ,oi organize imports
 nmap <leader>oi :CocCommand tsserver.organizeImports<CR>
 
-"let g:rustfmt_autosave = 1
-
+" Close all floaters
 nmap <Esc> :call coc#float#close_all() <CR>
+
+" Don't start in replace mode
+" https://superuser.com/questions/1284561/why-is-vim-starting-in-replace-mode
+set t_u7=
+
+" Colorizer plugin
 :let g:colorizer_auto_filetype='css,html,typescript,javascript,typescriptreact,javascriptreact'
 
-set t_u7=
+" Refactor
+nnoremap <silent> <space>r :CocAction refactor<CR>
+vnoremap <silent> <space>r :CocAction refactor<CR>
+
+" Function object
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+
+" Class/struct/interface object
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" coc extensions
+let g:coc_global_extensions = [
+  \ 'coc-json',
+  \ 'coc-tsserver',
+  \ 'coc-lists',
+  \ 'coc-snippets',
+  \ 'coc-prettier',
+  \ 'coc-yaml',
+  \ 'coc-html',
+  \ 'coc-eslint',
+  \ 'coc-rls',
+  \ 'coc-python',
+  \ 'coc-css'
+\ ]
+
+" Spellcheck
+set spelllang=en,sv
+
+augroup spelunker
+  autocmd!
+  " Setting for g:spelunker_check_type = 1:
+  autocmd BufWinEnter,BufWritePost *.vim,*.js,*.jsx,*.json,*.md,*.txt,*.ts,*.tsx call spelunker#check()
+augroup END
