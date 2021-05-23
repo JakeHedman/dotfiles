@@ -454,11 +454,14 @@ let g:coc_global_extensions = [
   \ 'coc-css'
 \ ]
 
+" Spellcheck live
+let g:spelunker_check_type = 2
+
 " Spellcheck
 set spelllang=en,sv
 
 augroup spelunker
   autocmd!
-  " Setting for g:spelunker_check_type = 1:
-  autocmd BufWinEnter,BufWritePost *.vim,*.js,*.jsx,*.json,*.md,*.txt,*.ts,*.tsx call spelunker#check()
+  " Setting for g:spelunker_check_type = 2:
+  autocmd CursorHold *.vim,*.js,*.jsx,*.json,*.md,*.txt,*.ts,*.tsx,COMMIT_EDITMSG call spelunker#check_displayed_words()
 augroup END
