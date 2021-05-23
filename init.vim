@@ -441,17 +441,18 @@ omap ac <Plug>(coc-classobj-a)
 
 " coc extensions
 let g:coc_global_extensions = [
-  \ 'coc-json',
-  \ 'coc-tsserver',
-  \ 'coc-lists',
-  \ 'coc-snippets',
-  \ 'coc-prettier',
-  \ 'coc-yaml',
-  \ 'coc-html',
+  \ 'coc-css',
   \ 'coc-eslint',
-  \ 'coc-rls',
+  \ 'coc-html',
+  \ 'coc-json',
+  \ 'coc-lists',
+  \ 'coc-prettier',
   \ 'coc-python',
-  \ 'coc-css'
+  \ 'coc-rls',
+  \ 'coc-snippets',
+  \ 'coc-svg',
+  \ 'coc-tsserver',
+  \ 'coc-yaml'
 \ ]
 
 " Spellcheck live
