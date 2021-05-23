@@ -10,7 +10,7 @@ mkdir -p ~/.i3
 [ ! -f ~/.i3status.conf ] && ln -s $DIR/i3status.conf ~/.i3status.conf
 
 # neovim
-mkdir -p ~/.config/nvim
+mkdir -p ~/.config/nvim/spell
 [ ! -f ~/.config/nvim/init.vim ] && ln -s $DIR/init.vim ~/.config/nvim/init.vim
 [ ! -f ~/.config/nvim/spell/en.utf-8.add ] && ln -s $DIR/en.utf-8.add ~/.config/nvim/spell/en.utf-8.add
 [ ! -f ~/.vimrc ] && ln -s $DIR/init.vim ~/.vimrc
