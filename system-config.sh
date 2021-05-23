@@ -59,7 +59,7 @@ pacman --noconfirm --needed -qSy \
   python2 \
   ripgrep \
   scrot \
-  termite \
+  alacritty \
   tldr \
   ttf-liberation \
   usb_modeswitch \

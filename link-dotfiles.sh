@@ -97,4 +97,8 @@ mkdir -p ~/.config/oni2
 [ ! -f ~/.config/oni2/configuration.json ] && ln -s $DIR/oni2/configuration.json ~/.config/oni2/configuration.json
 [ ! -f ~/.config/oni2/keybindings.json ] && ln -s $DIR/oni2/keybindings.json ~/.config/oni2/keybindings.json
 
+# Alacritty
+mkdir -p ~/.config
+[ ! -f ~/.config/alacritty.yml ] && ln -s $DIR/alacritty.yml ~/.config/alacritty.yml
+
 exit 0
