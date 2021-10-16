@@ -5,6 +5,7 @@ set -gx PATH ~/.yarn/bin $PATH
 set -gx PATH ~/.gem/ruby/2.6.0/bin $PATH
 set -gx PATH ~/.yarn/bin $PATH
 set -gx PATH ~/Manager/bin $PATH
+set -gx PATH ~/go/bin $PATH
 eval (starship init fish)
 set fish_greeting
 set -gx EDITOR vim
