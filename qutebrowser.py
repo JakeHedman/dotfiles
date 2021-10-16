@@ -23,24 +23,11 @@ c.hints.border = '1px solid #fff'
 c.url.start_pages = ['about:blank']
 c.url.default_page = 'about:blank'
 
-c.hints.next_regexes = [
-  '\\bnext\\b',
-  '\\bnästa\\b',
-  '\\bmore\\b',
-  '\\bnewer\\b',
-  '\\b[>→≫]\\b',
-  '\\b(>>|»)\\b',
-  '\\bcontinue\\b',
-]
+c.hints.next_regexes.insert(0, r'^>$')
+c.hints.next_regexes.insert(0, r'\bnästa\b')
 
-c.hints.prev_regexes = [
-  '\\bprev(ious)?\\b',
-  '\\bföregående\\b',
-  '\\bback\\b',
-  '\\bolder\\b',
-  '\\b[<←≪]\\b',
-  '\\b(<<|«)\\b',
-]
+c.hints.prev_regexes.insert(0, r'^<$')
+c.hints.prev_regexes.insert(0, r'\bföregående\b')
 
 config.bind('X', 'fake-key <Escape>')
 
