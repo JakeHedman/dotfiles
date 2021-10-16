@@ -58,6 +58,7 @@ bindsym $mod+g floating toggle
 bindsym $mod+e focus parent
 bindsym $mod+d focus child
 bindsym $mod+r reload
+bindsym $mod+w layout toggle split
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exit
 bindsym $mod+$wk0 workspace $w0
