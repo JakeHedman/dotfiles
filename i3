@@ -143,3 +143,15 @@ exec --no-startup-id blueman-applet
 
 for_window [class="Pop" title="secondary"] floating enable
 for_window [class="Pop" title="main"] floating enable
+
+# Wallpaper
+exec_always --no-startup-id feh --bg-scale /etc/wallpaper.jpg
+
+# Keybase (minimized)
+exec --no-startup-id env KEYBASE_AUTOSTART=1 keybase-gui
+
+# Notifications
+exec_always --no-startup-id dunst
+
+# Compositor
+exec_always --no-startup-id picom
