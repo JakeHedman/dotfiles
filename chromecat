@@ -19,7 +19,6 @@ URL="data:text/html;base64,$(base64 -w 0 <&0)"
 
 google-chrome-stable \
   --user-data-dir="$PROFILE" `# Use temporary prifile` \
-  --incognito `# Incognito since history isn't important` \
   --disable-extensions `# Disable extensions for faster start` \
   --disable-features="TranslateUI,NativeNotifications" `# Do not ask to translate the pages` \
   --enable-fast-unload `# Close faster` \
