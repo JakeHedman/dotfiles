@@ -32,3 +32,6 @@ bind l up-or-search
 
 bind -M default ö forward-char
 bind -M visual ö forward-char
+
+# opam configuration
+source /home/jake/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true

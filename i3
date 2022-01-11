@@ -42,7 +42,7 @@ bindsym $mod+period scratchpad show
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
-bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%- && brightnessctl set +1;
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 bindsym XF86AudioMicMute exec pactl set-source-mute 1 toggle
 # bindsym XF86WLAN exec ~/dotfiles/toggle-wlan.sh
