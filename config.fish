@@ -6,7 +6,6 @@ set -gx PATH ~/.gem/ruby/2.6.0/bin $PATH
 set -gx PATH ~/.yarn/bin $PATH
 set -gx PATH ~/Manager/bin $PATH
 set -gx PATH ~/go/bin $PATH
-eval (starship init fish)
 set fish_greeting
 set -gx EDITOR vim
 set -gx BROWSER qutebrowser
@@ -35,3 +34,5 @@ bind -M visual ö forward-char
 
 # opam configuration
 source /home/jake/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+
+starship init fish | source
