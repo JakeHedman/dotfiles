@@ -32,6 +32,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'kamykn/spelunker.vim'
   Plug 'neoclide/vim-jsx-improve'
   Plug 'kamykn/popup-menu.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
 
 
@@ -466,3 +468,9 @@ augroup spelunker
   " Setting for g:spelunker_check_type = 2:
   autocmd CursorHold *.vim,*.js,*.jsx,*.json,*.md,*.txt,*.ts,*.tsx,COMMIT_EDITMSG call spelunker#check_displayed_words()
 augroup END
+
+" Using Lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
