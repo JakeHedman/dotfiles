@@ -6,5 +6,8 @@
   // { "key": "jk", "command": "vim.esc", when: "insertMode" },
   // { "key": "gt", "command": "workbench.action.nextEditor", "when": "normalMode" },
   // { "key": "gT", "command": "workbench.action.previousEditor", "when": "normalMode" }
-  { "key": "<TAB>", "command": "workbench.action.editor.nextChange" }
+  { "key": "<TAB>", "command": "workbench.action.editor.nextChange" },
+  { "key": ",f", "command": "editor.action.formatDocument" },
+  { "key": ",s", "command": "editor.action.editor.action.formatSelection" }
 ]
+

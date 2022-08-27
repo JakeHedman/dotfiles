@@ -1,3 +1,5 @@
 --smart-case
 -g
 !Pods
+-g
+!node_modules

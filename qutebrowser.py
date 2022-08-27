@@ -5,6 +5,7 @@ c.tabs.show = 'multiple'
 c.statusbar.position = 'bottom'
 c.statusbar.widgets = ['keypress', 'url', 'scroll', 'history', 'progress']
 
+c.qt.workarounds.remove_service_workers = True
 
 c.url.searchengines = {
   'DEFAULT': 'https://duckduckgo.com/?q={}',

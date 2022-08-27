@@ -7,7 +7,7 @@ set -gx PATH ~/.yarn/bin $PATH
 set -gx PATH ~/Manager/bin $PATH
 set -gx PATH ~/go/bin $PATH
 set fish_greeting
-set -gx EDITOR vim
+set -gx EDITOR nvim
 set -gx BROWSER qutebrowser
 set -gx RIPGREP_CONFIG_PATH ~/.rgrc
 set -gx ANDROID_SDK_ROOT /opt/android-sdk
@@ -15,9 +15,7 @@ set -gx ANDROID_HOME $HOME/Android/Sdk
 set -gx PASSWORD_STORE_ENABLE_EXTENSIONS true
 set -gx TMPDIR /tmp
 alias gs="git status"
-alias v="nvim"
-alias vi="/usr/bin/vim"
-alias vim="nvim"
+alias vim="echo näe"
 set -gx TERM xterm-256color
 
 bind -M default j backward-char

@@ -9,7 +9,7 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
   Plug 'airblade/vim-gitgutter'
-  Plug 'joshdick/onedark.vim'
+  Plug 'chriskempson/base16-vim'
   Plug 'easymotion/vim-easymotion'
   Plug 'heavenshell/vim-jsdoc'
   Plug 'nathanaelkane/vim-indent-guides'
@@ -34,54 +34,60 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'kamykn/popup-menu.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'nvim-treesitter/nvim-treesitter-context'
 call plug#end()
 
 
 " Colors
-let g:onedark_termcolors=256
+" let g:onedark_termcolors=256
 
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-set termguicolors
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" set termguicolors
 syntax on
-colorscheme onedark
+" colorscheme one
+colorscheme base16-google-light
+set background=light " for the light version
+let base16colorspace=256  " Access colors present in 256 colorspace
+set termguicolors
 
-" Blues
-" light blues
-hi xmlTagName guifg=#59ACE5
-hi xmlTag guifg=#59ACE5
+" " Blues
+" " light blues
+" hi xmlTagName guifg=#59ACE5
+" hi xmlTag guifg=#59ACE5
 
-" dark blues
-hi xmlEndTag guifg=#2974a1
-hi jsxCloseString guifg=#2974a1
-hi htmlTag guifg=#2974a1
-hi htmlEndTag guifg=#2974a1
-hi htmlTagName guifg=#59ACE5
-hi jsxAttrib guifg=#1BD1C1
+" " dark blues
+" hi xmlEndTag guifg=#2974a1
+" hi jsxCloseString guifg=#2974a1
+" hi htmlTag guifg=#2974a1
+" hi htmlEndTag guifg=#2974a1
+" hi htmlTagName guifg=#59ACE5
+" hi jsxAttrib guifg=#1BD1C1
 
-" cyan
-hi Constant guifg=#56B6C2
-hi typescriptBraces guifg=#56B6C2
-hi typescriptEndColons guifg=#56B6C2
-hi typescriptRef guifg=#56B6C2
-hi typescriptPropietaryMethods guifg=#56B6C2
-hi typescriptEventListenerMethods guifg=#56B6C2
-hi typescriptFunction guifg=#56B6C2
-hi typescriptVars guifg=#56B6C2
-hi typescriptParen guifg=#56B6C2
-hi typescriptDotNotation guifg=#56B6C2
-hi typescriptBracket guifg=#56B6C2
-hi typescriptBlock guifg=#56B6C2
-hi typescriptJFunctions guifg=#56B6C2
-hi typescriptSFunctions guifg=#56B6C2
-hi typescriptInterpolationDelimiter guifg=#56B6C2
-hi typescriptIdentifier guifg=#907161 cterm=italic
+" " cyan
+" hi Constant guifg=#56B6C2
+" hi typescriptBraces guifg=#56B6C2
+" hi typescriptEndColons guifg=#56B6C2
+" hi typescriptRef guifg=#56B6C2
+" hi typescriptPropietaryMethods guifg=#56B6C2
+" hi typescriptEventListenerMethods guifg=#56B6C2
+" hi typescriptFunction guifg=#56B6C2
+" hi typescriptVars guifg=#56B6C2
+" hi typescriptParen guifg=#56B6C2
+" hi typescriptDotNotation guifg=#56B6C2
+" hi typescriptBracket guifg=#56B6C2
+" hi typescriptBlock guifg=#56B6C2
+" hi typescriptJFunctions guifg=#56B6C2
+" hi typescriptSFunctions guifg=#56B6C2
+" hi typescriptInterpolationDelimiter guifg=#56B6C2
+" hi typescriptIdentifier guifg=#907161 cterm=italic
 
-" javascript
-hi jsParens guifg=#56B6C2
-hi jsObjectBraces guifg=#C678DD
-hi jsFuncBraces guifg=#56B6C2
-hi jsObjectFuncName guifg=#D19A66
-hi jsObjectKey guifg=#56B6C2
+" " javascript
+" hi jsParens guifg=#56B6C2
+" hi jsObjectBraces guifg=#C678DD
+" hi jsFuncBraces guifg=#56B6C2
+" hi jsObjectFuncName guifg=#D19A66
+" hi jsObjectKey guifg=#56B6C2
 
 " Auto reload vimrc on save
 autocmd! bufwritepost .vimrc,init.vim source %
@@ -359,7 +365,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add diagnostic info for https://github.com/itchyny/lightline.vim
 let g:lightline = {
-\ 'colorscheme': 'onedark',
+\ 'colorscheme': 'one',
 \ 'active': {
 \   'left': [
 \     [ 'mode', 'paste' ],
@@ -415,6 +421,8 @@ nmap <leader>ef :CocCommand eslint.executeAutofix<CR>
 " ,oi organize imports
 nmap <leader>oi :CocCommand tsserver.organizeImports<CR>
 
+nmap <leader>e :CocCommand tsserver.organizeImports<CR>gt
+
 " Close all floaters
 nmap <Esc> :call coc#float#close_all() <CR>
 
@@ -449,13 +457,13 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-lists',
   \ 'coc-prettier',
-  \ 'coc-python',
   \ 'coc-rls',
   \ 'coc-snippets',
   \ 'coc-svg',
   \ 'coc-tsserver',
   \ 'coc-yaml'
 \ ]
+  " \ 'coc-python',
 
 " Spellcheck live
 let g:spelunker_check_type = 2

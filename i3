@@ -24,11 +24,11 @@ font hack 11
 floating_modifier $mod
 
 # Bindings
-bindsym $mod+Return exec termite -d $(fpwd ~)
-bindsym $mod+Shift+Return exec termite
+bindsym $mod+Return exec alacritty --working-directory $(fpwd ~)
+bindsym $mod+Shift+Return exec alacritty
 bindsym $mod+m exec qutebrowser
 bindsym $mod+BackSpace exec qutebrowser --basedir ~/.qutebrowser-work -s colors.statusbar.normal.bg '#002900'
-bindsym $mod+n exec termite -d $(fpwd ~) -e "nvim"
+bindsym $mod+n exec alacritty -d $(fpwd ~) -e "nvim"
 bindsym $mod+h exec dmenu_run
 bindsym $mod+comma exec scrcpy
 bindsym $mod+Tab exec i3lock
@@ -86,8 +86,11 @@ bindsym $mod+shift+comma resize shrink height 5 px or 5 ppt
 bindsym $mod+shift+period resize grow height 5 px or 5 ppt
 bindsym $mod+shift+minus resize grow width 5 px or 5 ppt
 bindsym Mod1+a exec adb shell "input keyevent 82 && input keyevent 66 && input keyevent 66"
-bindsym Mod1+s exec scrot -so /dev/stdout | xclip -selection clipboard -t image/png
-bindsym Mod1+c exec craption
+# bindsym Mod1+q exec adb shell "input keyevent 82"
+bindsym Mod1+s exec sleep 0.1 && scrot -s -o /dev/stdout | xclip -selection clipboard -t image/png
+bindsym Mod1+m exec pacmd list-sources | grep -oP 'index: \d+' | awk '{ print $2 }' | xargs -I{} pactl set-source-mute {} 1
+bindsym Mod1+u exec pacmd list-sources | grep -oP 'index: \d+' | awk '{ print $2 }' | xargs -I{} pactl set-source-mute {} 0
+bindsym Mod1+q exec cd ~/jekdek/src && ./jekdek
 
 
 # Super

@@ -40,6 +40,8 @@ fi
 # Install packages
 pacman --noconfirm --needed -qSy \
   git \
+  alacritty \
+  pass-otp \
   htop \
   i3status \
   intel-ucode \
