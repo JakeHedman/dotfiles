@@ -28,6 +28,7 @@
   "javascript.suggest.completeFunctionCalls": false,
   "codeLens.enable": false,
   "tsserver.log": "normal",
+  "typescript.updateImportsOnFileMove.enable": true,
   "snippets.textmateSnippetsRoots": ["/home/jake/connect/web/.vscode", "/home/jake/oc/.vscode"],
   "clangd.inlayHints.enable": false
 }

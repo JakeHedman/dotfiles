@@ -10,8 +10,8 @@ set fish_greeting
 set -gx EDITOR nvim
 set -gx BROWSER qutebrowser
 set -gx RIPGREP_CONFIG_PATH ~/.rgrc
-set -gx ANDROID_SDK_ROOT /opt/android-sdk
-set -gx ANDROID_HOME $HOME/Android/Sdk
+#set -gx ANDROID_SDK_ROOT /opt/android-sdk
+set -gx ANDROID_HOME /opt/android-sdk
 set -gx PASSWORD_STORE_ENABLE_EXTENSIONS true
 set -gx TMPDIR /tmp
 alias gs="git status"
