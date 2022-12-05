@@ -12,7 +12,8 @@
     "css",
     "json",
     "Markdown",
-    "c"
+    "c",
+    "html"
   ],
   "eslint.filetypes": [
     "javascript",

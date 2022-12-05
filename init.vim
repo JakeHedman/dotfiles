@@ -116,6 +116,9 @@ map §ö <C-W>l
 " Leader-s to sort selected lines e.g. to sort lines alphabetically
 vnoremap <Leader>s :sort<CR>
 
+" Leader-u to sort + dedupe selected lines
+vnoremap <Leader>u :sort u<CR>
+
 " Q wraps paragraph
 vmap Q gq
 nmap Q gqap
@@ -168,8 +171,8 @@ set scrolloff=999
 " Hilight current line
 set cursorline
 
-" Toggle column hilight with ,c
-nnoremap <silent> <Leader>c :set cursorcolumn!<CR>
+" Toggle column hilight with ,ch
+nnoremap <silent> <Leader>ch :set cursorcolumn!<CR>
 
 " swapfiles in ~/.vim/swap
 set directory^=$HOME/.vim/swap/
@@ -343,7 +346,7 @@ nmap <leader>f  <Plug>(coc-format-selected)
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  autocmd FileType typescript,json,html setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
@@ -356,6 +359,9 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
+
+" coc codeaction (eslint autofix etc)
+nmap <leader>ca <Plug>(coc-codeaction)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')

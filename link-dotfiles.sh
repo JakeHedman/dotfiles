@@ -98,9 +98,8 @@ mkdir -p ~/.config/oni2
 [ ! -L ~/.config/oni2/keybindings.json ] && ln -s $DIR/oni2/keybindings.json ~/.config/oni2/keybindings.json
 
 # Alacritty
-mkdir -p ~/.config
 mkdir -p ~/.config/alacritty
-[ ! -L ~/.config/alacritty.yml ] && ln -s $DIR/alacritty.yml ~/.config/alacritty/alacritty.yml
+[ ! -L ~/.config/alacritty/alacritty.yml ] && ln -s $DIR/alacritty.yml ~/.config/alacritty/alacritty.yml
 
 # Wallpaper
 [ ! -L /etc/wallpaper.jpg ] && sudo ln -s $DIR/wallpaper.jpg /etc/wallpaper.jpg
