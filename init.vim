@@ -467,9 +467,9 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-svg',
   \ 'coc-tsserver',
-  \ 'coc-yaml'
+  \ 'coc-yaml',
+  \ 'coc-pyright'
 \ ]
-  " \ 'coc-python',
 
 " Spellcheck live
 let g:spelunker_check_type = 2
@@ -490,3 +490,5 @@ nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 set mouse=
+
+lua require('config')

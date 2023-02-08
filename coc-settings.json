@@ -4,23 +4,7 @@
   "suggest.triggerAfterInsertEnter": true,
   "suggest.noselect": false,
   "suggest.snippetIndicator": "►",
-  "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "css",
-    "json",
-    "Markdown",
-    "c",
-    "html"
-  ],
-  "eslint.filetypes": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
+  "coc.preferences.formatOnSave": true,
   "typescript.preferences.importModuleSpecifier": "relative",
   "javascript.preferences.importModuleSpecifier": "relative",
   "list.insertMappings": {
@@ -31,5 +15,6 @@
   "tsserver.log": "normal",
   "typescript.updateImportsOnFileMove.enable": true,
   "snippets.textmateSnippetsRoots": ["/home/jake/connect/web/.vscode", "/home/jake/oc/.vscode"],
-  "clangd.inlayHints.enable": false
+  "clangd.inlayHints.enable": false,
+  "java.import.gradle.java.home": "/usr/lib/jvm/java-11-openjdk"
 }

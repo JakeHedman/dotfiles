@@ -33,6 +33,8 @@ elif [ "$1" == "14" ]; then
     PACKAGE_NAME=nodejs-lts-fermium
 elif [ "$1" == "16" ]; then
     PACKAGE_NAME=nodejs-lts-gallium
+elif [ "$1" == "18" ]; then
+    PACKAGE_NAME=nodejs-lts-hydrogen
 elif [ "$1" == "latest" ]; then
     PACKAGE_NAME=nodejs
 else

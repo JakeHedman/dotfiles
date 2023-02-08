@@ -90,7 +90,7 @@ bindsym Mod1+a exec adb shell "input keyevent 82 && input keyevent 66 && input k
 bindsym Mod1+s exec sleep 0.1 && scrot -s -o /dev/stdout | xclip -selection clipboard -t image/png
 bindsym Mod1+m exec pacmd list-sources | grep -oP 'index: \d+' | awk '{ print $2 }' | xargs -I{} pactl set-source-mute {} 1
 bindsym Mod1+u exec pacmd list-sources | grep -oP 'index: \d+' | awk '{ print $2 }' | xargs -I{} pactl set-source-mute {} 0
-bindsym Mod1+q exec (cd ~/jekdek/src && ./jekdek)
+bindsym Mod1+q exec ~/jekdek/src/jekdek
 
 
 # Super

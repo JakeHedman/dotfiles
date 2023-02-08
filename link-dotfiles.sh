@@ -11,9 +11,11 @@ mkdir -p ~/.i3
 
 # neovim
 mkdir -p ~/.config/nvim/spell
+mkdir -p ~/.config/nvim/lua
 [ ! -L ~/.config/nvim/init.vim ] && ln -s $DIR/init.vim ~/.config/nvim/init.vim
 [ ! -L ~/.config/nvim/spell/en.utf-8.add ] && ln -s $DIR/en.utf-8.add ~/.config/nvim/spell/en.utf-8.add
 [ ! -L ~/.vimrc ] && ln -s $DIR/init.vim ~/.vimrc
+[ ! -L ~/.config/nvim/lua/config.lua ] && ln -s $DIR/neovim.lua ~/.config/nvim/lua/config.lua
 
 # ssh
 mkdir -p ~/.ssh/controlmasters
