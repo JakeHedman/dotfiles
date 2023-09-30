@@ -41,26 +41,6 @@ config.bind('<z><p><l>', 'spawn --userscript qute-pass --password-only --usernam
 config.bind('<c><r>', 'config-source')
 config.bind('d', 'close')
 
-config.bind('J', 'back')
-config.bind('K', 'tab-next')
-config.bind('L', 'tab-prev')
-config.bind('Ö', 'forward')
-
-config.bind('j', 'scroll left')
-config.bind('k', 'scroll down')
-config.bind('l', 'scroll up')
-config.bind('ö', 'scroll right')
-
-config.bind('J', 'scroll left', mode='caret')
-config.bind('K', 'scroll down', mode='caret')
-config.bind('L', 'scroll up', mode='caret')
-config.bind('Ö', 'scroll right', mode='caret')
-
-config.bind('j', 'move-to-prev-char', mode='caret')
-config.bind('k', 'move-to-next-line', mode='caret')
-config.bind('l', 'move-to-prev-line', mode='caret')
-config.bind('ö', 'move-to-next-char', mode='caret')
-
 c.auto_save.session = False
 
 c.content.blocking.enabled = False

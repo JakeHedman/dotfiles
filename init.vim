@@ -68,11 +68,11 @@ map <Down> <C-W>-
 map <Left> <C-W><
 map <Right> <C-W>>
 
-" §j §k §l §ö to navigate splits
-map §j <C-W>h
-map §k <C-W>j
-map §l <C-W>k
-map §ö <C-W>l
+" §h §j §k §l to navigate splits
+map §h <C-W>h
+map §j <C-W>j
+map §k <C-W>k
+map §l <C-W>l
 
 " Leader-s to sort selected lines e.g. to sort lines alphabetically
 vnoremap <Leader>s :sort<CR>
@@ -205,12 +205,6 @@ set wildignore+=*bower_components,node_modules,webroot,tmp
 " Title
 set title
 set titlestring=VIM:\ %-25.55F\ %a%r%m titlelen=70
-
-" jklö instead of hjkl
-noremap ö l
-noremap l k
-noremap k j
-noremap j h
 
 " Execute selected text with ,b
 vnoremap <leader>b :.w !bash

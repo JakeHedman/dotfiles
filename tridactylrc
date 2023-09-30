@@ -4,14 +4,6 @@ bind n findnext 1
 bind N findnext -1
 bind ,l nohlsearch
 
-bind j scrollpx -50
-bind k scrollline 10
-bind l scrollline -10
-bind ö scrollpx 50
-
-bind J back
-bind Ö forward
-
 unbind <C-f>
 
 bind i mode ignore
