@@ -3,3 +3,5 @@
 !Pods
 -g
 !node_modules
+-g
+!_ignore_*

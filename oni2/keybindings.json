@@ -8,6 +8,7 @@
   // { "key": "gT", "command": "workbench.action.previousEditor", "when": "normalMode" }
   { "key": "<TAB>", "command": "workbench.action.editor.nextChange" },
   { "key": ",f", "command": "editor.action.formatDocument" },
-  { "key": ",s", "command": "editor.action.editor.action.formatSelection" }
+  { "key": ",s", "command": "editor.action.formatSelection" },
+  { "key": ",e", "command": "editor.action.marker.next"}
 ]
 

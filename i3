@@ -1,14 +1,6 @@
 # Super as mod
 set $mod Mod4
 
-# Workspaces
-set $w0 0:doc
-set $w1 1:vim
-set $w2 2:exec
-set $w3 3:web
-set $w4 4:work
-set $w5 5:irc
-
 # Workspace keys
 set $wk0 y
 set $wk1 u
@@ -16,6 +8,14 @@ set $wk2 i
 set $wk3 o
 set $wk4 p
 set $wk5 aring
+
+# Workspaces
+set $w0 0:y
+set $w1 1:u
+set $w2 2:i
+set $w3 3:o
+set $w4 4:p
+set $w5 5:å
 
 # Font for window titles
 font hack 11
@@ -133,10 +133,12 @@ bar {
 }
 
 # No borders
-default_border none
+# default_border none
+default_border normal
 
 # Except for terminal
-for_window [class="termite"] border pixel 1
+# for_window [class="Alacritty"] border pixel 1
+for_window [class="Alacritty"] normal
 
 # No borders at edge of screen
 hide_edge_borders both

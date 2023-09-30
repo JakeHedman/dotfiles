@@ -1,20 +1,30 @@
 {
-  "css.enable": true,
+  "html.autoClosingTags": false,
+  "typescript.autoClosingTags": false,
+  "typescript.showUnused": false,
+  "javascript.autoClosingTags": false,
+  "html.autoCreateQuotes": false,
+  "suggest.insertMode": "insert",
   "npm.binPath": "yarn",
   "suggest.triggerAfterInsertEnter": true,
-  "suggest.noselect": false,
   "suggest.snippetIndicator": "►",
+  "suggest.noselect": false,
+  "hover.previewMaxHeight": 16,
+  "hover.autoHide": false,
+  "hover.target": "preview",
+  "suggest.preferCompleteThanJumpPlaceholder": true,
   "coc.preferences.formatOnSave": true,
   "typescript.preferences.importModuleSpecifier": "relative",
   "javascript.preferences.importModuleSpecifier": "relative",
-  "list.insertMappings": {
-  },
   "typescript.suggest.completeFunctionCalls": false,
   "javascript.suggest.completeFunctionCalls": false,
   "codeLens.enable": false,
   "tsserver.log": "normal",
-  "typescript.updateImportsOnFileMove.enable": true,
-  "snippets.textmateSnippetsRoots": ["/home/jake/connect/web/.vscode", "/home/jake/oc/.vscode"],
-  "clangd.inlayHints.enable": false,
-  "java.import.gradle.java.home": "/usr/lib/jvm/java-11-openjdk"
+  "snippets.textmateSnippetsRoots": [
+    "/home/jake/connect/web/.vscode",
+    "/home/jake/oc/.vscode"
+  ],
+  "snippets.ultisnips.pythonPrompt": false,
+  "javascript.preferences.jsxAttributeCompletionStyle": "none",
+  "typescript.preferences.jsxAttributeCompletionStyle": "none"
 }

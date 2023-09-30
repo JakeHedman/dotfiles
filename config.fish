@@ -34,3 +34,5 @@ bind -M visual ö forward-char
 source /home/jake/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
 starship init fish | source
+
+source /home/jake/secrets/.fishprivate

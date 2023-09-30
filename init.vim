@@ -1,43 +1,4 @@
-" Automatic vim-plug install
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  silent !mkdir -p ~/.vim/autoload
-  silent !ln -s ~/.local/share/nvim/site/autoload/plug.vim ~/.vim/autoload/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin('~/.local/share/nvim/plugged')
-  Plug 'airblade/vim-gitgutter'
-  Plug 'chriskempson/base16-vim'
-  Plug 'easymotion/vim-easymotion'
-  Plug 'heavenshell/vim-jsdoc'
-  Plug 'nathanaelkane/vim-indent-guides'
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-jdaddy'
-  Plug 'ntpeters/vim-better-whitespace'
-  Plug 'simnalamburt/vim-mundo'
-  Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-repeat'
-  Plug 'tpope/vim-commentary'
-  Plug 'terryma/vim-multiple-cursors'
-  Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'itchyny/lightline.vim'
-  Plug 'sheerun/vim-polyglot'
-  Plug 'dhruvasagar/vim-table-mode'
-  Plug 'delphinus/vim-firestore'
-  Plug 'myint/indent-finder'
-  Plug 'rust-lang/rust.vim'
-  Plug 'chrisbra/Colorizer'
-  Plug 'kamykn/spelunker.vim'
-  Plug 'neoclide/vim-jsx-improve'
-  Plug 'kamykn/popup-menu.nvim'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
-  Plug 'nvim-treesitter/nvim-treesitter'
-  Plug 'nvim-treesitter/nvim-treesitter-context'
-call plug#end()
-
+lua require('config')
 
 " Colors
 " let g:onedark_termcolors=256
@@ -147,6 +108,15 @@ set hlsearch
 
 " ,l redraws the screen and removes any search highlighting
 nnoremap <silent> <Leader>l :nohl<CR>
+
+" ,v preview close
+nnoremap <silent> <Leader>v :pclose<CR>
+
+" ,cr coc restart
+nnoremap <silent> <Leader>cr :CocRestart<CR>
+
+" ,cd coc diagnostics
+nnoremap <silent> <Leader>cd :CocDiagnostics<CR>
 
 " Search while typing
 set incsearch
@@ -282,14 +252,6 @@ set shortmess+=c
 " always show signcolumns
 set signcolumn=yes
 
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -302,9 +264,10 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[e` and `]e` to navigate errors
 nmap <silent> [e <Plug>(coc-diagnostic-prev-error)
@@ -425,19 +388,14 @@ set noshowmode
 nmap <leader>ef :CocCommand eslint.executeAutofix<CR>
 
 " ,oi organize imports
-nmap <leader>oi :CocCommand tsserver.organizeImports<CR>
-
-nmap <leader>e :CocCommand tsserver.organizeImports<CR>gt
+nmap <leader>oi :CocCommand editor.action.organizeImport<CR>
 
 " Close all floaters
 nmap <Esc> :call coc#float#close_all() <CR>
 
 " Don't start in replace mode
 " https://superuser.com/questions/1284561/why-is-vim-starting-in-replace-mode
-set t_u7=
-
-" Colorizer plugin
-:let g:colorizer_auto_filetype='css,html,typescript,javascript,typescriptreact,javascriptreact'
+" set t_u7=
 
 " Refactor
 nnoremap <silent> <space>r :CocAction refactor<CR>
@@ -475,7 +433,7 @@ let g:coc_global_extensions = [
 let g:spelunker_check_type = 2
 
 " Spellcheck
-set spelllang=en,sv
+set spelllang=en
 
 augroup spelunker
   autocmd!
@@ -489,6 +447,6 @@ nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
-set mouse=
+nnoremap <leader>fn :put =expand('%:t:r')<cr>
 
-lua require('config')
+set mouse=
