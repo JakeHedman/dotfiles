@@ -4,7 +4,7 @@ DIR="$( cd "$( dirname "$0" )" && pwd )"
 
 # i3
 mkdir -p ~/.i3
-[ ! -L ~/.i3/config ] && ln -s $DIR/i3 ~/.i3/config
+[ ! -L ~/.config/.i3/config ] && ln -s $DIR/i3 ~/.config/.i3/config
 
 # i3status
 [ ! -L ~/.i3status.conf ] && ln -s $DIR/i3status.conf ~/.i3status.conf
@@ -105,5 +105,9 @@ mkdir -p ~/.config/alacritty
 
 # Wallpaper
 [ ! -L /etc/wallpaper.jpg ] && sudo ln -s $DIR/wallpaper.jpg /etc/wallpaper.jpg
+
+# Helix
+mkdir -p ~/.config/helix
+[ ! -L ~/.config/helix/config.toml ] && ln -s $DIR/helix.toml ~/.config/helix/config.toml
 
 exit 0
