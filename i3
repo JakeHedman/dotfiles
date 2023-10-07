@@ -198,8 +198,8 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10%- && brightnessctl set +
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 # bindsym XF86WLAN exec ~/dotfiles/toggle-wlan.sh
 
-bindsym $mod+m exec pacmd list-sources | grep -oP 'index: \d+' | awk '{ print $2 }' | xargs -I{} pactl set-source-mute {} 1
-bindsym $mod+u exec pacmd list-sources | grep -oP 'index: \d+' | awk '{ print $2 }' | xargs -I{} pactl set-source-mute {} 0
+bindsym Mod1+m exec pacmd list-sources | grep -oP 'index: \d+' | awk '{ print $2 }' | xargs -I{} pactl set-source-mute {} 1
+bindsym Mod1+u exec pacmd list-sources | grep -oP 'index: \d+' | awk '{ print $2 }' | xargs -I{} pactl set-source-mute {} 0
 bindsym Mod1+q exec ~/jekdek/src/jekdek
 
 # Launch bluetooth applet
