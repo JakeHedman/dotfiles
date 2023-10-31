@@ -1,0 +1,4 @@
+[global]
+monitor = 1
+origin = bottom-left
+font = hack 12

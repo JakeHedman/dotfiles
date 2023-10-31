@@ -19,6 +19,7 @@ set -gx TMPDIR /tmp
 alias gs="git status"
 alias vim="echo näe"
 set -gx TERM xterm-256color
+set -gx COLORTERM truecolor
 
 # opam configuration
 source /home/jake/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true

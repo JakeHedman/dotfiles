@@ -111,4 +111,8 @@ mkdir -p ~/.config/helix
 [ ! -L ~/.config/helix/config.toml ] && ln -s $DIR/helix.toml ~/.config/helix/config.toml
 [ ! -L ~/.config/helix/languages.toml ] && ln -s $DIR/helix-languages.toml ~/.config/helix/languages.toml
 
+# dunst
+mkdir -p ~/.config/dunst
+[ ! -L ~/.config/dunst/dunstrc ] && ln -s $DIR/dunstrc ~/.config/dunst/dunstrc
+
 exit 0
