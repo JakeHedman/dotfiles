@@ -235,3 +235,6 @@ exec_always --no-startup-id dunst
 exec_always --no-startup-id picom
 
 workspace_layout tabbed
+
+bindsym $mod+i focus prev sibling
+bindsym $mod+o focus next sibling
