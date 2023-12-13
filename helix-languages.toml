@@ -38,3 +38,8 @@ run = "onType"
 problems = { shortenToSingleLine = false }
 nodePath = ""
 onIgnoredFiles = "off"
+
+[[language]]
+name = "toml"
+auto-format = true
+formatter = { command = "taplo", args = ["fmt", "-"] }
