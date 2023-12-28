@@ -101,7 +101,7 @@ mkdir -p ~/.config/oni2
 
 # Alacritty
 mkdir -p ~/.config/alacritty
-[ ! -L ~/.config/alacritty/alacritty.yml ] && ln -s $DIR/alacritty.yml ~/.config/alacritty/alacritty.yml
+[ ! -L ~/.config/alacritty/alacritty.toml ] && ln -s $DIR/alacritty.toml ~/.config/alacritty/alacritty.toml
 
 # Wallpaper
 [ ! -L /etc/wallpaper.jpg ] && sudo ln -s $DIR/wallpaper.jpg /etc/wallpaper.jpg
